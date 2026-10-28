@@ -128,7 +128,7 @@
         }
 
         /* ==========================================================================
-           PRELOADER SPLASH & LUXURY PROGRESS BAR (1.4 SECONDS PROGRESSION)
+           PRELOADER SPLASH & LUXURY PROGRESS BAR (2 SECONDS PROGRESSION & CINEMATIC IMMERSION)
            ========================================================================== */
         #page-curtain {
             position: fixed;
@@ -140,11 +140,13 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), filter 1.05s ease;
+            will-change: opacity, transform, filter;
         }
         #page-curtain.loaded {
             opacity: 0;
-            transform: translateY(-24px);
+            transform: scale(1.04) translateY(-10px);
+            filter: blur(8px);
             pointer-events: none;
         }
         #page-curtain.force-dismiss {
@@ -153,22 +155,36 @@
             visibility: hidden !important;
         }
 
+        /* Hero smooth cinematic unveil */
+        #hero {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.curtain-active #hero {
+            transform: scale(0.975);
+            opacity: 0.85;
+        }
+        body.curtain-revealed #hero {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Compact, subtle luxury progress bar without runner dot */
         .curtain-progress-container {
-            width: 250px;
-            max-width: 82vw;
+            width: 190px;
+            max-width: 75vw;
         }
         @media (min-width: 640px) {
             .curtain-progress-container {
-                width: 320px;
+                width: 220px;
             }
         }
         .curtain-progress-track {
             width: 100%;
-            height: 3px;
-            background: rgba(200, 169, 126, 0.2);
+            height: 2.5px;
+            background: rgba(200, 169, 126, 0.18);
             border-radius: 9999px;
             position: relative;
-            overflow: visible;
+            overflow: hidden;
         }
         #curtain-bar {
             position: absolute;
@@ -176,21 +192,10 @@
             left: 0;
             bottom: 0;
             width: 0%;
-            background: linear-gradient(90deg, #9E7D4E 0%, #C8A97E 50%, #FFE5B4 100%);
+            background: linear-gradient(90deg, rgba(200, 169, 126, 0.45) 0%, rgba(234, 213, 179, 0.95) 100%);
             border-radius: 9999px;
-            box-shadow: 0 0 16px rgba(255, 229, 180, 0.8), 0 0 8px rgba(200, 169, 126, 0.9);
-            transition: width 0.08s linear;
-        }
-        #curtain-bar::after {
-            content: '';
-            position: absolute;
-            right: -2px;
-            top: -2px;
-            bottom: -2px;
-            width: 7px;
-            background: #FFFFFF;
-            border-radius: 9999px;
-            box-shadow: 0 0 8px #FFFFFF, 0 0 16px #FFE5B4;
+            box-shadow: 0 0 10px rgba(200, 169, 126, 0.6);
+            transition: width 0.05s linear;
         }
 
         /* Light Theme Splash Loading Screen (Повна світла тема заставки) */
@@ -214,15 +219,11 @@
             color: #8C6239 !important;
         }
         html[data-theme="light"] .curtain-progress-track {
-            background: rgba(140, 98, 57, 0.2) !important;
+            background: rgba(140, 98, 57, 0.18) !important;
         }
         html[data-theme="light"] #curtain-bar {
-            background: linear-gradient(90deg, #8C6239 0%, #C8A97E 60%, #EAD5B3 100%) !important;
-            box-shadow: 0 0 14px rgba(140, 98, 57, 0.5) !important;
-        }
-        html[data-theme="light"] #curtain-bar::after {
-            background: #FFE9D1 !important;
-            box-shadow: 0 0 8px #FFE9D1, 0 0 14px #C8A97E !important;
+            background: linear-gradient(90deg, rgba(140, 98, 57, 0.45) 0%, rgba(200, 169, 126, 0.95) 100%) !important;
+            box-shadow: 0 0 10px rgba(140, 98, 57, 0.4) !important;
         }
         html[data-theme="light"] #page-curtain .leather-brand-badge {
             background: #EBD7BC !important;
@@ -505,84 +506,92 @@
         /* Глобальна 3D сцена для плавних переходів */
         
         /* ==========================================================================
-           AUTHENTIC STITCHED LEATHER BADGE & GOLDEN SHIMMER WAVE ANIMATION
+           AUTHENTIC STITCHED LEATHER BADGE & SLOW VELVET GOLDEN WAVE ANIMATION
            ========================================================================== */
         .leather-brand-badge {
             position: relative;
-            border-radius: 0.75rem;
+            border-radius: 0.95rem;
             overflow: hidden;
             background: #0B101C;
             border: 1px solid rgba(200, 169, 126, 0.45);
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7), 0 0 15px rgba(200, 169, 126, 0.25);
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.75), 0 0 18px rgba(200, 169, 126, 0.25);
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
         }
         .group:hover .leather-brand-badge {
             transform: translateY(-2px) scale(1.03);
             border-color: rgba(234, 213, 179, 0.85);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.85), 0 0 25px rgba(200, 169, 126, 0.55);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 28px rgba(200, 169, 126, 0.55);
         }
         .leather-brand-badge img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: filter 0.4s ease;
+            transition: filter 0.5s ease;
         }
 
-        /* Преміальна золотиста хвиля (Liquid Gold Sheen Wave) */
+        /* Дуже повільна, напівпрозора та захоплююча золотиста хвиля (Slow Velvet Gold Sheen) */
         .gold-shimmer-sweep {
             position: relative;
         }
         .gold-shimmer-sweep::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -150%;
-            width: 70%;
-            height: 200%;
+            top: -60%;
+            left: -160%;
+            width: 110%;
+            height: 220%;
             background: linear-gradient(
-                110deg,
+                115deg,
                 transparent 15%,
-                rgba(255, 235, 180, 0.05) 30%,
-                rgba(255, 220, 130, 0.45) 48%,
-                rgba(255, 250, 220, 0.85) 52%,
-                rgba(255, 220, 130, 0.45) 56%,
-                transparent 75%
+                rgba(255, 235, 180, 0.02) 30%,
+                rgba(255, 220, 140, 0.16) 45%,
+                rgba(255, 248, 220, 0.34) 50%,
+                rgba(255, 220, 140, 0.16) 55%,
+                rgba(255, 235, 180, 0.02) 70%,
+                transparent 85%
             );
             transform: rotate(25deg);
             pointer-events: none;
             z-index: 5;
-            animation: goldShimmerPulse 4.8s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
+            animation: goldShimmerSlowPulse 9.5s infinite cubic-bezier(0.35, 0.0, 0.25, 1);
         }
         .group:hover .gold-shimmer-sweep::after {
-            animation: goldShimmerHover 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation: goldShimmerSlowHover 2.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        @keyframes goldShimmerPulse {
-            0%, 60% {
-                left: -150%;
+        @keyframes goldShimmerSlowPulse {
+            0%, 30% {
+                left: -160%;
                 opacity: 0;
             }
-            65% {
+            35% {
                 opacity: 1;
             }
-            82% {
-                left: 180%;
+            75% {
+                left: 190%;
                 opacity: 1;
             }
-            83%, 100% {
-                left: 180%;
+            76%, 100% {
+                left: 190%;
                 opacity: 0;
             }
         }
-        @keyframes goldShimmerHover {
+        @keyframes goldShimmerSlowHover {
             0% {
-                left: -150%;
+                left: -160%;
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                left: 190%;
                 opacity: 1;
             }
             100% {
-                left: 180%;
-                opacity: 1;
+                left: 190%;
+                opacity: 0;
             }
         }
 
@@ -1071,16 +1080,16 @@
 
     <!-- TOP HEADER -->
     <header class="sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300" style="background-color: var(--bg-glass); border-color: var(--border-line);">
-        <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
-            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave -->
-            <a href="#hero" class="flex items-center gap-3 sm:gap-4 group shrink-0" aria-label="EGO LEATHER Головна">
-                <div class="leather-brand-badge gold-shimmer-sweep w-[50px] h-[38px] sm:w-[62px] sm:h-[48px] shrink-0">
+        <div class="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
+            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged) -->
+            <a href="#hero" class="flex items-center gap-3.5 sm:gap-4.5 group shrink-0" aria-label="EGO LEATHER Головна">
+                <div class="leather-brand-badge gold-shimmer-sweep w-[66px] h-[51px] sm:w-[84px] sm:h-[65px] md:w-[94px] md:h-[73px] shrink-0">
                     <img src="assets/branding/ego_leather_patch_gold.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover dark-only">
                     <img src="assets/branding/ego_leather_patch_light.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover light-only hidden">
                 </div>
                 <div class="flex flex-col justify-center">
-                    <span class="font-logo text-base sm:text-lg md:text-xl tracking-[0.22em] sm:tracking-[0.28em] font-normal transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
-                    <span class="text-[8.5px] sm:text-[9.5px] font-sub tracking-[0.22em] sm:tracking-[0.26em] -mt-0.5 uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
+                    <span class="font-logo text-lg sm:text-2xl md:text-[26px] tracking-[0.24em] font-normal leading-tight transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
+                    <span class="text-[9px] sm:text-[10.5px] font-sub tracking-[0.22em] sm:tracking-[0.26em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
                 </div>
             </a>
 
@@ -4544,8 +4553,10 @@
             }
         }
 
-        // 1.4-Second Luxury Splash Progress Controller (Секунда-півтори завантаження)
+        // 2.0-Second Luxury Splash Progress Controller & Cinematic Immersion (М'який плавний прогрес)
         (function initSplashProgress() {
+            document.body.classList.add('curtain-active');
+
             function startProgress() {
                 const curtain = document.getElementById('page-curtain');
                 const bar = document.getElementById('curtain-bar');
@@ -4553,14 +4564,14 @@
                 if (!curtain || !bar) return;
 
                 let startTime = performance.now();
-                const duration = 1400; // 1.4 seconds
+                const duration = 2000; // Exact 2.0 seconds (секунди)
 
                 function tick(now) {
                     const elapsed = now - startTime;
                     const progress = Math.min(elapsed / duration, 1);
 
-                    // Organic ease-out progression
-                    const easeOut = 1 - Math.pow(1 - progress, 2.2);
+                    // Buttery smooth ease-out (м'який делікатний рух)
+                    const easeOut = 1 - Math.pow(1 - progress, 2.4);
                     const percent = Math.round(easeOut * 100);
 
                     bar.style.width = percent + '%';
@@ -4571,13 +4582,15 @@
                     if (progress < 1) {
                         requestAnimationFrame(tick);
                     } else {
-                        // Complete at 1.4s -> smooth reveal
+                        // Complete at 2.0s -> velvet immersion transition (приємне занурення)
                         setTimeout(function() {
+                            document.body.classList.remove('curtain-active');
+                            document.body.classList.add('curtain-revealed');
                             curtain.classList.add('loaded');
                             setTimeout(function() {
                                 curtain.classList.add('force-dismiss');
-                            }, 520);
-                        }, 100);
+                            }, 1050);
+                        }, 120);
                     }
                 }
 
