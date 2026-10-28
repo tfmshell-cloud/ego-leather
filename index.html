@@ -1101,102 +1101,76 @@
 
     
         /* ==========================================================================
-           CINEMATIC REELS: VARIANT 08 SLANTED EDGY SKEW (-8°)
+           CINEMATIC REELS: VARIANT 08 SLANTED EDGY SKEW (INFINITE SLOW DRIFT)
            ========================================================================== */
         #hero-reels-showcase {
             position: relative;
             z-index: 25;
-            background: radial-gradient(ellipse at 50% 0%, rgba(200, 169, 126, 0.08) 0%, rgba(6, 9, 17, 0.95) 100%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(200, 169, 126, 0.08) 0%, rgba(6, 9, 17, 0.98) 100%);
             border-bottom: 1px solid var(--border-line);
-        }
-
-        :root[data-theme="light"] #hero-reels-showcase {
-            background: radial-gradient(ellipse at 50% 0%, rgba(140, 98, 57, 0.09) 0%, rgba(246, 243, 236, 0.95) 100%);
-        }
-
-        .t8-row {
+            padding: 8px 0 20px 0;
+            overflow: hidden;
             width: 100%;
         }
 
-        @media (min-width: 1024px) {
-            .t8-row {
-                display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                gap: 12px;
-                width: 100%;
-                overflow: hidden;
-                padding: 10px 4px;
-            }
-            .t8-row .v-box {
-                width: 100%;
-                height: 33vh;
-                min-height: 250px;
-                max-height: 380px;
-                transform: skewX(-8deg);
-                transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-                border-radius: 12px;
-            }
-            .t8-row .v-box video {
-                transform: skewX(8deg) scale(1.22);
-                transition: transform 0.4s ease;
-            }
-            .t8-row .v-box:hover {
-                transform: skewX(0deg) scale(1.08);
-                z-index: 25;
-                border-color: var(--accent-gold);
-                box-shadow: 0 16px 45px rgba(200, 169, 126, 0.35);
-            }
-            .t8-row .v-box:hover video {
-                transform: skewX(0deg) scale(1.02);
-            }
+        :root[data-theme="light"] #hero-reels-showcase {
+            background: radial-gradient(ellipse at 50% 0%, rgba(140, 98, 57, 0.09) 0%, rgba(246, 243, 236, 0.98) 100%);
         }
 
-        @media (max-width: 1023px) {
-            .t8-row {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 12px;
-                padding: 10px 4px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
+        .t8-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .t8-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: slowDriftLeft 65s linear infinite;
+            will-change: transform;
+        }
+
+        .t8-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .t8-marquee-group {
+            display: flex;
+            gap: 16px;
+            padding-right: 16px;
+            flex-shrink: 0;
+        }
+
+        @keyframes slowDriftLeft {
+            0% {
+                transform: translate3d(0, 0, 0);
             }
-            .t8-row::-webkit-scrollbar { display: none; }
-            .t8-row .v-box {
-                flex: 0 0 170px;
-                height: 290px;
-                scroll-snap-align: center;
-                border-radius: 12px;
-                transform: skewX(-4deg);
-            }
-            .t8-row .v-box video {
-                transform: skewX(4deg) scale(1.15);
-            }
-            .t8-row .v-box:hover {
-                transform: skewX(0deg) scale(1.04);
-                z-index: 10;
-                border-color: var(--accent-gold);
-            }
-            .t8-row .v-box:hover video {
-                transform: skewX(0deg) scale(1);
+            100% {
+                transform: translate3d(-25%, 0, 0);
             }
         }
 
         .v-box {
             aspect-ratio: 9/16;
+            height: 44vh;
+            min-height: 320px;
+            max-height: 480px;
             position: relative;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             background: #0B101C;
             border: 1px solid var(--border-line);
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
             flex-shrink: 0;
+            transform: skewX(-8deg);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         :root[data-theme="light"] .v-box {
             background: #EDE7DB;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .v-box video {
@@ -1204,68 +1178,46 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transform: skewX(8deg) scale(1.22);
+            transition: transform 0.4s ease;
         }
 
-        .v-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 40%, rgba(0,0,0,0.85) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-            pointer-events: none;
-            z-index: 2;
+        .v-box:hover {
+            transform: skewX(0deg) scale(1.08);
+            z-index: 30;
+            border-color: var(--accent-gold);
+            box-shadow: 0 18px 45px rgba(200, 169, 126, 0.4);
         }
 
-        .v-badge {
-            align-self: flex-start;
-            background: rgba(6, 9, 17, 0.85);
-            backdrop-filter: blur(6px);
-            padding: 2.5px 7px;
-            border-radius: 4px;
-            border: 0.5px solid var(--accent-gold);
-            color: var(--accent-gold-bright);
-            font-size: 8.5px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        .v-box:hover video {
+            transform: skewX(0deg) scale(1.02);
         }
 
-        .v-title {
-            font-size: 11.5px;
-            font-weight: 700;
-            color: #F4EFE6;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+        @media (min-width: 1440px) {
+            .v-box {
+                height: 46vh;
+                max-height: 500px;
+            }
         }
 
-        .v-sound {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: rgba(6, 9, 17, 0.82);
-            border: 1px solid rgba(200, 169, 126, 0.4);
-            color: #F4EFE6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            cursor: pointer;
-            z-index: 5;
-            pointer-events: auto;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .v-sound:hover {
-            transform: scale(1.15);
-            background: var(--accent-gold);
-            color: #060911;
+        @media (max-width: 768px) {
+            #hero-reels-showcase {
+                padding: 6px 0 14px 0;
+            }
+            .v-box {
+                height: 320px;
+                border-radius: 10px;
+                transform: skewX(-5deg);
+            }
+            .v-box video {
+                transform: skewX(5deg) scale(1.18);
+            }
+            .v-box:hover {
+                transform: skewX(0deg) scale(1.05);
+            }
+            .v-box:hover video {
+                transform: skewX(0deg) scale(1);
+            }
         }
 
         /* LIGHTBOX VIDEO MODAL (1080P RETINA) */
@@ -1513,73 +1465,94 @@
     <!-- MAIN SCENE CONTAINER -->
     <main class="w-full">
 
-        <!-- CINEMATIC VIDEO REELS: VARIANT 08 SLANTED EDGY SKEW (-8°) -->
-        <section id="hero-reels-showcase" class="w-full py-5 sm:py-7 px-3 sm:px-6 lg:px-8 border-b" aria-label="Авторський відеоряд EGO LEATHER">
-            <div class="max-w-[1440px] mx-auto">
-                <div class="flex items-center justify-between mb-3 px-1 sm:px-2">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-[#C8A97E] animate-ping"></span>
-                        <span class="text-[10px] sm:text-[11px] font-sub uppercase tracking-[0.2em]" style="color: var(--accent-gold);" data-i18n="reels_badge">CINEMATIC 4K REELS · АВТОРСЬКИЙ ВІДЕОРЯД</span>
+        <!-- CINEMATIC VIDEO REELS: VARIANT 08 SLANTED EDGY SKEW (INFINITE SLOW DRIFT) -->
+        <section id="hero-reels-showcase" class="w-full border-b overflow-hidden" aria-label="Авторський відеоряд EGO LEATHER">
+            <div class="t8-marquee-container">
+                <div class="t8-marquee-track">
+                <!-- MARQUEE GROUP 1 -->
+                <div class="t8-marquee-group">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="text-[10px] sm:text-[11px] font-sub tracking-wider" style="color: var(--text-muted);">
-                        <span class="hidden sm:inline" data-i18n="reels_hint">Натисніть для перегляду у Full HD Retina</span> 🎬
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
                     </div>
                 </div>
-
-                <div class="t8-row">
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', '01 Carmine Cylindre · Авторська кругла сумочка')" title="01 Carmine Cylindre">
+                <!-- MARQUEE GROUP 2 -->
+                <div class="t8-marquee-group" aria-hidden="true">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">01 Carmine</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
-
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', '02 Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="02 Cavallino Red Zebra">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">02 Cavallino</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
-
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', '03 Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="03 Heritage Cognac Backpack">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">03 Cognac</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
-
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', '04 Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="04 Emerald Baguette">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">04 Emerald</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
-
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', '05 Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="05 Python Grand Tote">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">05 Python</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
-
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', '06 Sculptural Drape Noir · Архітектурні складки шкіри')" title="06 Sculptural Drape Noir">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
-                        <div class="v-overlay">
-                            <span class="v-badge">4K REEL</span>
-                            <div class="v-title">06 Drape</div>
-                        </div>
-                        <button class="v-sound" onclick="event.stopPropagation(); toggleSound(this);" title="Звук">🔊</button>
                     </div>
+                </div>
+                <!-- MARQUEE GROUP 3 -->
+                <div class="t8-marquee-group" aria-hidden="true">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
+                    </div>
+                </div>
+                <!-- MARQUEE GROUP 4 -->
+                <div class="t8-marquee-group" aria-hidden="true">
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
+                    </div>
+                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                        <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
