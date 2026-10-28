@@ -4191,7 +4191,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
                         <!-- Virtual Leather Stamping Swatch -->
                         <div class="md:col-span-6 flex flex-col items-center">
-                            <div id="leather-swatch" class="w-full aspect-[4/3] rounded-2xl swatch-leather-container flex flex-col items-center justify-between p-6 sm:p-8 border border-[#C8A97E]/40 overflow-hidden relative transition-all duration-500">
+                            <div id="leather-swatch" class="w-full aspect-[4/3] rounded-2xl swatch-leather-container flex flex-col items-center justify-between p-5 sm:p-7 border border-[#C8A97E]/40 overflow-hidden relative transition-all duration-500">
                                 <!-- Layer 1: Authentic Photo with Hot Debossed EGO Wings -->
                                 <div id="swatch-bg-wings" class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 pointer-events-none" style="background-image: url('assets/branding/leather_emboss_ego_wings.jpg'); opacity: 1;"></div>
 
@@ -4205,85 +4205,182 @@
                                 <div id="swatch-foil-wings-overlay" class="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-80" style="background: radial-gradient(circle at center, rgba(200, 169, 126, 0.45) 0%, rgba(138, 104, 46, 0.2) 40%, transparent 70%); mix-blend-mode: color-dodge;"></div>
 
                                 <!-- Layer 5: Luxury Vignette & Edge Inset Shadow -->
-                                <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_50px_rgba(0,0,0,0.85)]"></div>
+                                <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_55px_rgba(0,0,0,0.9)]"></div>
 
                                 <!-- Top Branding Badge -->
-                                <div class="relative z-10 text-[9px] font-sub uppercase tracking-[0.25em] text-[#C8A97E] bg-black/50 px-3.5 py-1 rounded-full backdrop-blur-md border border-[#C8A97E]/30 shadow-lg">
-                                    EGO LEATHER BESPOKE
+                                <div class="relative z-10 text-[9px] font-sub uppercase tracking-[0.28em] text-[#C8A97E] bg-black/60 px-3.5 py-1 rounded-full backdrop-blur-md border border-[#C8A97E]/30 shadow-lg">
+                                    EGO LEATHER BESPOKE · СТУДІЯ КАРБУВАННЯ
                                 </div>
 
                                 <!-- Center Monogram Graphic Canvas Container -->
-                                <div id="monogram-preview-container" class="relative z-10 my-auto text-center flex flex-col items-center justify-center transition-all duration-500 w-full min-h-[140px] px-2">
-                                    <svg id="monogram-svg-canvas" viewBox="0 0 340 180" class="w-full max-w-[320px] h-auto overflow-visible select-none transition-all duration-500" style="opacity: 0; transform: scale(0.96);">
+                                <div id="monogram-preview-container" class="relative z-10 my-auto text-center flex flex-col items-center justify-center transition-all duration-500 w-full min-h-[160px] px-1">
+                                    <svg id="monogram-svg-canvas" viewBox="0 0 400 240" class="w-full max-w-[360px] h-auto overflow-visible select-none transition-all duration-500 drop-shadow-2xl" style="opacity: 0; transform: scale(0.96);">
                                         <defs>
-                                            <!-- Gold 24K Gradient -->
+                                            <!-- 24K Gold Gradient with Multi-Stop Metallic Lustre -->
                                             <linearGradient id="goldFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" stop-color="#FFF9D8" />
-                                                <stop offset="25%" stop-color="#F5D77F" />
-                                                <stop offset="50%" stop-color="#C8A97E" />
-                                                <stop offset="75%" stop-color="#7A531A" />
-                                                <stop offset="100%" stop-color="#F3D89D" />
+                                                <stop offset="0%" stop-color="#FFFDE8" />
+                                                <stop offset="15%" stop-color="#FCE18B" />
+                                                <stop offset="42%" stop-color="#D4AF37" />
+                                                <stop offset="68%" stop-color="#805912" />
+                                                <stop offset="85%" stop-color="#EBC870" />
+                                                <stop offset="100%" stop-color="#FFF5B8" />
                                             </linearGradient>
+
+                                            <!-- Gold Bevel Gradient for 3D Chiseled Rim -->
+                                            <linearGradient id="goldBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFFEE6" />
+                                                <stop offset="40%" stop-color="#C59B36" />
+                                                <stop offset="100%" stop-color="#3A2405" />
+                                            </linearGradient>
+
                                             <!-- Silver Platinum Gradient -->
                                             <linearGradient id="silverFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                                 <stop offset="0%" stop-color="#FFFFFF" />
-                                                <stop offset="25%" stop-color="#E2E8F0" />
-                                                <stop offset="55%" stop-color="#94A3B8" />
-                                                <stop offset="80%" stop-color="#475569" />
+                                                <stop offset="20%" stop-color="#E2E8F0" />
+                                                <stop offset="50%" stop-color="#94A3B8" />
+                                                <stop offset="78%" stop-color="#475569" />
                                                 <stop offset="100%" stop-color="#F8FAFC" />
                                             </linearGradient>
-                                            <!-- Blind Burnished Gradient -->
-                                            <linearGradient id="blindDebossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" stop-color="#140a04" />
-                                                <stop offset="100%" stop-color="#1e0f07" />
+
+                                            <!-- Silver Bevel Gradient -->
+                                            <linearGradient id="silverBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFFFFF" />
+                                                <stop offset="40%" stop-color="#A6B4C4" />
+                                                <stop offset="100%" stop-color="#1E293B" />
                                             </linearGradient>
-                                            <!-- 3D Deboss Foil Filter -->
-                                            <filter id="foil3dFilter" x="-25%" y="-25%" width="150%" height="150%">
-                                                <feDropShadow dx="0" dy="2.8" stdDeviation="2.2" flood-color="#000000" flood-opacity="0.95" />
-                                                <feDropShadow dx="0" dy="-1" stdDeviation="0.8" flood-color="#FFEEDD" flood-opacity="0.4" />
+
+                                            <!-- Blind Deboss Solid Burnished Leather Tone -->
+                                            <linearGradient id="blindDebossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#100703" />
+                                                <stop offset="50%" stop-color="#190b05" />
+                                                <stop offset="100%" stop-color="#231008" />
+                                            </linearGradient>
+
+                                            <!-- Blind Bevel Gradient -->
+                                            <linearGradient id="blindBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#3D1D10" />
+                                                <stop offset="100%" stop-color="#0A0402" />
+                                            </linearGradient>
+
+                                            <!-- 3D Recess Depth Drop Shadow -->
+                                            <filter id="leatherRecessShadow" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.98" />
                                             </filter>
+
+                                            <!-- 3D Deboss Foil Filter -->
+                                            <filter id="foil3dFilter" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feDropShadow dx="0" dy="3.5" stdDeviation="2.2" flood-color="#000000" flood-opacity="0.95" />
+                                                <feDropShadow dx="0" dy="-1.2" stdDeviation="0.8" flood-color="#FFFCE8" flood-opacity="0.65" />
+                                            </filter>
+
                                             <!-- 3D Blind Filter -->
-                                            <filter id="blind3dFilter" x="-25%" y="-25%" width="150%" height="150%">
-                                                <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.98" />
-                                                <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#FFE0B2" flood-opacity="0.32" />
-                                                <feDropShadow dx="0" dy="-1.5" stdDeviation="1" flood-color="#000000" flood-opacity="0.8" />
+                                            <filter id="blind3dFilter" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.98" />
+                                                <feDropShadow dx="0" dy="1.2" stdDeviation="0.6" flood-color="#FFDFC2" flood-opacity="0.4" />
+                                                <feDropShadow dx="0" dy="-1.5" stdDeviation="1" flood-color="#000000" flood-opacity="0.9" />
                                             </filter>
                                         </defs>
 
+                                        <!-- Background Ambient Graphic Elements (e.g. Shield / Sunburst) -->
+                                        <g id="svg-bg-ornaments" class="transition-all duration-300">
+                                            <!-- 1. Solar Halo / Sunburst (Сяйво) -->
+                                            <g id="svg-sunburst" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.4" opacity="0.6" style="display: none;">
+                                                <circle cx="200" cy="120" r="92" stroke-dasharray="3, 5" opacity="0.4" />
+                                                <line x1="200" y1="20" x2="200" y2="40" />
+                                                <line x1="200" y1="200" x2="200" y2="220" />
+                                                <line x1="100" y1="120" x2="120" y2="120" />
+                                                <line x1="280" y1="120" x2="300" y2="120" />
+                                                <line x1="130" y1="50" x2="145" y2="65" />
+                                                <line x1="270" y1="50" x2="255" y2="65" />
+                                                <line x1="130" y1="190" x2="145" y2="175" />
+                                                <line x1="270" y1="190" x2="255" y2="175" />
+                                                <line x1="165" y1="30" x2="172" y2="46" />
+                                                <line x1="235" y1="30" x2="228" y2="46" />
+                                                <line x1="165" y1="210" x2="172" y2="194" />
+                                                <line x1="235" y1="210" x2="228" y2="194" />
+                                                <line x1="110" y1="85" x2="126" y2="92" />
+                                                <line x1="290" y1="85" x2="274" y2="92" />
+                                                <line x1="110" y1="155" x2="126" y2="148" />
+                                                <line x1="290" y1="155" x2="274" y2="148" />
+                                            </g>
+
+                                            <!-- 2. Heritage Shield (Геральдичний Щит) -->
+                                            <g id="svg-shield" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2" opacity="0.85" filter="url(#foil3dFilter)" style="display: none;">
+                                                <path d="M 120,45 L 280,45 C 280,125 260,185 200,215 C 140,185 120,125 120,45 Z" />
+                                                <path d="M 128,52 L 272,52 C 272,120 254,176 200,204 C 146,176 128,120 128,52 Z" stroke-dasharray="4, 4" stroke-width="1.2" opacity="0.7" />
+                                                <circle cx="132" cy="56" r="2" fill="url(#goldFoilGrad)" />
+                                                <circle cx="268" cy="56" r="2" fill="url(#goldFoilGrad)" />
+                                                <circle cx="200" cy="200" r="2.5" fill="url(#goldFoilGrad)" />
+                                            </g>
+                                        </g>
+
+                                        <!-- Main Foreground Ornaments Group -->
                                         <g id="svg-monogram-art-group" fill="url(#goldFoilGrad)" stroke="none" filter="url(#foil3dFilter)" class="transition-all duration-300">
-                                            <!-- 1. Plumage / Wings (Оперення) -->
+                                            <!-- 3. Imperial Wings / Plumage (Оперення) -->
                                             <g id="svg-plumage" class="transition-all duration-300" style="opacity: 1;">
-                                                <path d="M 108,72 C 82,55 52,48 24,56 C 45,68 68,72 88,81 C 58,78 36,83 18,97 C 42,101 68,98 90,96 C 60,103 40,116 30,132 C 54,122 78,110 102,100 Z" opacity="0.95" />
-                                                <path d="M 232,72 C 258,55 288,48 316,56 C 295,68 272,72 252,81 C 282,78 304,83 322,97 C 298,101 272,98 250,96 C 280,103 300,116 310,132 C 286,122 262,110 238,100 Z" opacity="0.95" />
+                                                <!-- Left Wing -->
+                                                <path d="M 128,102 C 96,82 56,72 16,84 C 46,98 78,104 106,116 C 65,112 35,120 10,138 C 42,144 78,140 110,136 C 70,146 45,164 30,186 C 62,172 96,156 128,141 Z" opacity="0.95" />
+                                                <path d="M 28,94 Q 72,106 120,118" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <path d="M 22,140 Q 68,142 116,138" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+
+                                                <!-- Right Wing -->
+                                                <path d="M 272,102 C 304,82 344,72 384,84 C 354,98 322,104 294,116 C 335,112 365,120 390,138 C 358,144 322,140 290,136 C 330,146 355,164 370,186 C 338,172 304,156 272,141 Z" opacity="0.95" />
+                                                <path d="M 372,94 Q 328,106 280,118" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <path d="M 378,140 Q 332,142 284,138" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
                                             </g>
 
-                                            <!-- 2. Calligraphic Swash / Tail (Красивий хвостик) -->
+                                            <!-- 4. Royal Swash Tail (Каліграфічний Хвостик) -->
                                             <g id="svg-tail" class="transition-all duration-300" style="opacity: 1;">
-                                                <path d="M 68,122 C 112,136 228,136 272,122 C 238,131 162,133 98,127 C 82,125 70,118 74,112 C 78,106 90,109 94,114 C 90,112 82,112 79,115 C 77,119 86,122 106,124 C 150,128 218,126 256,119 C 270,116 280,122 274,126 C 252,136 156,140 68,122 Z" />
-                                                <circle cx="65" cy="114" r="2.2" />
-                                                <circle cx="276" cy="122" r="1.8" />
+                                                <path d="M 60,165 C 115,188 285,188 340,165 C 298,178 195,181 106,172 C 84,170 68,160 74,152 C 80,144 96,148 102,155 C 96,152 86,152 82,156 C 79,161 90,165 116,167 C 176,173 268,170 318,160 C 336,156 348,164 340,170 C 310,185 185,190 60,165 Z" />
+                                                <circle cx="68" cy="154" r="2.8" />
+                                                <circle cx="338" cy="166" r="2.4" />
                                             </g>
 
-                                            <!-- 3. Royal Crown (Корона) -->
+                                            <!-- 5. Grand Imperial Crown (Корона) -->
                                             <g id="svg-crown" class="transition-all duration-300" style="display: none; opacity: 0;">
-                                                <path d="M 148,46 L 154,34 L 162,43 L 170,28 L 178,43 L 186,34 L 192,46 C 182,49 158,49 148,46 Z" />
-                                                <circle cx="170" cy="25" r="2" />
-                                                <circle cx="154" cy="31" r="1.5" />
-                                                <circle cx="186" cy="31" r="1.5" />
+                                                <path d="M 166,62 L 174,44 L 187,58 L 200,34 L 213,58 L 226,44 L 234,62 C 216,66 184,66 166,62 Z" />
+                                                <circle cx="200" cy="30" r="3" />
+                                                <circle cx="174" cy="40" r="2.2" />
+                                                <circle cx="226" cy="40" r="2.2" />
+                                                <circle cx="187" cy="54" r="1.6" />
+                                                <circle cx="213" cy="54" r="1.6" />
+                                                <rect x="170" y="65" width="60" height="4" rx="2" opacity="0.9" />
                                             </g>
 
-                                            <!-- 4. Laurel Wreath (Вінцевий лавр) -->
-                                            <g id="svg-laurel" class="transition-all duration-300" style="display: none; opacity: 0;">
-                                                <path d="M 106,58 C 96,66 90,82 92,100 C 94,110 99,118 108,124" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                                                <path d="M 234,58 C 244,66 250,82 248,100 C 246,110 241,118 232,124" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                                                <path d="M 94,74 C 88,72 82,76 86,82 C 90,80 94,78 94,74 Z" />
-                                                <path d="M 246,74 C 252,72 258,76 254,82 C 250,80 246,78 246,74 Z" />
-                                                <path d="M 92,94 C 86,93 82,98 87,103 C 91,100 93,97 92,94 Z" />
-                                                <path d="M 248,94 C 254,93 258,98 253,103 C 249,100 247,97 248,94 Z" />
+                                            <!-- 6. Florentine Fleur-de-Lis (Лілія) -->
+                                            <g id="svg-fleur" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <path d="M 200,34 C 195,49 188,57 182,62 C 191,64 195,68 194,75 L 206,75 C 205,68 209,64 218,62 C 212,57 205,49 200,34 Z" />
+                                                <path d="M 180,60 C 168,56 160,48 162,38 C 173,40 180,49 184,57 Z" />
+                                                <path d="M 220,60 C 232,56 240,48 238,38 C 227,40 220,49 216,57 Z" />
+                                                <rect x="182" y="75" width="36" height="3" rx="1.5" />
                                             </g>
 
-                                            <!-- 5. Monogram Letters -->
-                                            <text id="svg-monogram-text" x="170" y="93" text-anchor="middle" dominant-baseline="middle" font-family="'Forum', 'Cinzel', serif" font-size="46" font-weight="400" letter-spacing="6">
+                                            <!-- 7. Noble Lions (Леви) -->
+                                            <g id="svg-lions" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <!-- Left Lion Silhouette -->
+                                                <path d="M 95,85 C 90,80 82,82 78,88 C 76,92 78,98 74,104 C 70,110 62,112 60,118 C 58,124 62,130 68,136 C 72,140 76,146 75,152 L 80,154 C 84,148 82,142 80,136 C 85,134 90,128 92,122 C 96,116 94,106 98,100 C 102,94 100,88 95,85 Z" />
+                                                <!-- Right Lion Silhouette -->
+                                                <path d="M 305,85 C 310,80 318,82 322,88 C 324,92 322,98 326,104 C 330,110 338,112 340,118 C 342,124 338,130 332,136 C 328,140 324,146 325,152 L 320,154 C 316,148 318,142 320,136 C 315,134 310,128 308,122 C 304,116 306,106 302,100 C 298,94 300,88 305,85 Z" />
+                                            </g>
+
+                                            <!-- 8. Infinity Knot (Вузол Вічності) -->
+                                            <g id="svg-infinity" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <path d="M 140,165 C 120,165 105,152 105,138 C 105,124 120,111 140,111 C 170,111 185,142 200,142 C 215,142 230,111 260,111 C 280,111 295,124 295,138 C 295,152 280,165 260,165 C 230,165 215,134 200,134 C 185,134 170,165 140,165 Z" fill="none" stroke="url(#goldFoilGrad)" stroke-width="3" stroke-linecap="round" />
+                                            </g>
+                                        </g>
+
+                                        <!-- Multi-Layer 3D Chiseled Letters (BOLD, PROMINENT, DEEPLY EMBOSSED) -->
+                                        <g id="svg-letters-3d-stack" class="select-none transition-all duration-300">
+                                            <!-- Sunk Indentation Shadow -->
+                                            <text id="svg-monogram-shadow" x="200" y="128" text-anchor="middle" dominant-baseline="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="72" font-weight="800" letter-spacing="8" fill="#080301" opacity="0.95" filter="url(#leatherRecessShadow)">
+                                                EG
+                                            </text>
+                                            <!-- Bevel Rim Highlight (Reflecting light edge) -->
+                                            <text id="svg-monogram-bevel" x="200" y="124" text-anchor="middle" dominant-baseline="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="72" font-weight="800" letter-spacing="8" fill="none" stroke="url(#goldBevelGrad)" stroke-width="2.8" opacity="0.85">
+                                                EG
+                                            </text>
+                                            <!-- Primary Chiseled Body Face -->
+                                            <text id="svg-monogram-text" x="200" y="121" text-anchor="middle" dominant-baseline="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="72" font-weight="800" letter-spacing="8" fill="url(#goldFoilGrad)" stroke="url(#goldFoilGrad)" stroke-width="1.5" filter="url(#foil3dFilter)">
                                                 EG
                                             </text>
                                         </g>
@@ -4291,31 +4388,31 @@
                                 </div>
 
                                 <!-- Bottom Status Badge -->
-                                <div id="monogram-status-badge" class="relative z-10 text-[10px] font-sub tracking-widest text-[#EAD5B3] bg-black/50 px-3.5 py-1 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
+                                <div id="monogram-status-badge" class="relative z-10 text-[10px] font-sub tracking-widest text-[#EAD5B3] bg-black/60 px-3.5 py-1 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
                                     АВТЕНТИЧНЕ ГАРЯЧЕ КАРБУВАННЯ · ЗОЛОТО 24K
                                 </div>
                             </div>
                         </div>
 
                         <!-- Controls -->
-                        <div class="md:col-span-6 space-y-5 sm:space-y-6">
+                        <div class="md:col-span-6 space-y-4 sm:space-y-5">
                             <!-- Initials Input -->
                             <div>
-                                <label class="block text-xs font-sub mb-2 text-gray-300">Ваші ініціали / Абревіатура (до 4 символів):</label>
-                                <input id="monogram-input" type="text" maxlength="4" value="EGO" oninput="updateMonogram(this.value)" class="w-full px-4 py-3 rounded-xl border bg-black/40 text-white font-royal text-xl tracking-widest focus:outline-none focus:border-[#C8A97E]" style="border-color: var(--border-line);">
+                                <label class="block text-xs font-sub mb-1.5 text-gray-300">Ваші ініціали / Абревіатура (до 4 символів):</label>
+                                <input id="monogram-input" type="text" maxlength="4" value="EGO" oninput="updateMonogram(this.value)" class="w-full px-4 py-3 rounded-xl border bg-black/40 text-white font-royal text-2xl font-bold tracking-widest focus:outline-none focus:border-[#C8A97E]" style="border-color: var(--border-line);">
                             </div>
 
-                            <!-- Graphic Elements Editor / Monogram Designer -->
+                            <!-- 8 Graphic Elements Palette / Monogram Designer -->
                             <div>
                                 <div class="flex items-center justify-between mb-2">
-                                    <label class="block text-xs font-sub text-gray-300">Художнє обрамлення (графічний редактор):</label>
-                                    <button type="button" onclick="randomizeMonogramStyle()" class="text-[11px] font-sub text-[#C8A97E] hover:underline flex items-center gap-1 transition-colors cursor-pointer">
+                                    <label class="block text-xs font-sub text-gray-300">Графічне обрамлення (8 елементів майстерні):</label>
+                                    <button type="button" onclick="randomizeMonogramStyle()" class="text-[11px] font-sub text-[#C8A97E] hover:underline flex items-center gap-1 transition-colors cursor-pointer font-medium">
                                         <span>✨ Згенерувати стиль</span>
                                     </button>
                                 </div>
                                 <div class="grid grid-cols-4 gap-2">
                                     <button type="button" id="toggle-opt-plumage" onclick="toggleGraphicElement('plumage', this)" class="graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer">
-                                        🪶 Оперення
+                                        🪶 Крила
                                     </button>
                                     <button type="button" id="toggle-opt-tail" onclick="toggleGraphicElement('tail', this)" class="graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer">
                                         ✒️ Хвостик
@@ -4323,15 +4420,27 @@
                                     <button type="button" id="toggle-opt-crown" onclick="toggleGraphicElement('crown', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
                                         👑 Корона
                                     </button>
-                                    <button type="button" id="toggle-opt-laurel" onclick="toggleGraphicElement('laurel', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
-                                        🌿 Лавр
+                                    <button type="button" id="toggle-opt-fleur" onclick="toggleGraphicElement('fleur', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        ⚜️ Лілія
+                                    </button>
+                                    <button type="button" id="toggle-opt-shield" onclick="toggleGraphicElement('shield', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        🛡️ Щит
+                                    </button>
+                                    <button type="button" id="toggle-opt-sunburst" onclick="toggleGraphicElement('sunburst', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        ☀️ Сяйво
+                                    </button>
+                                    <button type="button" id="toggle-opt-lions" onclick="toggleGraphicElement('lions', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        🦁 Леви
+                                    </button>
+                                    <button type="button" id="toggle-opt-infinity" onclick="toggleGraphicElement('infinity', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        ♾️ Вузол
                                     </button>
                                 </div>
                             </div>
 
                             <!-- Foil Type -->
                             <div>
-                                <label class="block text-xs font-sub mb-2 text-gray-300">Тип карбування:</label>
+                                <label class="block text-xs font-sub mb-1.5 text-gray-300">Тип карбування:</label>
                                 <div class="flex gap-2.5">
                                     <button onclick="setFoil('gold', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white font-medium cursor-pointer">Золото 24K</button>
                                     <button onclick="setFoil('silver', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300 cursor-pointer">Срібло</button>
@@ -4341,7 +4450,7 @@
 
                             <!-- Leather Shade -->
                             <div>
-                                <label class="block text-xs font-sub mb-2 text-gray-300">Відтінок шкіри зразка:</label>
+                                <label class="block text-xs font-sub mb-1.5 text-gray-300">Відтінок шкіри зразка:</label>
                                 <div class="flex items-center gap-3">
                                     <button onclick="setLeatherColor('natural', '0', this)" class="leather-color-btn w-8 h-8 rounded-full border-2 border-[#C8A97E] shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #3A2312;" title="Шоколад (Оригінал)"></button>
                                     <button onclick="setLeatherColor('#141416', '0.85', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #141416;" title="Глибокий Чорний"></button>
@@ -4831,7 +4940,7 @@
 
         
 
-        // Monogram Stamper & Graphic Design Engine
+        // Monogram Stamper & 8-Ornament Graphic Design Engine
         let currentFoil = 'gold';
         let currentLeatherTint = 'natural';
         let currentLeatherOpacity = '0';
@@ -4841,7 +4950,11 @@
             plumage: true,
             tail: true,
             crown: false,
-            laurel: false
+            fleur: false,
+            shield: false,
+            sunburst: false,
+            lions: false,
+            infinity: false
         };
 
         function toggleGraphicElement(elementKey, btnEl) {
@@ -4863,36 +4976,34 @@
         }
 
         function renderGraphicElements() {
-            const elPlumage = document.getElementById('svg-plumage');
-            const elTail = document.getElementById('svg-tail');
-            const elCrown = document.getElementById('svg-crown');
-            const elLaurel = document.getElementById('svg-laurel');
+            const elements = {
+                plumage: document.getElementById('svg-plumage'),
+                tail: document.getElementById('svg-tail'),
+                crown: document.getElementById('svg-crown'),
+                fleur: document.getElementById('svg-fleur'),
+                shield: document.getElementById('svg-shield'),
+                sunburst: document.getElementById('svg-sunburst'),
+                lions: document.getElementById('svg-lions'),
+                infinity: document.getElementById('svg-infinity')
+            };
 
-            if (elPlumage) {
-                elPlumage.style.display = graphicOptions.plumage ? 'block' : 'none';
-                elPlumage.style.opacity = graphicOptions.plumage ? '1' : '0';
-            }
-            if (elTail) {
-                elTail.style.display = graphicOptions.tail ? 'block' : 'none';
-                elTail.style.opacity = graphicOptions.tail ? '1' : '0';
-            }
-            if (elCrown) {
-                elCrown.style.display = graphicOptions.crown ? 'block' : 'none';
-                elCrown.style.opacity = graphicOptions.crown ? '1' : '0';
-            }
-            if (elLaurel) {
-                elLaurel.style.display = graphicOptions.laurel ? 'block' : 'none';
-                elLaurel.style.opacity = graphicOptions.laurel ? '1' : '0';
+            for (const [key, el] of Object.entries(elements)) {
+                if (!el) continue;
+                const isVisible = graphicOptions[key];
+                el.style.display = isVisible ? 'block' : 'none';
+                el.style.opacity = isVisible ? '1' : '0';
             }
         }
 
         const presets = [
-            { plumage: true, tail: true, crown: false, laurel: false },
-            { plumage: true, tail: true, crown: true, laurel: false },
-            { plumage: false, tail: true, crown: false, laurel: true },
-            { plumage: true, tail: false, crown: true, laurel: false },
-            { plumage: false, tail: true, crown: false, laurel: false },
-            { plumage: true, tail: true, crown: false, laurel: true }
+            { plumage: true, tail: true, crown: true, fleur: false, shield: false, sunburst: false, lions: false, infinity: false },
+            { plumage: false, tail: true, crown: false, fleur: true, shield: true, sunburst: false, lions: false, infinity: false },
+            { plumage: true, tail: true, crown: false, fleur: false, shield: false, sunburst: true, lions: false, infinity: false },
+            { plumage: false, tail: false, crown: true, fleur: false, shield: false, sunburst: false, lions: true, infinity: false },
+            { plumage: false, tail: true, crown: false, fleur: false, shield: false, sunburst: false, lions: false, infinity: true },
+            { plumage: true, tail: true, crown: false, fleur: true, shield: false, sunburst: false, lions: false, infinity: false },
+            { plumage: false, tail: true, crown: true, fleur: false, shield: true, sunburst: false, lions: false, infinity: false },
+            { plumage: true, tail: true, crown: false, fleur: false, shield: false, sunburst: false, lions: false, infinity: false }
         ];
         let presetIdx = 0;
 
@@ -4900,17 +5011,21 @@
             customDesignActive = true;
             presetIdx = (presetIdx + 1) % presets.length;
             const chosen = presets[presetIdx];
-            graphicOptions.plumage = chosen.plumage;
-            graphicOptions.tail = chosen.tail;
-            graphicOptions.crown = chosen.crown;
-            graphicOptions.laurel = chosen.laurel;
+
+            for (const k of Object.keys(graphicOptions)) {
+                graphicOptions[k] = !!chosen[k];
+            }
 
             // Sync button classes
             const btns = {
                 plumage: document.getElementById('toggle-opt-plumage'),
                 tail: document.getElementById('toggle-opt-tail'),
                 crown: document.getElementById('toggle-opt-crown'),
-                laurel: document.getElementById('toggle-opt-laurel')
+                fleur: document.getElementById('toggle-opt-fleur'),
+                shield: document.getElementById('toggle-opt-shield'),
+                sunburst: document.getElementById('toggle-opt-sunburst'),
+                lions: document.getElementById('toggle-opt-lions'),
+                infinity: document.getElementById('toggle-opt-infinity')
             };
 
             for (const [k, el] of Object.entries(btns)) {
@@ -4940,7 +5055,9 @@
             const wingsLayer = document.getElementById('swatch-bg-wings');
             const cleanLayer = document.getElementById('swatch-bg-clean');
             const svgCanvas = document.getElementById('monogram-svg-canvas');
-            const svgText = document.getElementById('svg-monogram-text');
+            const textShadow = document.getElementById('svg-monogram-shadow');
+            const textBevel = document.getElementById('svg-monogram-bevel');
+            const textFace = document.getElementById('svg-monogram-text');
             const foilWings = document.getElementById('swatch-foil-wings-overlay');
             const statusBadge = document.getElementById('monogram-status-badge');
 
@@ -4960,25 +5077,41 @@
                     statusBadge.textContent = `АВТЕНТИЧНЕ ГАРЯЧЕ КАРБУВАННЯ · ${foilName}`;
                 }
             } else {
-                // Show Custom Graphic Design (Letters + Plumage + Tail + Laurel/Crown)
+                // Show Custom Graphic Design (Letters + Selected Ornaments)
                 if (wingsLayer) wingsLayer.style.opacity = '0';
                 if (cleanLayer) cleanLayer.style.opacity = '1';
                 if (foilWings) foilWings.style.opacity = '0';
-                
-                if (svgText) {
-                    svgText.textContent = clean;
-                    // Dynamic font size adaptation
-                    if (clean.length <= 2) {
-                        svgText.setAttribute('font-size', '48');
-                        svgText.setAttribute('letter-spacing', '6');
-                    } else if (clean.length === 3) {
-                        svgText.setAttribute('font-size', '40');
-                        svgText.setAttribute('letter-spacing', '4');
-                    } else {
-                        svgText.setAttribute('font-size', '34');
-                        svgText.setAttribute('letter-spacing', '2');
-                    }
+
+                // Size & spacing calculation for prominent chiseled letters
+                let fontSize = '72';
+                let letterSpacing = '8';
+                let strokeWidth = '1.6';
+
+                if (clean.length === 1) {
+                    fontSize = '84';
+                    letterSpacing = '0';
+                    strokeWidth = '2';
+                } else if (clean.length === 2) {
+                    fontSize = '72';
+                    letterSpacing = '8';
+                    strokeWidth = '1.6';
+                } else if (clean.length === 3) {
+                    fontSize = '58';
+                    letterSpacing = '5';
+                    strokeWidth = '1.4';
+                } else {
+                    fontSize = '48';
+                    letterSpacing = '3';
+                    strokeWidth = '1.2';
                 }
+
+                [textShadow, textBevel, textFace].forEach(el => {
+                    if (!el) return;
+                    el.textContent = clean;
+                    el.setAttribute('font-size', fontSize);
+                    el.setAttribute('letter-spacing', letterSpacing);
+                });
+                if (textFace) textFace.setAttribute('stroke-width', strokeWidth);
 
                 if (svgCanvas) {
                     svgCanvas.style.opacity = '1';
@@ -4989,28 +5122,96 @@
 
                 if (statusBadge) {
                     const foilName = currentFoil === 'gold' ? 'ЗОЛОТО 24K' : (currentFoil === 'silver' ? 'СРІБЛО' : 'ГЛИБИННИЙ БЛІНТ');
-                    statusBadge.textContent = `ГРАФІЧНИЙ ДИЗАЙН МОНОГРАМИ · ${foilName}`;
+                    statusBadge.textContent = `3D ГРАФІЧНЕ КАРБУВАННЯ · ${foilName}`;
                 }
             }
         }
 
         function applyFoilToSVG(foil) {
             const artGroup = document.getElementById('svg-monogram-art-group');
-            const svgLaurel = document.getElementById('svg-laurel');
-            if (!artGroup) return;
+            const bgSunburst = document.getElementById('svg-sunburst');
+            const bgShield = document.getElementById('svg-shield');
+            const svgInfinity = document.querySelector('#svg-infinity path');
+            const textShadow = document.getElementById('svg-monogram-shadow');
+            const textBevel = document.getElementById('svg-monogram-bevel');
+            const textFace = document.getElementById('svg-monogram-text');
 
             if (foil === 'gold') {
-                artGroup.setAttribute('fill', 'url(#goldFoilGrad)');
-                artGroup.setAttribute('filter', 'url(#foil3dFilter)');
-                if (svgLaurel) svgLaurel.style.stroke = 'url(#goldFoilGrad)';
+                if (artGroup) {
+                    artGroup.setAttribute('fill', 'url(#goldFoilGrad)');
+                    artGroup.setAttribute('filter', 'url(#foil3dFilter)');
+                }
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#goldFoilGrad)');
+                if (bgShield) {
+                    bgShield.setAttribute('stroke', 'url(#goldFoilGrad)');
+                    bgShield.setAttribute('filter', 'url(#foil3dFilter)');
+                }
+                if (svgInfinity) svgInfinity.setAttribute('stroke', 'url(#goldFoilGrad)');
+
+                if (textShadow) {
+                    textShadow.setAttribute('fill', '#080301');
+                    textShadow.setAttribute('opacity', '0.95');
+                }
+                if (textBevel) {
+                    textBevel.setAttribute('stroke', 'url(#goldBevelGrad)');
+                    textBevel.setAttribute('opacity', '0.85');
+                }
+                if (textFace) {
+                    textFace.setAttribute('fill', 'url(#goldFoilGrad)');
+                    textFace.setAttribute('stroke', 'url(#goldFoilGrad)');
+                    textFace.setAttribute('filter', 'url(#foil3dFilter)');
+                }
             } else if (foil === 'silver') {
-                artGroup.setAttribute('fill', 'url(#silverFoilGrad)');
-                artGroup.setAttribute('filter', 'url(#foil3dFilter)');
-                if (svgLaurel) svgLaurel.style.stroke = 'url(#silverFoilGrad)';
+                if (artGroup) {
+                    artGroup.setAttribute('fill', 'url(#silverFoilGrad)');
+                    artGroup.setAttribute('filter', 'url(#foil3dFilter)');
+                }
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#silverFoilGrad)');
+                if (bgShield) {
+                    bgShield.setAttribute('stroke', 'url(#silverFoilGrad)');
+                    bgShield.setAttribute('filter', 'url(#foil3dFilter)');
+                }
+                if (svgInfinity) svgInfinity.setAttribute('stroke', 'url(#silverFoilGrad)');
+
+                if (textShadow) {
+                    textShadow.setAttribute('fill', '#05070a');
+                    textShadow.setAttribute('opacity', '0.95');
+                }
+                if (textBevel) {
+                    textBevel.setAttribute('stroke', 'url(#silverBevelGrad)');
+                    textBevel.setAttribute('opacity', '0.9');
+                }
+                if (textFace) {
+                    textFace.setAttribute('fill', 'url(#silverFoilGrad)');
+                    textFace.setAttribute('stroke', 'url(#silverFoilGrad)');
+                    textFace.setAttribute('filter', 'url(#foil3dFilter)');
+                }
             } else {
-                artGroup.setAttribute('fill', 'url(#blindDebossGrad)');
-                artGroup.setAttribute('filter', 'url(#blind3dFilter)');
-                if (svgLaurel) svgLaurel.style.stroke = 'url(#blindDebossGrad)';
+                // Blind Deep Deboss
+                if (artGroup) {
+                    artGroup.setAttribute('fill', 'url(#blindDebossGrad)');
+                    artGroup.setAttribute('filter', 'url(#blind3dFilter)');
+                }
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#blindDebossGrad)');
+                if (bgShield) {
+                    bgShield.setAttribute('stroke', 'url(#blindDebossGrad)');
+                    bgShield.setAttribute('filter', 'url(#blind3dFilter)');
+                }
+                if (svgInfinity) svgInfinity.setAttribute('stroke', 'url(#blindDebossGrad)');
+
+                if (textShadow) {
+                    textShadow.setAttribute('fill', '#050201');
+                    textShadow.setAttribute('opacity', '0.98');
+                }
+                if (textBevel) {
+                    textBevel.setAttribute('stroke', 'url(#blindBevelGrad)');
+                    textBevel.setAttribute('opacity', '0.9');
+                }
+                if (textFace) {
+                    textFace.setAttribute('fill', 'url(#blindDebossGrad)');
+                    textFace.setAttribute('stroke', 'url(#blindDebossGrad)');
+                    textFace.setAttribute('filter', 'url(#blind3dFilter)');
+                }
             }
         }
 
@@ -5062,6 +5263,8 @@
                 }
             }
         }
+
+        
 
         
 
