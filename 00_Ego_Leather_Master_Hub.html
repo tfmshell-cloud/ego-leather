@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGO LEATHER — Портал Розробки Проєкту</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Forum&family=Jost:wght@300;400;500&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #060911;
+            color: #F4EFE6;
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+        }
+        .font-royal { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+        .font-logo { font-family: 'Forum', Georgia, serif; letter-spacing: 0.36em; }
+        .font-sub { font-family: 'Tenor Sans', sans-serif; letter-spacing: 0.18em; }
+        .card-hub {
+            background: linear-gradient(180deg, rgba(17, 24, 40, 0.92) 0%, rgba(9, 13, 22, 0.98) 100%);
+            border: 1px solid rgba(200, 169, 126, 0.22);
+            border-radius: 28px;
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hub:hover {
+            border-color: #C8A97E;
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 30px -5px rgba(200, 169, 126, 0.22);
+        }
+        .btn-luxury {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #DFC39B 0%, #C8A97E 50%, #A68254 100%);
+            color: #060911;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: all 0.45s ease;
+        }
+        .btn-luxury:hover {
+            box-shadow: 0 14px 32px -6px rgba(200, 169, 126, 0.65);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen py-16 px-4 sm:px-10">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header with Official EGO LEATHER Logo -->
+        <div class="border-b border-[#C8A97E]/25 pb-10 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-center gap-6">
+                <img src="ego_leather_logo.jpg" alt="EGO LEATHER Official Logo" class="w-24 h-24 object-contain rounded-2xl border border-[#C8A97E]/30 shadow-xl">
+                <div>
+                    <div class="text-xs font-sub uppercase text-[#C8A97E] mb-1">DESKTOP / EGO LEATHER — MASTER ARCHIVE</div>
+                    <h1 class="font-royal text-4xl sm:text-6xl font-light">Екосистема <span class="italic text-[#C8A97E]">EGO LEATHER</span></h1>
+                </div>
+            </div>
+            <div class="text-xs font-sub uppercase text-[#949BA6] text-right">
+                Оновлено: Головний Лендінг Олена Горщар (КНУТД)
+            </div>
+        </div>
+
+        <!-- HERO HIGHLIGHT CARD: NEW MASTER LANDING PAGE -->
+        <div class="card-hub p-8 sm:p-10 mb-10 border-2 border-[#C8A97E] relative overflow-hidden bg-gradient-to-r from-[#111828] via-[#162035] to-[#0B101C]">
+            <div class="absolute top-4 right-4 px-4 py-1 rounded-full bg-[#C8A97E] text-[#060911] text-xs font-sub font-bold uppercase tracking-wider shadow-lg">
+                ФЛАГМАНСЬКИЙ ЛЕНДІНГ 2026 // НОВЕ
+            </div>
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 text-xs font-sub text-[#C8A97E] mb-3">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>ПОВНА ПРЕЗЕНТАЦІЯ БРЕНДУ ТА МАЙСТРИНІ ОЛЕНИ ГОРЩАР</span>
+                </div>
+                <h2 class="font-royal text-3xl sm:text-5xl font-light text-white mb-4">
+                    EGO LEATHER Master Landing
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed mb-6">
+                    Найсучасніший інтерактивний лендінг-пейдж з історією майстрині <strong>Олени Горщар</strong> (КНУТД), презентацією виробів (шоколадний кардхолдер 650 ₴, ремені, чохли, сумки), підтримкою ЗСУ, інтерактивною студією персоналізації тиснення, галереєю всіх 42 фотографій та миттєвим перемиканням Темної (Nocturne Sapphire) і Світлої (Soft Alabaster) тем.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="Ego_Leather_Master_Landing.html" class="btn-luxury px-8 py-3.5 text-xs font-sub shadow-xl">
+                        Відкрити Головний Лендінг-Пейдж →
+                    </a>
+                    <a href="media_files/Ego_Leather_Complete_Media_Hub.html" class="inline-block text-center px-6 py-3 rounded-full border border-[#C8A97E]/50 text-[#F4EFE6] font-sub text-xs uppercase hover:bg-[#C8A97E]/15 transition">
+                        Архів 42 Фото (media_files) ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+            <!-- Card 0: Facebook Media & Research (NEW) -->
+            <div class="card-hub p-7 flex flex-col justify-between relative overflow-hidden border border-[#C8A97E]/40">
+                <div class="absolute top-4 right-4 px-3 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-semibold uppercase">
+                    42 УНІКАЛЬНІ ФОТО
+                </div>
+                <div>
+                    <div class="text-xs font-sub text-[#C8A97E] mb-2">ГОЛОВНИЙ МЕДІА-ХАБ</div>
+                    <h2 class="font-royal text-2xl text-white mb-2">Медіа-Центр & Ресерч</h2>
+                    <p class="text-xs text-[#949BA6] leading-relaxed mb-6">
+                        Єдина консолідована папка <code>media_files</code> (дублікати видалено). 12 студійних 4K-портретів Олени Горщар та 30 виробів.
+                    </p>
+                </div>
+                <a href="media_files/Ego_Leather_Complete_Media_Hub.html" class="btn-luxury w-full py-3 text-xs font-sub">
+                    Відкрити Медіа-Центр →
+                </a>
+            </div>
+
+            <!-- Card 1: 100 Monolithic Fonts -->
+            <div class="card-hub p-7 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-4 right-4 px-3 py-0.5 rounded-full bg-[#C8A97E]/30 text-[#C8A97E] text-[10px] font-sub font-semibold uppercase">
+                    ТОП-100 ШРИФТІВ
+                </div>
+                <div>
+                    <div class="text-xs font-sub text-[#C8A97E] mb-2">МОНОЛІТНІ СИСТЕМИ</div>
+                    <h2 class="font-royal text-2xl text-white mb-2">ТОП-100 Монолітних Шрифтів</h2>
+                    <p class="text-xs text-[#949BA6] leading-relaxed mb-6">
+                        Повністю структуровані, монолітні та Safe-варіанти без шрифтового хаосу. 100% наслідування одного шрифту в усіх елементах інтерфейсу.
+                    </p>
+                </div>
+                <a href="Ego_Leather_100_Monolithic_Fonts.html" class="btn-luxury w-full py-3 text-xs font-sub">
+                    Відкрити 100 Шрифтів →
+                </a>
+            </div>
+
+            <!-- Card 2: Main Flagship Site -->
+            <div class="card-hub p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-sub text-[#C8A97E] mb-2">ЦИФРОВИЙ ФЛАГМАН</div>
+                    <h2 class="font-royal text-2xl text-white mb-2">EGO LEATHER Flagship</h2>
+                    <p class="text-xs text-[#949BA6] leading-relaxed mb-6">
+                        Головний сайт бренду із заокругленими блоками, світловими бліками на кнопках, переходами, 3D-нахилом та інтеграцією логотипа EL.
+                    </p>
+                </div>
+                <a href="Ego_Leather_Flagship_Site.html" class="btn-luxury w-full py-3 text-xs font-sub">
+                    Відкрити Сайт →
+                </a>
+            </div>
+
+            <!-- Card 3: 50 Artistic Fonts -->
+            <div class="card-hub p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-sub text-[#C8A97E] mb-2">АРХІВ ШРИФТІВ</div>
+                    <h2 class="font-royal text-2xl text-white mb-2">50 Художніх Шрифтів</h2>
+                    <p class="text-xs text-[#949BA6] leading-relaxed mb-6">
+                        Попередня добірка еклектичних та художніх гарнітур (Art-Nouveau, каліграфічні розчерки, Duet-мікси).
+                    </p>
+                </div>
+                <a href="Ego_Leather_50_Artistic_Fonts_Showcase.html" class="inline-block text-center w-full py-3 rounded-full border border-[#C8A97E]/50 text-[#F4EFE6] font-sub text-xs uppercase hover:bg-[#C8A97E]/15 transition">
+                    Відкрити 50 Шрифтів →
+                </a>
+            </div>
+
+            <!-- Card 4: 10 Initial Concepts -->
+            <div class="card-hub p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-sub text-[#C8A97E] mb-2">РЕСЬОРЧ & БАЗА</div>
+                    <h2 class="font-royal text-2xl text-white mb-2">10 Концептів Сайту</h2>
+                    <p class="text-xs text-[#949BA6] leading-relaxed mb-6">
+                        Початковий аналітичний документ із ресьорчем люксових брендів, структурою каталогу та 10 дизайн-напрямками.
+                    </p>
+                </div>
+                <a href="Ego_Leather_10_Concepts_Presentation.html" class="inline-block text-center w-full py-3 rounded-full border border-[#C8A97E]/50 text-[#F4EFE6] font-sub text-xs uppercase hover:bg-[#C8A97E]/15 transition">
+                    Відкрити 10 Концептів →
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
