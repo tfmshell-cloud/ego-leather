@@ -4212,7 +4212,7 @@
                                     EGO LEATHER BESPOKE · СТУДІЯ КАРБУВАННЯ
                                 </div>
 
-                                <!-- Center Monogram Graphic Canvas Container (Dedicated Letter Safe Zone) -->
+                                <!-- Center Monogram Graphic Canvas Container (Full Safe Zone Clearance) -->
                                 <div id="monogram-preview-container" class="relative z-10 my-auto text-center flex flex-col items-center justify-center transition-all duration-500 w-full min-h-[160px] px-1">
                                     <svg id="monogram-svg-canvas" viewBox="0 0 400 240" class="w-full max-w-[360px] h-auto overflow-visible select-none transition-all duration-500 drop-shadow-2xl" style="opacity: 0; transform: scale(0.96);">
                                         <defs>
@@ -4281,78 +4281,131 @@
                                             </filter>
                                         </defs>
 
-                                        <!-- Background Frame / Cartouche (Strictly framing around letters, no overlap) -->
-                                        <g id="svg-frame" stroke="url(#goldFoilGrad)" fill="none" stroke-width="1.8" filter="url(#foil3dFilter)" style="display: none;">
-                                            <rect x="134" y="66" width="132" height="96" rx="10" />
-                                            <rect x="139" y="71" width="122" height="86" rx="7" stroke-dasharray="3, 3" stroke-width="1" opacity="0.65" />
-                                            <circle cx="134" cy="66" r="2.5" fill="url(#goldFoilGrad)" />
-                                            <circle cx="266" cy="66" r="2.5" fill="url(#goldFoilGrad)" />
-                                            <circle cx="134" cy="162" r="2.5" fill="url(#goldFoilGrad)" />
-                                            <circle cx="266" cy="162" r="2.5" fill="url(#goldFoilGrad)" />
+                                        <!-- Layer 0: Background Ambient Sunburst Rays -->
+                                        <g id="svg-sunburst" stroke="url(#goldFoilGrad)" stroke-width="1.4" opacity="0.6" style="display: none;">
+                                            <circle cx="200" cy="118" r="96" stroke-dasharray="3, 6" opacity="0.4" />
+                                            <circle cx="200" cy="118" r="108" stroke-dasharray="1, 8" opacity="0.25" />
+                                            <line x1="200" y1="18" x2="200" y2="38" />
+                                            <line x1="200" y1="198" x2="200" y2="218" />
+                                            <line x1="90" y1="118" x2="110" y2="118" />
+                                            <line x1="290" y1="118" x2="310" y2="118" />
+                                            <line x1="122" y1="46" x2="138" y2="62" />
+                                            <line x1="278" y1="46" x2="262" y2="62" />
+                                            <line x1="122" y1="190" x2="138" y2="174" />
+                                            <line x1="278" y1="190" x2="262" y2="174" />
+                                            <line x1="156" y1="26" x2="164" y2="44" />
+                                            <line x1="244" y1="26" x2="236" y2="44" />
+                                            <line x1="156" y1="210" x2="164" y2="192" />
+                                            <line x1="244" y1="210" x2="236" y2="192" />
+                                            <line x1="98" y1="80" x2="116" y2="88" />
+                                            <line x1="302" y1="80" x2="284" y2="88" />
+                                            <line x1="98" y1="156" x2="116" y2="148" />
+                                            <line x1="302" y1="156" x2="284" y2="148" />
                                         </g>
 
-                                        <!-- EGO Leather Brand Ornaments (Carefully calibrated safe zones) -->
+                                        <!-- Layer 1: Grand Heritage Shield (Generously Encompassing up to 4 Letters: x=75..325, y=45..226) -->
+                                        <g id="svg-shield" filter="url(#foil3dFilter)" style="display: none;">
+                                            <path d="M 75,45 L 325,45 C 325,135 295,202 200,226 C 105,202 75,135 75,45 Z" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2.4" />
+                                            <path d="M 85,55 L 315,55 C 315,130 288,192 200,215 C 112,192 85,130 85,55 Z" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.2" stroke-dasharray="4, 4" opacity="0.75" />
+                                            <!-- Acanthus Ear Brackets & Rivets -->
+                                            <path d="M 68,40 Q 75,55 90,45" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2" />
+                                            <path d="M 332,40 Q 325,55 310,45" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2" />
+                                            <circle cx="88" cy="58" r="2.5" fill="url(#goldFoilGrad)" />
+                                            <circle cx="312" cy="58" r="2.5" fill="url(#goldFoilGrad)" />
+                                            <circle cx="200" cy="210" r="3" fill="url(#goldFoilGrad)" />
+                                        </g>
+
+                                        <!-- Layer 2: Imperial Roman Laurel Wreath (Lush, Multi-Leaf with Berries & Ribbon Bow at Bottom) -->
+                                        <g id="svg-laurel" fill="url(#goldFoilGrad)" filter="url(#foil3dFilter)" style="display: none;">
+                                            <!-- Main Curving Stems (Clear margin outside x: 100..300) -->
+                                            <path d="M 106,62 C 86,85 78,118 82,150 C 86,172 102,192 128,202 C 150,210 178,212 195,212" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2.2" stroke-linecap="round" />
+                                            <path d="M 294,62 C 314,85 322,118 318,150 C 314,172 298,192 272,202 C 250,210 222,212 205,212" fill="none" stroke="url(#goldFoilGrad)" stroke-width="2.2" stroke-linecap="round" />
+
+                                            <!-- Left Dense Leaf Clusters & Berries -->
+                                            <path d="M 102,68 C 90,62 84,68 92,75 C 97,73 100,70 102,68 Z" />
+                                            <path d="M 94,84 C 80,80 76,88 84,95 C 89,93 92,89 94,84 Z" />
+                                            <circle cx="80" cy="88" r="1.8" />
+                                            <path d="M 87,104 C 72,102 70,111 78,117 C 83,114 86,110 87,104 Z" />
+                                            <path d="M 83,124 C 68,124 67,133 76,139 C 81,136 83,131 83,124 Z" />
+                                            <circle cx="70" cy="130" r="1.8" />
+                                            <path d="M 83,144 C 70,146 70,156 79,161 C 83,157 84,151 83,144 Z" />
+                                            <path d="M 90,164 C 78,168 81,178 90,182 C 94,177 94,171 90,164 Z" />
+                                            <circle cx="80" cy="172" r="1.8" />
+                                            <path d="M 104,182 C 94,188 100,197 109,199 C 111,194 110,188 104,182 Z" />
+                                            <path d="M 124,196 C 116,203 124,211 133,211 C 134,206 131,200 124,196 Z" />
+
+                                            <!-- Right Dense Leaf Clusters & Berries -->
+                                            <path d="M 298,68 C 310,62 316,68 308,75 C 303,73 300,70 298,68 Z" />
+                                            <path d="M 306,84 C 320,80 324,88 316,95 C 311,93 308,89 306,84 Z" />
+                                            <circle cx="320" cy="88" r="1.8" />
+                                            <path d="M 313,104 C 328,102 330,111 322,117 C 317,114 314,110 313,104 Z" />
+                                            <path d="M 317,124 C 332,124 333,133 324,139 C 319,136 317,131 317,124 Z" />
+                                            <circle cx="330" cy="130" r="1.8" />
+                                            <path d="M 317,144 C 330,146 330,156 321,161 C 317,157 316,151 317,144 Z" />
+                                            <path d="M 310,164 C 322,168 319,178 310,182 C 306,177 306,171 310,164 Z" />
+                                            <circle cx="320" cy="172" r="1.8" />
+                                            <path d="M 296,182 C 306,188 300,197 291,199 C 289,194 290,188 296,182 Z" />
+                                            <path d="M 276,196 C 284,203 276,211 267,211 C 266,206 269,200 276,196 Z" />
+
+                                            <!-- Imperial Ribbon Bow Tie at Bottom -->
+                                            <circle cx="200" cy="212" r="3.5" />
+                                            <path d="M 200,212 C 188,204 180,214 186,220 C 193,223 200,217 200,212 Z" />
+                                            <path d="M 200,212 C 212,204 220,214 214,220 C 207,223 200,217 200,212 Z" />
+                                            <path d="M 197,214 L 188,230" stroke="url(#goldFoilGrad)" stroke-width="1.8" />
+                                            <path d="M 203,214 L 212,230" stroke="url(#goldFoilGrad)" stroke-width="1.8" />
+                                        </g>
+
+                                        <!-- Layer 3: Foreground Master Ornaments Group (Wings, Swash, Crown, Fleur, Lions) -->
                                         <g id="svg-monogram-art-group" fill="url(#goldFoilGrad)" stroke="none" filter="url(#foil3dFilter)" class="transition-all duration-300">
-                                            <!-- 1. Authentic EGO Wings (Flanking left & right, outside x=135..265) -->
+                                            <!-- 1. Authentic EGO Wings (Flanking left & right outside x=100..300) -->
                                             <g id="svg-plumage" class="transition-all duration-300" style="opacity: 1;">
-                                                <!-- Left Wing (x: 18 to 134) -->
-                                                <path d="M 134,112 C 105,94 65,78 20,84 C 45,98 80,105 110,118 C 65,114 35,124 15,142 C 45,145 80,140 115,135 C 75,148 50,165 35,185 C 65,172 100,158 134,142 Z" opacity="0.95" />
-                                                <path d="M 30,94 Q 72,106 122,118" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
-                                                <path d="M 24,140 Q 68,142 118,138" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <!-- Left Primary & Secondary Flight Feathers -->
+                                                <path d="M 100,108 C 76,88 44,76 12,82 C 36,96 66,104 90,116 C 52,112 26,120 8,136 C 36,142 66,138 94,134 C 58,144 36,160 22,180 C 50,168 78,154 100,140 Z" opacity="0.95" />
+                                                <path d="M 24,92 Q 62,104 94,116" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <path d="M 18,138 Q 58,141 94,135" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
 
-                                                <!-- Right Wing (x: 266 to 382) -->
-                                                <path d="M 266,112 C 295,94 335,78 380,84 C 355,98 320,105 290,118 C 335,114 365,124 385,142 C 355,145 320,140 285,135 C 325,148 350,165 365,185 C 335,172 300,158 266,142 Z" opacity="0.95" />
-                                                <path d="M 370,94 Q 328,106 278,118" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
-                                                <path d="M 376,140 Q 332,142 282,138" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <!-- Right Primary & Secondary Flight Feathers -->
+                                                <path d="M 300,108 C 324,88 356,76 388,82 C 364,96 334,104 310,116 C 348,112 374,120 392,136 C 364,142 334,138 306,134 C 342,144 364,160 378,180 C 350,168 322,154 300,140 Z" opacity="0.95" />
+                                                <path d="M 376,92 Q 338,104 306,116" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
+                                                <path d="M 382,138 Q 342,141 306,135" stroke="#5C3B07" stroke-width="1.3" fill="none" opacity="0.55" />
                                             </g>
 
-                                            <!-- 2. Calligraphic Swash Tail (Strictly underneath, y=168..188) -->
+                                            <!-- 2. Royal Calligraphic Swash Tail (Strictly Underneath at y=168..192) -->
                                             <g id="svg-tail" class="transition-all duration-300" style="opacity: 1;">
-                                                <path d="M 75,170 C 130,192 270,192 325,170 C 285,182 195,184 118,176 C 98,174 85,166 90,160 C 95,154 108,157 112,162 C 107,160 99,160 96,163 C 94,167 102,170 122,172 C 172,177 252,175 305,167 C 322,164 332,170 325,175 C 298,187 185,191 75,170 Z" />
-                                                <circle cx="82" cy="162" r="2.8" />
-                                                <circle cx="324" cy="172" r="2.2" />
+                                                <path d="M 55,170 C 115,195 285,195 345,170 C 298,184 195,186 106,177 C 82,174 66,164 74,156 C 80,148 96,152 102,159 C 96,156 86,156 82,160 C 79,165 90,169 116,171 C 176,177 268,174 318,164 C 336,160 348,168 340,174 C 310,189 185,194 55,170 Z" />
+                                                <circle cx="72" cy="158" r="3" />
+                                                <circle cx="344" cy="170" r="2.5" />
                                             </g>
 
-                                            <!-- 3. Grand Imperial Crown (Strictly above, y=26..62) -->
+                                            <!-- 3. Grand Imperial Crown (Strictly Above at y=24..64) -->
                                             <g id="svg-crown" class="transition-all duration-300" style="display: none; opacity: 0;">
-                                                <path d="M 170,60 L 178,44 L 189,56 L 200,34 L 211,56 L 222,44 L 230,60 C 214,64 186,64 170,60 Z" />
-                                                <circle cx="200" cy="30" r="3" />
-                                                <circle cx="178" cy="40" r="2.2" />
-                                                <circle cx="222" cy="40" r="2.2" />
-                                                <circle cx="189" cy="52" r="1.6" />
-                                                <circle cx="211" cy="52" r="1.6" />
-                                                <rect x="174" y="63" width="52" height="3.5" rx="1.8" opacity="0.9" />
+                                                <path d="M 166,60 L 174,42 L 187,56 L 200,30 L 213,56 L 226,42 L 234,60 C 216,64 184,64 166,60 Z" />
+                                                <circle cx="200" cy="26" r="3.5" />
+                                                <circle cx="174" cy="38" r="2.4" />
+                                                <circle cx="226" cy="38" r="2.4" />
+                                                <circle cx="187" cy="52" r="1.8" />
+                                                <circle cx="213" cy="52" r="1.8" />
+                                                <rect x="170" y="63" width="60" height="4" rx="2" opacity="0.9" />
                                             </g>
 
-                                            <!-- 4. European Royal Laurel Wreath (Strictly framing left & right, outside x=115..285) -->
-                                            <g id="svg-laurel" class="transition-all duration-300" style="display: none; opacity: 0;">
-                                                <!-- Left Laurel Branch -->
-                                                <path d="M 116,68 C 102,84 96,108 98,134 C 100,150 108,165 120,174" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.8" stroke-linecap="round" />
-                                                <path d="M 110,76 C 98,73 94,80 101,86 C 106,84 109,80 110,76 Z" />
-                                                <path d="M 101,98 C 89,96 86,103 93,109 C 97,106 100,102 101,98 Z" />
-                                                <path d="M 99,120 C 88,119 86,127 93,132 C 97,129 99,125 99,120 Z" />
-                                                <path d="M 103,142 C 93,143 92,151 99,156 C 103,152 104,147 103,142 Z" />
-                                                <path d="M 113,162 C 104,165 105,173 113,176 C 115,172 115,167 113,162 Z" />
-
-                                                <!-- Right Laurel Branch -->
-                                                <path d="M 284,68 C 298,84 304,108 302,134 C 300,150 292,165 280,174" fill="none" stroke="url(#goldFoilGrad)" stroke-width="1.8" stroke-linecap="round" />
-                                                <path d="M 290,76 C 302,73 306,80 299,86 C 294,84 291,80 290,76 Z" />
-                                                <path d="M 299,98 C 311,96 314,103 307,109 C 303,106 300,102 299,98 Z" />
-                                                <path d="M 301,120 C 312,119 314,127 307,132 C 303,129 301,125 301,120 Z" />
-                                                <path d="M 297,142 C 307,143 308,151 301,156 C 297,152 296,147 297,142 Z" />
-                                                <path d="M 287,162 C 296,165 295,173 287,176 C 285,172 285,167 287,162 Z" />
-                                            </g>
-
-                                            <!-- 5. Florentine Fleur-de-Lis (Strictly above, y=28..64) -->
+                                            <!-- 4. Renaissance Florentine Fleur-de-Lis (Strictly Above at y=24..68) -->
                                             <g id="svg-fleur" class="transition-all duration-300" style="display: none; opacity: 0;">
-                                                <path d="M 200,30 C 195,45 188,53 182,58 C 191,60 195,64 194,71 L 206,71 C 205,64 209,60 218,58 C 212,53 205,45 200,30 Z" />
-                                                <path d="M 180,56 C 168,52 160,44 162,34 C 173,36 180,45 184,53 Z" />
-                                                <path d="M 220,56 C 232,52 240,44 238,34 C 227,36 220,45 216,53 Z" />
-                                                <rect x="184" y="71" width="32" height="3" rx="1.5" />
+                                                <path d="M 200,28 C 194,44 186,52 180,58 C 190,60 194,64 193,72 L 207,72 C 206,64 210,60 220,58 C 214,52 206,44 200,28 Z" />
+                                                <path d="M 178,56 C 165,52 156,43 158,32 C 170,34 178,44 182,53 Z" />
+                                                <path d="M 222,56 C 235,52 244,43 242,32 C 230,34 222,44 218,53 Z" />
+                                                <rect x="182" y="72" width="36" height="3.5" rx="1.7" />
+                                            </g>
+
+                                            <!-- 5. Heraldic Lions Guardians (Flanking outside x=95..305) -->
+                                            <g id="svg-lions" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <!-- Left Rampant Lion Silhouette -->
+                                                <path d="M 88,80 C 82,74 74,76 70,82 C 68,86 70,92 66,98 C 62,104 54,106 52,112 C 50,118 54,124 60,130 C 64,134 68,140 67,146 L 72,148 C 76,142 74,136 72,130 C 77,128 82,122 84,116 C 88,110 86,100 90,94 C 94,88 92,82 88,80 Z" />
+                                                <!-- Right Rampant Lion Silhouette -->
+                                                <path d="M 312,80 C 318,74 326,76 330,82 C 332,86 330,92 334,98 C 338,104 346,106 348,112 C 350,118 346,124 340,130 C 336,134 332,140 333,146 L 328,148 C 324,142 326,136 328,130 C 323,128 318,122 316,116 C 312,110 314,100 310,94 C 306,88 308,82 312,80 Z" />
                                             </g>
                                         </g>
 
-                                        <!-- Multi-Layer 3D Chiseled Letters (Strictly centered, x=200, y=118) -->
+                                        <!-- Multi-Layer 3D Chiseled Letters (Clear Centered Safe Zone: x=200, y=118) -->
                                         <g id="svg-letters-3d-stack" class="select-none transition-all duration-300">
                                             <!-- Sunk Indentation Shadow -->
                                             <text id="svg-monogram-shadow" x="200" y="125" text-anchor="middle" dominant-baseline="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="68" font-weight="800" letter-spacing="6" fill="#080301" opacity="0.95" filter="url(#leatherRecessShadow)">
@@ -4385,15 +4438,15 @@
                                 <input id="monogram-input" type="text" maxlength="4" value="EGO" oninput="updateMonogram(this.value)" class="w-full px-4 py-3 rounded-xl border bg-black/40 text-white font-royal text-2xl font-bold tracking-widest focus:outline-none focus:border-[#C8A97E]" style="border-color: var(--border-line);">
                             </div>
 
-                            <!-- 5 EGO Brand Graphic Elements -->
+                            <!-- 8 Luxury Ornaments Palette -->
                             <div>
                                 <div class="flex items-center justify-between mb-2">
-                                    <label class="block text-xs font-sub text-gray-300">Графічне обрамлення EGO Leather:</label>
+                                    <label class="block text-xs font-sub text-gray-300">Графічне обрамлення (8 геральдичних елементів):</label>
                                     <button type="button" onclick="randomizeMonogramStyle()" class="text-[11px] font-sub text-[#C8A97E] hover:underline flex items-center gap-1 transition-colors cursor-pointer font-medium">
                                         <span>✨ Згенерувати стиль</span>
                                     </button>
                                 </div>
-                                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                <div class="grid grid-cols-4 gap-2">
                                     <button type="button" id="toggle-opt-plumage" onclick="toggleGraphicElement('plumage', this)" class="graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer">
                                         🪶 Крила EGO
                                     </button>
@@ -4403,11 +4456,20 @@
                                     <button type="button" id="toggle-opt-crown" onclick="toggleGraphicElement('crown', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
                                         👑 Корона
                                     </button>
+                                    <button type="button" id="toggle-opt-fleur" onclick="toggleGraphicElement('fleur', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        ⚜️ Лілія
+                                    </button>
+                                    <button type="button" id="toggle-opt-shield" onclick="toggleGraphicElement('shield', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        🛡️ Щит
+                                    </button>
+                                    <button type="button" id="toggle-opt-sunburst" onclick="toggleGraphicElement('sunburst', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        ☀️ Сяйво
+                                    </button>
+                                    <button type="button" id="toggle-opt-lions" onclick="toggleGraphicElement('lions', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        🦁 Леви
+                                    </button>
                                     <button type="button" id="toggle-opt-laurel" onclick="toggleGraphicElement('laurel', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
                                         🌿 Лавр
-                                    </button>
-                                    <button type="button" id="toggle-opt-frame" onclick="toggleGraphicElement('frame', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer col-span-1">
-                                        🛡️ Рамка
                                     </button>
                                 </div>
                             </div>
@@ -4914,7 +4976,7 @@
 
         
 
-        // Monogram Stamper & EGO Leather Graphic Design Engine
+        // Monogram Stamper & 8-Ornament Graphic Design Engine
         let currentFoil = 'gold';
         let currentLeatherTint = 'natural';
         let currentLeatherOpacity = '0';
@@ -4924,8 +4986,11 @@
             plumage: true,
             tail: true,
             crown: false,
-            laurel: false,
-            frame: false
+            fleur: false,
+            shield: false,
+            sunburst: false,
+            lions: false,
+            laurel: false
         };
 
         function toggleGraphicElement(elementKey, btnEl) {
@@ -4951,8 +5016,11 @@
                 plumage: document.getElementById('svg-plumage'),
                 tail: document.getElementById('svg-tail'),
                 crown: document.getElementById('svg-crown'),
-                laurel: document.getElementById('svg-laurel'),
-                frame: document.getElementById('svg-frame')
+                fleur: document.getElementById('svg-fleur'),
+                shield: document.getElementById('svg-shield'),
+                sunburst: document.getElementById('svg-sunburst'),
+                lions: document.getElementById('svg-lions'),
+                laurel: document.getElementById('svg-laurel')
             };
 
             for (const [key, el] of Object.entries(elements)) {
@@ -4964,12 +5032,14 @@
         }
 
         const presets = [
-            { plumage: true, tail: true, crown: false, laurel: false, frame: false },
-            { plumage: true, tail: true, crown: true, laurel: false, frame: false },
-            { plumage: false, tail: true, crown: false, laurel: true, frame: false },
-            { plumage: false, tail: false, crown: true, laurel: false, frame: true },
-            { plumage: true, tail: false, crown: false, laurel: true, frame: false },
-            { plumage: true, tail: true, crown: false, laurel: false, frame: true }
+            { plumage: true, tail: true, crown: false, fleur: false, shield: false, sunburst: false, lions: false, laurel: false },
+            { plumage: true, tail: true, crown: true, fleur: false, shield: false, sunburst: false, lions: false, laurel: false },
+            { plumage: false, tail: true, crown: false, fleur: false, shield: false, sunburst: false, lions: false, laurel: true },
+            { plumage: false, tail: false, crown: false, fleur: true, shield: true, sunburst: false, lions: false, laurel: false },
+            { plumage: true, tail: true, crown: false, fleur: false, shield: false, sunburst: true, lions: false, laurel: false },
+            { plumage: false, tail: false, crown: true, fleur: false, shield: false, sunburst: false, lions: true, laurel: false },
+            { plumage: false, tail: true, crown: true, fleur: false, shield: true, sunburst: false, lions: false, laurel: false },
+            { plumage: true, tail: false, crown: false, fleur: false, shield: false, sunburst: false, lions: false, laurel: true }
         ];
         let presetIdx = 0;
 
@@ -4987,8 +5057,11 @@
                 plumage: document.getElementById('toggle-opt-plumage'),
                 tail: document.getElementById('toggle-opt-tail'),
                 crown: document.getElementById('toggle-opt-crown'),
-                laurel: document.getElementById('toggle-opt-laurel'),
-                frame: document.getElementById('toggle-opt-frame')
+                fleur: document.getElementById('toggle-opt-fleur'),
+                shield: document.getElementById('toggle-opt-shield'),
+                sunburst: document.getElementById('toggle-opt-sunburst'),
+                lions: document.getElementById('toggle-opt-lions'),
+                laurel: document.getElementById('toggle-opt-laurel')
             };
 
             for (const [k, el] of Object.entries(btns)) {
@@ -5045,13 +5118,13 @@
                 if (cleanLayer) cleanLayer.style.opacity = '1';
                 if (foilWings) foilWings.style.opacity = '0';
 
-                // Size & spacing calculation: keep letters perfectly centered in safe zone
+                // Size & spacing calculation: keep letters perfectly centered and within safe zone
                 let fontSize = '68';
                 let letterSpacing = '6';
                 let strokeWidth = '1.4';
 
                 if (clean.length === 1) {
-                    fontSize = '78';
+                    fontSize = '80';
                     letterSpacing = '0';
                     strokeWidth = '1.8';
                 } else if (clean.length === 2) {
@@ -5059,12 +5132,12 @@
                     letterSpacing = '6';
                     strokeWidth = '1.4';
                 } else if (clean.length === 3) {
-                    fontSize = '54';
+                    fontSize = '52';
                     letterSpacing = '4';
                     strokeWidth = '1.2';
                 } else {
-                    fontSize = '44';
-                    letterSpacing = '2';
+                    fontSize = '42';
+                    letterSpacing = '3';
                     strokeWidth = '1.0';
                 }
 
@@ -5092,8 +5165,10 @@
 
         function applyFoilToSVG(foil) {
             const artGroup = document.getElementById('svg-monogram-art-group');
-            const svgFrame = document.getElementById('svg-frame');
-            const svgLaurelLines = document.querySelectorAll('#svg-laurel path[stroke]');
+            const bgSunburst = document.getElementById('svg-sunburst');
+            const bgShield = document.querySelectorAll('#svg-shield path[stroke]');
+            const bgLaurel = document.getElementById('svg-laurel');
+            const bgLaurelStems = document.querySelectorAll('#svg-laurel path[stroke]');
             const textShadow = document.getElementById('svg-monogram-shadow');
             const textBevel = document.getElementById('svg-monogram-bevel');
             const textFace = document.getElementById('svg-monogram-text');
@@ -5103,11 +5178,10 @@
                     artGroup.setAttribute('fill', 'url(#goldFoilGrad)');
                     artGroup.setAttribute('filter', 'url(#foil3dFilter)');
                 }
-                if (svgFrame) {
-                    svgFrame.setAttribute('stroke', 'url(#goldFoilGrad)');
-                    svgFrame.setAttribute('filter', 'url(#foil3dFilter)');
-                }
-                svgLaurelLines.forEach(p => p.setAttribute('stroke', 'url(#goldFoilGrad)'));
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#goldFoilGrad)');
+                bgShield.forEach(p => p.setAttribute('stroke', 'url(#goldFoilGrad)'));
+                if (bgLaurel) bgLaurel.setAttribute('fill', 'url(#goldFoilGrad)');
+                bgLaurelStems.forEach(p => p.setAttribute('stroke', 'url(#goldFoilGrad)'));
 
                 if (textShadow) {
                     textShadow.setAttribute('fill', '#080301');
@@ -5127,11 +5201,10 @@
                     artGroup.setAttribute('fill', 'url(#silverFoilGrad)');
                     artGroup.setAttribute('filter', 'url(#foil3dFilter)');
                 }
-                if (svgFrame) {
-                    svgFrame.setAttribute('stroke', 'url(#silverFoilGrad)');
-                    svgFrame.setAttribute('filter', 'url(#foil3dFilter)');
-                }
-                svgLaurelLines.forEach(p => p.setAttribute('stroke', 'url(#silverFoilGrad)'));
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#silverFoilGrad)');
+                bgShield.forEach(p => p.setAttribute('stroke', 'url(#silverFoilGrad)'));
+                if (bgLaurel) bgLaurel.setAttribute('fill', 'url(#silverFoilGrad)');
+                bgLaurelStems.forEach(p => p.setAttribute('stroke', 'url(#silverFoilGrad)'));
 
                 if (textShadow) {
                     textShadow.setAttribute('fill', '#05070a');
@@ -5152,11 +5225,10 @@
                     artGroup.setAttribute('fill', 'url(#blindDebossGrad)');
                     artGroup.setAttribute('filter', 'url(#blind3dFilter)');
                 }
-                if (svgFrame) {
-                    svgFrame.setAttribute('stroke', 'url(#blindDebossGrad)');
-                    svgFrame.setAttribute('filter', 'url(#blind3dFilter)');
-                }
-                svgLaurelLines.forEach(p => p.setAttribute('stroke', 'url(#blindDebossGrad)'));
+                if (bgSunburst) bgSunburst.setAttribute('stroke', 'url(#blindDebossGrad)');
+                bgShield.forEach(p => p.setAttribute('stroke', 'url(#blindDebossGrad)'));
+                if (bgLaurel) bgLaurel.setAttribute('fill', 'url(#blindDebossGrad)');
+                bgLaurelStems.forEach(p => p.setAttribute('stroke', 'url(#blindDebossGrad)'));
 
                 if (textShadow) {
                     textShadow.setAttribute('fill', '#050201');
@@ -5222,6 +5294,8 @@
                 }
             }
         }
+
+        
 
         
 
