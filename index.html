@@ -1101,20 +1101,109 @@
 
     
         /* ==========================================================================
-           CINEMATIC REELS: VARIANT 08 SLANTED EDGY SKEW (INFINITE SLOW DRIFT)
+           BESPOKE SLANTED DIAGONAL NAVIGATION & REELS SHOWCASE
            ========================================================================== */
+        /* Slanted Diagonal Navigation System */
+        .nav-slanted-btn {
+            position: relative;
+            padding: 8px 14px;
+            font-size: 13.5px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: skewX(-8deg);
+            border-radius: 6px;
+            border: 1px solid transparent;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            letter-spacing: 0.04em;
+        }
+
+        @media (min-width: 1280px) {
+            .nav-slanted-btn {
+                font-size: 14.5px;
+                padding: 9px 18px;
+            }
+        }
+
+        .nav-slanted-btn span {
+            display: inline-block;
+            transform: skewX(8deg);
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-slanted-btn:hover {
+            background: rgba(200, 169, 126, 0.14);
+            border-color: rgba(200, 169, 126, 0.55);
+            box-shadow: 0 4px 18px rgba(200, 169, 126, 0.25);
+        }
+
+        .nav-slanted-btn:hover span {
+            color: var(--accent-gold-bright);
+        }
+
+        .nav-diagonal-divider {
+            display: inline-block;
+            width: 1.5px;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, rgba(200, 169, 126, 0.75), transparent);
+            transform: skewX(-15deg);
+            opacity: 0.85;
+            margin: 0 3px;
+            flex-shrink: 0;
+        }
+
+        :root[data-theme="light"] .nav-diagonal-divider {
+            background: linear-gradient(180deg, transparent, rgba(140, 98, 57, 0.75), transparent);
+        }
+
+        .nav-slanted-cta {
+            transform: skewX(-8deg);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .nav-slanted-cta .nav-cta-text {
+            display: inline-block;
+            transform: skewX(8deg);
+        }
+
+        .nav-slanted-cta:hover {
+            transform: skewX(-8deg) translateY(-2px) scale(1.03);
+            box-shadow: 0 16px 36px rgba(200, 169, 126, 0.55);
+        }
+
+        /* Hero Reels Showcase - Atelier Haute Couture Stage */
         #hero-reels-showcase {
             position: relative;
             z-index: 25;
-            background: radial-gradient(ellipse at 50% 0%, rgba(200, 169, 126, 0.08) 0%, rgba(6, 9, 17, 0.98) 100%);
-            border-bottom: 1px solid var(--border-line);
-            padding: 8px 0 20px 0;
+            background: linear-gradient(180deg, #05070d 0%, #0b111d 50%, #05070d 100%);
+            box-shadow: inset 0 25px 50px -15px rgba(0, 0, 0, 0.95), inset 0 -25px 50px -15px rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(200, 169, 126, 0.32);
+            border-bottom: 1px solid rgba(200, 169, 126, 0.32);
+            padding: 10px 0 22px 0;
             overflow: hidden;
             width: 100%;
         }
 
+        #hero-reels-showcase::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(200, 169, 126, 0.12) 0%, rgba(139, 69, 19, 0.05) 45%, transparent 75%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
         :root[data-theme="light"] #hero-reels-showcase {
-            background: radial-gradient(ellipse at 50% 0%, rgba(140, 98, 57, 0.09) 0%, rgba(246, 243, 236, 0.98) 100%);
+            background: linear-gradient(180deg, #F6F3EC 0%, #EDE6D8 50%, #F6F3EC 100%);
+            box-shadow: inset 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 -20px 40px -15px rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(140, 98, 57, 0.32);
+            border-bottom: 1px solid rgba(140, 98, 57, 0.32);
+        }
+
+        :root[data-theme="light"] #hero-reels-showcase::before {
+            background: radial-gradient(ellipse at 50% 50%, rgba(140, 98, 57, 0.10) 0%, rgba(184, 134, 85, 0.05) 45%, transparent 75%);
         }
 
         .t8-marquee-container {
@@ -1191,6 +1280,60 @@
 
         .v-box:hover video {
             transform: skewX(0deg) scale(1.02);
+        }
+
+        /* Reel 2 Atmospheric Audio Indicator */
+        .reel2-audio-pill {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            z-index: 15;
+            background: rgba(6, 9, 17, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--accent-gold);
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: auto;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .reel2-audio-pill:hover {
+            background: var(--accent-gold);
+            color: #060911;
+        }
+
+        .reel2-audio-pill:hover .audio-pulse-dot {
+            background: #060911;
+        }
+
+        .reel2-audio-pill:hover .reel2-audio-label {
+            color: #060911;
+        }
+
+        .audio-pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            animation: audioPulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes audioPulse {
+            0%, 100% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .reel2-audio-label {
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold-bright);
+            text-transform: uppercase;
         }
 
         @media (min-width: 1440px) {
@@ -1351,36 +1494,50 @@
 
     <!-- TOP HEADER -->
     <header class="sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300" style="background-color: var(--bg-glass); border-color: var(--border-line);">
-        <div class="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
-            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged) -->
-            <a href="#hero" class="flex items-center gap-3.5 sm:gap-4.5 group shrink-0" aria-label="EGO LEATHER Головна">
-                <div class="leather-brand-badge gold-shimmer-sweep w-[66px] h-[51px] sm:w-[84px] sm:h-[65px] md:w-[94px] md:h-[73px] shrink-0">
+        <div class="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 h-24 sm:h-28 lg:h-32 flex items-center justify-between gap-4 lg:gap-6">
+            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged Luxury Standard) -->
+            <a href="#hero" class="flex items-center gap-4 sm:gap-5 group shrink-0" aria-label="EGO LEATHER Головна">
+                <div class="leather-brand-badge gold-shimmer-sweep w-[80px] h-[62px] sm:w-[98px] sm:h-[76px] md:w-[114px] md:h-[88px] lg:w-[124px] lg:h-[96px] shrink-0">
                     <img src="assets/branding/ego_leather_patch_gold.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover dark-only">
                     <img src="assets/branding/ego_leather_patch_light.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover light-only hidden">
                 </div>
                 <div class="flex flex-col justify-center">
-                    <span class="font-logo text-lg sm:text-2xl md:text-[26px] tracking-[0.24em] font-normal leading-tight transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
-                    <span class="text-[9px] sm:text-[10.5px] font-sub tracking-[0.22em] sm:tracking-[0.26em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
+                    <span class="font-logo text-xl sm:text-2xl md:text-3xl lg:text-[34px] tracking-[0.25em] font-medium leading-none mb-1 transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
+                    <span class="text-[10px] sm:text-[11.5px] md:text-[13px] font-sub tracking-[0.28em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
                 </div>
             </a>
 
-            <!-- Navigation Links (Desktop) -->
-            <nav class="hidden lg:flex items-center gap-8 text-xs font-sub">
-                <a href="#artisan" data-i18n="nav_artisan" class="hover:text-[#C8A97E] transition-colors py-1">Майстриня Олена Горщар</a>
-                <a href="#creations" data-i18n="nav_creations" class="hover:text-[#C8A97E] transition-colors py-1">Колекція Виробів</a>
-                <a href="#support-zsu" data-i18n="nav_support" class="hover:text-[#C8A97E] transition-colors py-1">Підтримка ЗСУ</a>
-                <a href="#stamper" data-i18n="nav_stamper" class="hover:text-[#C8A97E] transition-colors py-1">Персоналізація</a>
-                <a href="#gallery" data-i18n="nav_gallery" class="hover:text-[#C8A97E] transition-colors py-1">Медіа-Архів (42 Фото)</a>
+            <!-- Navigation Links (Desktop) with Diagonal Slanted Styling & Bronze Dividers -->
+            <nav class="hidden xl:flex items-center gap-1 font-sub">
+                <a href="#artisan" data-i18n="nav_artisan" class="nav-slanted-btn">
+                    <span>Майстриня Олена Горщар</span>
+                </a>
+                <span class="nav-diagonal-divider" aria-hidden="true"></span>
+                <a href="#creations" data-i18n="nav_creations" class="nav-slanted-btn">
+                    <span>Колекція Виробів</span>
+                </a>
+                <span class="nav-diagonal-divider" aria-hidden="true"></span>
+                <a href="#support-zsu" data-i18n="nav_support" class="nav-slanted-btn">
+                    <span>Підтримка ЗСУ</span>
+                </a>
+                <span class="nav-diagonal-divider" aria-hidden="true"></span>
+                <a href="#stamper" data-i18n="nav_stamper" class="nav-slanted-btn">
+                    <span>Персоналізація</span>
+                </a>
+                <span class="nav-diagonal-divider" aria-hidden="true"></span>
+                <a href="#gallery" data-i18n="nav_gallery" class="nav-slanted-btn">
+                    <span>Медіа-Архів (42 Фото)</span>
+                </a>
             </nav>
 
             <!-- Actions -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-2 sm:gap-3.5">
                 <!-- Academic Multi-Language Selector Dropdown -->
                 <div class="relative inline-block text-left" id="lang-dropdown-wrapper">
-                    <button id="lang-dropdown-btn" onclick="toggleLangDropdown(event)" class="btn-luxury-secondary px-2.5 sm:px-3 py-2 text-xs shrink-0 flex items-center gap-1.5 transition-all duration-200" title="Оберіть мову / Select Language" aria-expanded="false">
-                        <span class="text-xs">🌐</span>
-                        <span id="current-lang-code" class="text-[11px] font-sub font-semibold uppercase tracking-wider text-[#C8A97E]">UA</span>
-                        <svg class="w-3 h-3 text-current opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                    <button id="lang-dropdown-btn" onclick="toggleLangDropdown(event)" class="btn-luxury-secondary px-3 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm shrink-0 flex items-center gap-1.5 transition-all duration-200" title="Оберіть мову / Select Language" aria-expanded="false">
+                        <span class="text-xs sm:text-sm">🌐</span>
+                        <span id="current-lang-code" class="text-[11px] sm:text-xs font-sub font-semibold uppercase tracking-wider text-[#C8A97E]">UA</span>
+                        <svg class="w-3.5 h-3.5 text-current opacity-70" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
@@ -1412,15 +1569,15 @@
                     </div>
                 </div>
 
-                <button onclick="toggleTheme()" class="btn-luxury-secondary px-2.5 sm:px-3.5 py-2 text-xs shrink-0" title="Перемкнути Світлу / Темну тему">
+                <button onclick="toggleTheme()" class="btn-luxury-secondary px-3 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm shrink-0" title="Перемкнути Світлу / Темну тему">
                     <span id="theme-icon">🌓</span>
-                    <span class="hidden sm:inline text-[10px] font-sub ml-1" data-i18n="theme_toggle">Тема</span>
+                    <span class="hidden sm:inline text-xs font-sub ml-1" data-i18n="theme_toggle">Тема</span>
                 </button>
-                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex btn-luxury-primary px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-sub shadow-lg shrink-0">
-                    <span data-i18n="nav_order">Замовити виріб</span>
+                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex btn-luxury-primary nav-slanted-cta px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-sub shadow-xl shrink-0">
+                    <span class="nav-cta-text" data-i18n="nav_order">Замовити виріб</span>
                 </a>
                 <!-- Mobile Hamburger Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden flex items-center justify-center w-11 h-11 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
                     <svg id="hamburger-icon" class="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -1471,85 +1628,101 @@
                 <div class="t8-marquee-track">
                 <!-- MARQUEE GROUP 1 -->
                 <div class="t8-marquee-group">
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
+                            <span class="audio-pulse-dot"></span>
+                            <span class="reel2-audio-label">🎵 Саундтрек</span>
+                        </div>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
                     </div>
                 </div>
                 <!-- MARQUEE GROUP 2 -->
                 <div class="t8-marquee-group" aria-hidden="true">
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
+                            <span class="audio-pulse-dot"></span>
+                            <span class="reel2-audio-label">🎵 Саундтрек</span>
+                        </div>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
                     </div>
                 </div>
                 <!-- MARQUEE GROUP 3 -->
                 <div class="t8-marquee-group" aria-hidden="true">
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
+                            <span class="audio-pulse-dot"></span>
+                            <span class="reel2-audio-label">🎵 Саундтрек</span>
+                        </div>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
                     </div>
                 </div>
                 <!-- MARQUEE GROUP 4 -->
                 <div class="t8-marquee-group" aria-hidden="true">
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
+                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
+                            <span class="audio-pulse-dot"></span>
+                            <span class="reel2-audio-label">🎵 Саундтрек</span>
+                        </div>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_04_1080p.mp4', 'Emerald Baguette · Геометричний скіл та смарагдовий глянець')" title="Emerald Baguette">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_04_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_05_1080p.mp4', 'Python Grand Tote · Текстурна шкіра рептилії з металіком')" title="Python Grand Tote">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_05_720p.mp4"></video>
                     </div>
-                    <div class="v-box" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
+                    <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_06_1080p.mp4', 'Sculptural Drape Noir · Архітектурні складки шкіри')" title="Sculptural Drape Noir">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_06_720p.mp4"></video>
                     </div>
                 </div>
@@ -8408,6 +8581,91 @@
         }
     });
 
+    // 5.7. Atmospheric Reel 2 Music Fade In / Fade Out (Woman in Violet Trench Coat)
+    var currentFadingVideo = null;
+    var audioFadeTimer = null;
+
+    function fadeAudioTo(v, targetVol, duration, onComplete) {
+        if (!v) return;
+        if (audioFadeTimer) clearInterval(audioFadeTimer);
+        
+        if (targetVol > 0) {
+            v.muted = false;
+        }
+        
+        var startVol = v.volume;
+        var steps = 20;
+        var stepTime = duration / steps;
+        var currentStep = 0;
+        
+        audioFadeTimer = setInterval(function() {
+            currentStep++;
+            var p = currentStep / steps;
+            var ease = 0.5 - 0.5 * Math.cos(p * Math.PI);
+            var newVol = startVol + (targetVol - startVol) * ease;
+            v.volume = Math.max(0, Math.min(1, newVol));
+            
+            if (currentStep >= steps) {
+                clearInterval(audioFadeTimer);
+                audioFadeTimer = null;
+                if (targetVol === 0) {
+                    v.muted = true;
+                }
+                if (onComplete) onComplete();
+            }
+        }, stepTime);
+    }
+
+    window.handleReel2Enter = function(box) {
+        try {
+            var v = box.querySelector('video');
+            if (!v) return;
+            currentFadingVideo = v;
+            fadeAudioTo(v, 0.75, 500);
+            var pill = box.querySelector('.reel2-audio-pill');
+            if (pill) pill.style.borderColor = '#EAD5B3';
+        } catch(e) {}
+    };
+
+    window.handleReel2Leave = function(box) {
+        try {
+            var v = box.querySelector('video');
+            if (!v) return;
+            fadeAudioTo(v, 0, 500, function() {
+                if (currentFadingVideo === v) currentFadingVideo = null;
+            });
+            var pill = box.querySelector('.reel2-audio-pill');
+            if (pill) pill.style.borderColor = 'var(--accent-gold)';
+        } catch(e) {}
+    };
+
+    window.handleOtherReelEnter = function(box) {
+        try {
+            if (currentFadingVideo) {
+                fadeAudioTo(currentFadingVideo, 0, 400, function() {
+                    currentFadingVideo = null;
+                });
+            }
+        } catch(e) {}
+    };
+
+    window.toggleReel2AudioBtn = function(pill) {
+        try {
+            var box = pill.closest('.v-box');
+            var v = box.querySelector('video');
+            if (!v) return;
+            if (v.muted || v.volume < 0.1) {
+                fadeAudioTo(v, 0.75, 400);
+                pill.style.background = 'var(--accent-gold)';
+                pill.style.color = '#060911';
+            } else {
+                fadeAudioTo(v, 0, 400);
+                pill.style.background = 'rgba(6, 9, 17, 0.85)';
+                pill.style.color = 'var(--accent-gold-bright)';
+            }
+        } catch(e) {}
+    };
+
     if ('IntersectionObserver' in window) {
         var videoObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -8420,15 +8678,12 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.t8-row video').forEach(function(v) {
+        document.querySelectorAll('.t8-row video, .t8-marquee-track video').forEach(function(v) {
             videoObserver.observe(v);
         });
     }
-
 })();
-
-
-    </script>
+</script>
 
     <!-- Bespoke Floating Luxury Scroll to Top Button (Бронзово-бежева шляхетна кнопка) -->
     <button id="scroll-to-top-btn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full border border-[#C8A97E]/50 shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-300 opacity-0 pointer-events-none translate-y-4 hover:scale-110 active:scale-95 group backdrop-blur-md" style="background: linear-gradient(135deg, rgba(234, 213, 179, 0.96) 0%, rgba(200, 169, 126, 0.92) 50%, rgba(140, 98, 57, 0.96) 100%); box-shadow: 0 10px 30px -5px rgba(200, 169, 126, 0.5), 0 0 20px rgba(200, 169, 126, 0.35);" title="Догори / Back to Top" aria-label="Догори">
