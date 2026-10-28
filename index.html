@@ -4212,11 +4212,82 @@
                                     EGO LEATHER BESPOKE
                                 </div>
 
-                                <!-- Center 3D Monogram Preview (Appears when custom initials are typed) -->
-                                <div id="monogram-preview-container" class="relative z-10 my-auto text-center flex flex-col items-center justify-center transition-all duration-500 w-full min-h-[90px]">
-                                    <div id="monogram-preview-text" class="font-royal text-4xl sm:text-6xl tracking-[0.3em] font-normal select-none uppercase transition-all duration-300 monogram-3d-gold" style="opacity: 0; transform: scale(0.95);">
-                                        EGO
-                                    </div>
+                                <!-- Center Monogram Graphic Canvas Container -->
+                                <div id="monogram-preview-container" class="relative z-10 my-auto text-center flex flex-col items-center justify-center transition-all duration-500 w-full min-h-[140px] px-2">
+                                    <svg id="monogram-svg-canvas" viewBox="0 0 340 180" class="w-full max-w-[320px] h-auto overflow-visible select-none transition-all duration-500" style="opacity: 0; transform: scale(0.96);">
+                                        <defs>
+                                            <!-- Gold 24K Gradient -->
+                                            <linearGradient id="goldFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFF9D8" />
+                                                <stop offset="25%" stop-color="#F5D77F" />
+                                                <stop offset="50%" stop-color="#C8A97E" />
+                                                <stop offset="75%" stop-color="#7A531A" />
+                                                <stop offset="100%" stop-color="#F3D89D" />
+                                            </linearGradient>
+                                            <!-- Silver Platinum Gradient -->
+                                            <linearGradient id="silverFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFFFFF" />
+                                                <stop offset="25%" stop-color="#E2E8F0" />
+                                                <stop offset="55%" stop-color="#94A3B8" />
+                                                <stop offset="80%" stop-color="#475569" />
+                                                <stop offset="100%" stop-color="#F8FAFC" />
+                                            </linearGradient>
+                                            <!-- Blind Burnished Gradient -->
+                                            <linearGradient id="blindDebossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#140a04" />
+                                                <stop offset="100%" stop-color="#1e0f07" />
+                                            </linearGradient>
+                                            <!-- 3D Deboss Foil Filter -->
+                                            <filter id="foil3dFilter" x="-25%" y="-25%" width="150%" height="150%">
+                                                <feDropShadow dx="0" dy="2.8" stdDeviation="2.2" flood-color="#000000" flood-opacity="0.95" />
+                                                <feDropShadow dx="0" dy="-1" stdDeviation="0.8" flood-color="#FFEEDD" flood-opacity="0.4" />
+                                            </filter>
+                                            <!-- 3D Blind Filter -->
+                                            <filter id="blind3dFilter" x="-25%" y="-25%" width="150%" height="150%">
+                                                <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.98" />
+                                                <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#FFE0B2" flood-opacity="0.32" />
+                                                <feDropShadow dx="0" dy="-1.5" stdDeviation="1" flood-color="#000000" flood-opacity="0.8" />
+                                            </filter>
+                                        </defs>
+
+                                        <g id="svg-monogram-art-group" fill="url(#goldFoilGrad)" stroke="none" filter="url(#foil3dFilter)" class="transition-all duration-300">
+                                            <!-- 1. Plumage / Wings (Оперення) -->
+                                            <g id="svg-plumage" class="transition-all duration-300" style="opacity: 1;">
+                                                <path d="M 108,72 C 82,55 52,48 24,56 C 45,68 68,72 88,81 C 58,78 36,83 18,97 C 42,101 68,98 90,96 C 60,103 40,116 30,132 C 54,122 78,110 102,100 Z" opacity="0.95" />
+                                                <path d="M 232,72 C 258,55 288,48 316,56 C 295,68 272,72 252,81 C 282,78 304,83 322,97 C 298,101 272,98 250,96 C 280,103 300,116 310,132 C 286,122 262,110 238,100 Z" opacity="0.95" />
+                                            </g>
+
+                                            <!-- 2. Calligraphic Swash / Tail (Красивий хвостик) -->
+                                            <g id="svg-tail" class="transition-all duration-300" style="opacity: 1;">
+                                                <path d="M 68,122 C 112,136 228,136 272,122 C 238,131 162,133 98,127 C 82,125 70,118 74,112 C 78,106 90,109 94,114 C 90,112 82,112 79,115 C 77,119 86,122 106,124 C 150,128 218,126 256,119 C 270,116 280,122 274,126 C 252,136 156,140 68,122 Z" />
+                                                <circle cx="65" cy="114" r="2.2" />
+                                                <circle cx="276" cy="122" r="1.8" />
+                                            </g>
+
+                                            <!-- 3. Royal Crown (Корона) -->
+                                            <g id="svg-crown" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <path d="M 148,46 L 154,34 L 162,43 L 170,28 L 178,43 L 186,34 L 192,46 C 182,49 158,49 148,46 Z" />
+                                                <circle cx="170" cy="25" r="2" />
+                                                <circle cx="154" cy="31" r="1.5" />
+                                                <circle cx="186" cy="31" r="1.5" />
+                                            </g>
+
+                                            <!-- 4. Laurel Wreath (Вінцевий лавр) -->
+                                            <g id="svg-laurel" class="transition-all duration-300" style="display: none; opacity: 0;">
+                                                <path d="M 106,58 C 96,66 90,82 92,100 C 94,110 99,118 108,124" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                <path d="M 234,58 C 244,66 250,82 248,100 C 246,110 241,118 232,124" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                <path d="M 94,74 C 88,72 82,76 86,82 C 90,80 94,78 94,74 Z" />
+                                                <path d="M 246,74 C 252,72 258,76 254,82 C 250,80 246,78 246,74 Z" />
+                                                <path d="M 92,94 C 86,93 82,98 87,103 C 91,100 93,97 92,94 Z" />
+                                                <path d="M 248,94 C 254,93 258,98 253,103 C 249,100 247,97 248,94 Z" />
+                                            </g>
+
+                                            <!-- 5. Monogram Letters -->
+                                            <text id="svg-monogram-text" x="170" y="93" text-anchor="middle" dominant-baseline="middle" font-family="'Forum', 'Cinzel', serif" font-size="46" font-weight="400" letter-spacing="6">
+                                                EG
+                                            </text>
+                                        </g>
+                                    </svg>
                                 </div>
 
                                 <!-- Bottom Status Badge -->
@@ -4228,31 +4299,58 @@
 
                         <!-- Controls -->
                         <div class="md:col-span-6 space-y-5 sm:space-y-6">
+                            <!-- Initials Input -->
                             <div>
-                                <label class="block text-xs font-sub mb-2 text-gray-300">Ваші ініціали (до 4 символів):</label>
+                                <label class="block text-xs font-sub mb-2 text-gray-300">Ваші ініціали / Абревіатура (до 4 символів):</label>
                                 <input id="monogram-input" type="text" maxlength="4" value="EGO" oninput="updateMonogram(this.value)" class="w-full px-4 py-3 rounded-xl border bg-black/40 text-white font-royal text-xl tracking-widest focus:outline-none focus:border-[#C8A97E]" style="border-color: var(--border-line);">
                             </div>
 
+                            <!-- Graphic Elements Editor / Monogram Designer -->
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="block text-xs font-sub text-gray-300">Художнє обрамлення (графічний редактор):</label>
+                                    <button type="button" onclick="randomizeMonogramStyle()" class="text-[11px] font-sub text-[#C8A97E] hover:underline flex items-center gap-1 transition-colors cursor-pointer">
+                                        <span>✨ Згенерувати стиль</span>
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-4 gap-2">
+                                    <button type="button" id="toggle-opt-plumage" onclick="toggleGraphicElement('plumage', this)" class="graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer">
+                                        🪶 Оперення
+                                    </button>
+                                    <button type="button" id="toggle-opt-tail" onclick="toggleGraphicElement('tail', this)" class="graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer">
+                                        ✒️ Хвостик
+                                    </button>
+                                    <button type="button" id="toggle-opt-crown" onclick="toggleGraphicElement('crown', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        👑 Корона
+                                    </button>
+                                    <button type="button" id="toggle-opt-laurel" onclick="toggleGraphicElement('laurel', this)" class="graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer">
+                                        🌿 Лавр
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Foil Type -->
                             <div>
                                 <label class="block text-xs font-sub mb-2 text-gray-300">Тип карбування:</label>
                                 <div class="flex gap-2.5">
-                                    <button onclick="setFoil('gold', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white font-medium">Золото 24K</button>
-                                    <button onclick="setFoil('silver', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300">Срібло</button>
-                                    <button onclick="setFoil('blind', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300">Блінт (Глибинний)</button>
+                                    <button onclick="setFoil('gold', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white font-medium cursor-pointer">Золото 24K</button>
+                                    <button onclick="setFoil('silver', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300 cursor-pointer">Срібло</button>
+                                    <button onclick="setFoil('blind', this)" class="foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300 cursor-pointer">Блінт (Глибинний)</button>
                                 </div>
                             </div>
 
+                            <!-- Leather Shade -->
                             <div>
                                 <label class="block text-xs font-sub mb-2 text-gray-300">Відтінок шкіри зразка:</label>
                                 <div class="flex items-center gap-3">
-                                    <button onclick="setLeatherColor('natural', '0', this)" class="leather-color-btn w-8 h-8 rounded-full border-2 border-[#C8A97E] shadow transition-transform hover:scale-110" style="background-color: #3A2312;" title="Шоколад (Оригінал)"></button>
-                                    <button onclick="setLeatherColor('#141416', '0.85', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110" style="background-color: #141416;" title="Глибокий Чорний"></button>
-                                    <button onclick="setLeatherColor('#082214', '0.82', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110" style="background-color: #0F2B1D;" title="Смарагд"></button>
-                                    <button onclick="setLeatherColor('#3A1212', '0.82', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110" style="background-color: #3D1B1B;" title="Бордо"></button>
+                                    <button onclick="setLeatherColor('natural', '0', this)" class="leather-color-btn w-8 h-8 rounded-full border-2 border-[#C8A97E] shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #3A2312;" title="Шоколад (Оригінал)"></button>
+                                    <button onclick="setLeatherColor('#141416', '0.85', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #141416;" title="Глибокий Чорний"></button>
+                                    <button onclick="setLeatherColor('#082214', '0.82', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #0F2B1D;" title="Смарагд"></button>
+                                    <button onclick="setLeatherColor('#3A1212', '0.82', this)" class="leather-color-btn w-8 h-8 rounded-full border border-white/20 shadow transition-transform hover:scale-110 cursor-pointer" style="background-color: #3D1B1B;" title="Бордо"></button>
                                 </div>
                             </div>
 
-                            <button onclick="openOrderModal('Персональне тиснення: ' + (document.getElementById('monogram-input').value || 'EGO'))" class="btn-luxury-primary w-full py-3.5 text-xs font-sub">
+                            <button onclick="openOrderModal('Персональне тиснення: ' + (document.getElementById('monogram-input').value || 'EGO'))" class="btn-luxury-primary w-full py-3.5 text-xs font-sub cursor-pointer">
                                 Замовити виріб з цим тисненням
                             </button>
                         </div>
@@ -4733,27 +4831,126 @@
 
         
 
-        // Monogram Stamper & 3D Deboss Engine
+        // Monogram Stamper & Graphic Design Engine
         let currentFoil = 'gold';
         let currentLeatherTint = 'natural';
         let currentLeatherOpacity = '0';
+        let customDesignActive = false;
+
+        const graphicOptions = {
+            plumage: true,
+            tail: true,
+            crown: false,
+            laurel: false
+        };
+
+        function toggleGraphicElement(elementKey, btnEl) {
+            graphicOptions[elementKey] = !graphicOptions[elementKey];
+            customDesignActive = true;
+
+            // Update button styles
+            if (btnEl) {
+                if (graphicOptions[elementKey]) {
+                    btnEl.className = 'graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer';
+                } else {
+                    btnEl.className = 'graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer';
+                }
+            }
+
+            renderGraphicElements();
+            const inputVal = document.getElementById('monogram-input')?.value || 'EGO';
+            updateMonogram(inputVal);
+        }
+
+        function renderGraphicElements() {
+            const elPlumage = document.getElementById('svg-plumage');
+            const elTail = document.getElementById('svg-tail');
+            const elCrown = document.getElementById('svg-crown');
+            const elLaurel = document.getElementById('svg-laurel');
+
+            if (elPlumage) {
+                elPlumage.style.display = graphicOptions.plumage ? 'block' : 'none';
+                elPlumage.style.opacity = graphicOptions.plumage ? '1' : '0';
+            }
+            if (elTail) {
+                elTail.style.display = graphicOptions.tail ? 'block' : 'none';
+                elTail.style.opacity = graphicOptions.tail ? '1' : '0';
+            }
+            if (elCrown) {
+                elCrown.style.display = graphicOptions.crown ? 'block' : 'none';
+                elCrown.style.opacity = graphicOptions.crown ? '1' : '0';
+            }
+            if (elLaurel) {
+                elLaurel.style.display = graphicOptions.laurel ? 'block' : 'none';
+                elLaurel.style.opacity = graphicOptions.laurel ? '1' : '0';
+            }
+        }
+
+        const presets = [
+            { plumage: true, tail: true, crown: false, laurel: false },
+            { plumage: true, tail: true, crown: true, laurel: false },
+            { plumage: false, tail: true, crown: false, laurel: true },
+            { plumage: true, tail: false, crown: true, laurel: false },
+            { plumage: false, tail: true, crown: false, laurel: false },
+            { plumage: true, tail: true, crown: false, laurel: true }
+        ];
+        let presetIdx = 0;
+
+        function randomizeMonogramStyle() {
+            customDesignActive = true;
+            presetIdx = (presetIdx + 1) % presets.length;
+            const chosen = presets[presetIdx];
+            graphicOptions.plumage = chosen.plumage;
+            graphicOptions.tail = chosen.tail;
+            graphicOptions.crown = chosen.crown;
+            graphicOptions.laurel = chosen.laurel;
+
+            // Sync button classes
+            const btns = {
+                plumage: document.getElementById('toggle-opt-plumage'),
+                tail: document.getElementById('toggle-opt-tail'),
+                crown: document.getElementById('toggle-opt-crown'),
+                laurel: document.getElementById('toggle-opt-laurel')
+            };
+
+            for (const [k, el] of Object.entries(btns)) {
+                if (!el) continue;
+                if (graphicOptions[k]) {
+                    el.className = 'graphic-opt-btn active px-2 py-2 rounded-xl text-[11px] font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white text-center transition-all cursor-pointer';
+                } else {
+                    el.className = 'graphic-opt-btn px-2 py-2 rounded-xl text-[11px] font-sub border border-white/20 bg-transparent text-gray-400 text-center transition-all cursor-pointer';
+                }
+            }
+
+            renderGraphicElements();
+
+            const canvas = document.getElementById('monogram-svg-canvas');
+            if (canvas) {
+                canvas.style.transform = 'scale(0.92)';
+                setTimeout(() => { canvas.style.transform = 'scale(1)'; }, 150);
+            }
+
+            const inputVal = document.getElementById('monogram-input')?.value || 'EGO';
+            updateMonogram(inputVal);
+        }
 
         function updateMonogram(val) {
             const raw = (val || '').trim();
-            const clean = raw.toUpperCase().slice(0, 4);
+            const clean = raw.toUpperCase().slice(0, 4) || 'EG';
             const wingsLayer = document.getElementById('swatch-bg-wings');
             const cleanLayer = document.getElementById('swatch-bg-clean');
-            const previewText = document.getElementById('monogram-preview-text');
+            const svgCanvas = document.getElementById('monogram-svg-canvas');
+            const svgText = document.getElementById('svg-monogram-text');
             const foilWings = document.getElementById('swatch-foil-wings-overlay');
             const statusBadge = document.getElementById('monogram-status-badge');
 
-            if (!clean || clean === 'EGO') {
-                // Show Authentic debossed EGO wings photo
+            // If input is exactly EGO and user has NOT activated custom graphic design
+            if (clean === 'EGO' && !customDesignActive) {
                 if (wingsLayer) wingsLayer.style.opacity = '1';
                 if (cleanLayer) cleanLayer.style.opacity = '0';
-                if (previewText) {
-                    previewText.style.opacity = '0';
-                    previewText.style.transform = 'scale(0.95)';
+                if (svgCanvas) {
+                    svgCanvas.style.opacity = '0';
+                    svgCanvas.style.transform = 'scale(0.95)';
                 }
                 if (foilWings) {
                     foilWings.style.opacity = (currentFoil === 'gold' || currentFoil === 'silver') ? '0.8' : '0';
@@ -4763,41 +4960,66 @@
                     statusBadge.textContent = `АВТЕНТИЧНЕ ГАРЯЧЕ КАРБУВАННЯ · ${foilName}`;
                 }
             } else {
-                // Show Custom 3D debossed initials on clean authentic leather texture
+                // Show Custom Graphic Design (Letters + Plumage + Tail + Laurel/Crown)
                 if (wingsLayer) wingsLayer.style.opacity = '0';
                 if (cleanLayer) cleanLayer.style.opacity = '1';
                 if (foilWings) foilWings.style.opacity = '0';
-                if (previewText) {
-                    previewText.textContent = clean;
-                    previewText.style.opacity = '1';
-                    previewText.style.transform = 'scale(1)';
-                    apply3DFoilStyle(previewText, currentFoil);
+                
+                if (svgText) {
+                    svgText.textContent = clean;
+                    // Dynamic font size adaptation
+                    if (clean.length <= 2) {
+                        svgText.setAttribute('font-size', '48');
+                        svgText.setAttribute('letter-spacing', '6');
+                    } else if (clean.length === 3) {
+                        svgText.setAttribute('font-size', '40');
+                        svgText.setAttribute('letter-spacing', '4');
+                    } else {
+                        svgText.setAttribute('font-size', '34');
+                        svgText.setAttribute('letter-spacing', '2');
+                    }
                 }
+
+                if (svgCanvas) {
+                    svgCanvas.style.opacity = '1';
+                    svgCanvas.style.transform = 'scale(1)';
+                }
+
+                applyFoilToSVG(currentFoil);
+
                 if (statusBadge) {
                     const foilName = currentFoil === 'gold' ? 'ЗОЛОТО 24K' : (currentFoil === 'silver' ? 'СРІБЛО' : 'ГЛИБИННИЙ БЛІНТ');
-                    statusBadge.textContent = `ПЕРСОНАЛЬНЕ 3D КАРБУВАННЯ · ${foilName}`;
+                    statusBadge.textContent = `ГРАФІЧНИЙ ДИЗАЙН МОНОГРАМИ · ${foilName}`;
                 }
             }
         }
 
-        function apply3DFoilStyle(el, foil) {
-            if (!el) return;
-            el.classList.remove('monogram-3d-gold', 'monogram-3d-silver', 'monogram-3d-blind');
+        function applyFoilToSVG(foil) {
+            const artGroup = document.getElementById('svg-monogram-art-group');
+            const svgLaurel = document.getElementById('svg-laurel');
+            if (!artGroup) return;
+
             if (foil === 'gold') {
-                el.classList.add('monogram-3d-gold');
+                artGroup.setAttribute('fill', 'url(#goldFoilGrad)');
+                artGroup.setAttribute('filter', 'url(#foil3dFilter)');
+                if (svgLaurel) svgLaurel.style.stroke = 'url(#goldFoilGrad)';
             } else if (foil === 'silver') {
-                el.classList.add('monogram-3d-silver');
+                artGroup.setAttribute('fill', 'url(#silverFoilGrad)');
+                artGroup.setAttribute('filter', 'url(#foil3dFilter)');
+                if (svgLaurel) svgLaurel.style.stroke = 'url(#silverFoilGrad)';
             } else {
-                el.classList.add('monogram-3d-blind');
+                artGroup.setAttribute('fill', 'url(#blindDebossGrad)');
+                artGroup.setAttribute('filter', 'url(#blind3dFilter)');
+                if (svgLaurel) svgLaurel.style.stroke = 'url(#blindDebossGrad)';
             }
         }
 
         function setFoil(type, btnEl) {
             currentFoil = type;
             document.querySelectorAll('.foil-btn').forEach(b => {
-                b.className = 'foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300';
+                b.className = 'foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-white/20 bg-transparent text-gray-300 cursor-pointer';
             });
-            if (btnEl) btnEl.className = 'foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white font-medium';
+            if (btnEl) btnEl.className = 'foil-btn px-3 py-2 rounded-xl text-xs font-sub border border-[#C8A97E] bg-[#C8A97E]/20 text-white font-medium cursor-pointer';
 
             const foilWings = document.getElementById('swatch-foil-wings-overlay');
             if (foilWings) {
@@ -4812,6 +5034,7 @@
                 }
             }
 
+            applyFoilToSVG(currentFoil);
             const inputVal = document.getElementById('monogram-input')?.value || 'EGO';
             updateMonogram(inputVal);
         }
@@ -4839,6 +5062,8 @@
                 }
             }
         }
+
+        
 
         
 
