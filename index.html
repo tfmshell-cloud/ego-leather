@@ -1103,40 +1103,43 @@
         /* ==========================================================================
            BESPOKE SLANTED DIAGONAL NAVIGATION & REELS SHOWCASE
            ========================================================================== */
-        /* Slanted Diagonal Navigation System */
+        /* Grand Slanted Diagonal Navigation System */
         .nav-slanted-btn {
             position: relative;
-            padding: 8px 14px;
-            font-size: 13.5px;
+            padding: 9px 16px;
+            font-size: 14.5px;
             color: var(--text-primary);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transform: skewX(-8deg);
+            transform: skewX(-10deg);
             border-radius: 6px;
-            border: 1px solid transparent;
+            background: rgba(200, 169, 126, 0.05);
+            border: 1px solid rgba(200, 169, 126, 0.3);
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         @media (min-width: 1280px) {
             .nav-slanted-btn {
-                font-size: 14.5px;
-                padding: 9px 18px;
+                font-size: 16px;
+                padding: 10px 20px;
             }
         }
 
         .nav-slanted-btn span {
             display: inline-block;
-            transform: skewX(8deg);
+            transform: skewX(10deg);
             transition: color 0.25s ease, transform 0.25s ease;
         }
 
         .nav-slanted-btn:hover {
-            background: rgba(200, 169, 126, 0.14);
-            border-color: rgba(200, 169, 126, 0.55);
-            box-shadow: 0 4px 18px rgba(200, 169, 126, 0.25);
+            background: rgba(200, 169, 126, 0.18);
+            border-color: var(--accent-gold);
+            box-shadow: 0 6px 20px rgba(200, 169, 126, 0.32);
+            transform: skewX(-10deg) translateY(-2px);
         }
 
         .nav-slanted-btn:hover span {
@@ -1145,43 +1148,43 @@
 
         .nav-diagonal-divider {
             display: inline-block;
-            width: 1.5px;
-            height: 20px;
-            background: linear-gradient(180deg, transparent, rgba(200, 169, 126, 0.75), transparent);
-            transform: skewX(-15deg);
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(180deg, transparent, rgba(200, 169, 126, 0.8), transparent);
+            transform: skewX(-20deg);
             opacity: 0.85;
-            margin: 0 3px;
+            margin: 0 4px;
             flex-shrink: 0;
         }
 
         :root[data-theme="light"] .nav-diagonal-divider {
-            background: linear-gradient(180deg, transparent, rgba(140, 98, 57, 0.75), transparent);
+            background: linear-gradient(180deg, transparent, rgba(140, 98, 57, 0.8), transparent);
         }
 
         .nav-slanted-cta {
-            transform: skewX(-8deg);
+            transform: skewX(-10deg);
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .nav-slanted-cta .nav-cta-text {
             display: inline-block;
-            transform: skewX(8deg);
+            transform: skewX(10deg);
         }
 
         .nav-slanted-cta:hover {
-            transform: skewX(-8deg) translateY(-2px) scale(1.03);
+            transform: skewX(-10deg) translateY(-2px) scale(1.03);
             box-shadow: 0 16px 36px rgba(200, 169, 126, 0.55);
         }
 
-        /* Hero Reels Showcase - Atelier Haute Couture Stage */
+        /* Hero Reels Showcase - Stretched Upward with Atelier Spotlight Glow */
         #hero-reels-showcase {
             position: relative;
             z-index: 25;
-            background: linear-gradient(180deg, #05070d 0%, #0b111d 50%, #05070d 100%);
+            background: radial-gradient(ellipse at 50% 35%, rgba(200, 169, 126, 0.14) 0%, rgba(139, 69, 19, 0.08) 40%, #060911 85%);
+            border-top: 1px solid rgba(200, 169, 126, 0.35);
+            border-bottom: 1px solid rgba(200, 169, 126, 0.35);
             box-shadow: inset 0 25px 50px -15px rgba(0, 0, 0, 0.95), inset 0 -25px 50px -15px rgba(0, 0, 0, 0.95);
-            border-top: 1px solid rgba(200, 169, 126, 0.32);
-            border-bottom: 1px solid rgba(200, 169, 126, 0.32);
-            padding: 10px 0 22px 0;
+            padding: 0 0 22px 0;
             overflow: hidden;
             width: 100%;
         }
@@ -1190,27 +1193,27 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 50% 50%, rgba(200, 169, 126, 0.12) 0%, rgba(139, 69, 19, 0.05) 45%, transparent 75%);
+            background: radial-gradient(ellipse at 50% 50%, rgba(200, 169, 126, 0.12) 0%, transparent 75%);
             pointer-events: none;
             z-index: 1;
         }
 
         :root[data-theme="light"] #hero-reels-showcase {
-            background: linear-gradient(180deg, #F6F3EC 0%, #EDE6D8 50%, #F6F3EC 100%);
+            background: radial-gradient(ellipse at 50% 35%, rgba(140, 98, 57, 0.12) 0%, rgba(184, 134, 85, 0.06) 40%, #F6F3EC 85%);
             box-shadow: inset 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 -20px 40px -15px rgba(0, 0, 0, 0.08);
-            border-top: 1px solid rgba(140, 98, 57, 0.32);
-            border-bottom: 1px solid rgba(140, 98, 57, 0.32);
+            border-top: 1px solid rgba(140, 98, 57, 0.35);
+            border-bottom: 1px solid rgba(140, 98, 57, 0.35);
         }
 
         :root[data-theme="light"] #hero-reels-showcase::before {
-            background: radial-gradient(ellipse at 50% 50%, rgba(140, 98, 57, 0.10) 0%, rgba(184, 134, 85, 0.05) 45%, transparent 75%);
+            background: radial-gradient(ellipse at 50% 50%, rgba(140, 98, 57, 0.08) 0%, transparent 75%);
         }
 
         .t8-marquee-container {
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 10px 0;
+            padding: 8px 0;
         }
 
         .t8-marquee-track {
@@ -1242,16 +1245,16 @@
 
         .v-box {
             aspect-ratio: 9/16;
-            height: 44vh;
-            min-height: 320px;
-            max-height: 480px;
+            height: 48vh;
+            min-height: 350px;
+            max-height: 520px;
             position: relative;
             border-radius: 14px;
             overflow: hidden;
             background: #0B101C;
             border: 1px solid var(--border-line);
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.85);
             flex-shrink: 0;
             transform: skewX(-8deg);
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1275,80 +1278,26 @@
             transform: skewX(0deg) scale(1.08);
             z-index: 30;
             border-color: var(--accent-gold);
-            box-shadow: 0 18px 45px rgba(200, 169, 126, 0.4);
+            box-shadow: 0 18px 45px rgba(200, 169, 126, 0.45);
         }
 
         .v-box:hover video {
             transform: skewX(0deg) scale(1.02);
         }
 
-        /* Reel 2 Atmospheric Audio Indicator */
-        .reel2-audio-pill {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            z-index: 15;
-            background: rgba(6, 9, 17, 0.88);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--accent-gold);
-            padding: 4px 10px;
-            border-radius: 999px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            pointer-events: auto;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
-            transition: all 0.3s ease;
-        }
-
-        .reel2-audio-pill:hover {
-            background: var(--accent-gold);
-            color: #060911;
-        }
-
-        .reel2-audio-pill:hover .audio-pulse-dot {
-            background: #060911;
-        }
-
-        .reel2-audio-pill:hover .reel2-audio-label {
-            color: #060911;
-        }
-
-        .audio-pulse-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            animation: audioPulse 1.4s ease-in-out infinite;
-        }
-
-        @keyframes audioPulse {
-            0%, 100% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.3); opacity: 1; }
-        }
-
-        .reel2-audio-label {
-            font-size: 9.5px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--accent-gold-bright);
-            text-transform: uppercase;
-        }
-
         @media (min-width: 1440px) {
             .v-box {
-                height: 46vh;
-                max-height: 500px;
+                height: 50vh;
+                max-height: 540px;
             }
         }
 
         @media (max-width: 768px) {
             #hero-reels-showcase {
-                padding: 6px 0 14px 0;
+                padding: 0 0 14px 0;
             }
             .v-box {
-                height: 320px;
+                height: 340px;
                 border-radius: 10px;
                 transform: skewX(-5deg);
             }
@@ -1494,21 +1443,21 @@
 
     <!-- TOP HEADER -->
     <header class="sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300" style="background-color: var(--bg-glass); border-color: var(--border-line);">
-        <div class="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 h-24 sm:h-28 lg:h-32 flex items-center justify-between gap-4 lg:gap-6">
+        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 h-26 sm:h-30 lg:h-34 flex items-center justify-between gap-4 lg:gap-6">
             <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged Luxury Standard) -->
             <a href="#hero" class="flex items-center gap-4 sm:gap-5 group shrink-0" aria-label="EGO LEATHER Головна">
-                <div class="leather-brand-badge gold-shimmer-sweep w-[80px] h-[62px] sm:w-[98px] sm:h-[76px] md:w-[114px] md:h-[88px] lg:w-[124px] lg:h-[96px] shrink-0">
+                <div class="leather-brand-badge gold-shimmer-sweep w-[86px] h-[66px] sm:w-[106px] sm:h-[82px] md:w-[124px] md:h-[96px] lg:w-[136px] lg:h-[105px] shrink-0">
                     <img src="assets/branding/ego_leather_patch_gold.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover dark-only">
                     <img src="assets/branding/ego_leather_patch_light.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover light-only hidden">
                 </div>
                 <div class="flex flex-col justify-center">
-                    <span class="font-logo text-xl sm:text-2xl md:text-3xl lg:text-[34px] tracking-[0.25em] font-medium leading-none mb-1 transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
-                    <span class="text-[10px] sm:text-[11.5px] md:text-[13px] font-sub tracking-[0.28em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
+                    <span class="font-logo text-2xl sm:text-3xl md:text-4xl lg:text-[38px] tracking-[0.25em] font-medium leading-none mb-1.5 transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
+                    <span class="text-xs sm:text-[13px] md:text-[15px] font-sub tracking-[0.3em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
                 </div>
             </a>
 
-            <!-- Navigation Links (Desktop) with Diagonal Slanted Styling & Bronze Dividers -->
-            <nav class="hidden xl:flex items-center gap-1 font-sub">
+            <!-- Navigation Links (Desktop lg+) with Diagonal Slanted Styling & Bronze Dividers -->
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 font-sub">
                 <a href="#artisan" data-i18n="nav_artisan" class="nav-slanted-btn">
                     <span>Майстриня Олена Горщар</span>
                 </a>
@@ -1573,11 +1522,11 @@
                     <span id="theme-icon">🌓</span>
                     <span class="hidden sm:inline text-xs font-sub ml-1" data-i18n="theme_toggle">Тема</span>
                 </button>
-                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex btn-luxury-primary nav-slanted-cta px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-sub shadow-xl shrink-0">
+                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex btn-luxury-primary nav-slanted-cta px-6 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-sub shadow-xl shrink-0">
                     <span class="nav-cta-text" data-i18n="nav_order">Замовити виріб</span>
                 </a>
                 <!-- Mobile Hamburger Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden flex items-center justify-center w-11 h-11 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
                     <svg id="hamburger-icon" class="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -1631,12 +1580,8 @@
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
-                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
-                            <span class="audio-pulse-dot"></span>
-                            <span class="reel2-audio-label">🎵 Саундтрек</span>
-                        </div>
                     </div>
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
@@ -1656,12 +1601,8 @@
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
-                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
-                            <span class="audio-pulse-dot"></span>
-                            <span class="reel2-audio-label">🎵 Саундтрек</span>
-                        </div>
                     </div>
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
@@ -1681,12 +1622,8 @@
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
-                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
-                            <span class="audio-pulse-dot"></span>
-                            <span class="reel2-audio-label">🎵 Саундтрек</span>
-                        </div>
                     </div>
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
@@ -1706,12 +1643,8 @@
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_01_1080p.mp4', 'Carmine Cylindre · Авторська кругла сумочка')" title="Carmine Cylindre">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_01_720p.mp4"></video>
                     </div>
-                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі (Саундтрек)">
+                    <div class="v-box reel2-card" data-reel="02" onmouseenter="handleReel2Enter(this)" onmouseleave="handleReel2Leave(this)" onclick="openModal('4K-video/ego_reel_02_1080p.mp4', 'Cavallino Red Zebra · Шерсть поні та італійська шкіра')" title="Cavallino Red Zebra · Жінка у плащі">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_02_720p.mp4"></video>
-                        <div class="reel2-audio-pill" onclick="event.stopPropagation(); toggleReel2AudioBtn(this);" title="Увімкнути/вимкнути саундтрек образу">
-                            <span class="audio-pulse-dot"></span>
-                            <span class="reel2-audio-label">🎵 Саундтрек</span>
-                        </div>
                     </div>
                     <div class="v-box" onmouseenter="handleOtherReelEnter(this)" onclick="openModal('4K-video/ego_reel_03_1080p.mp4', 'Heritage Cognac Backpack · Анатомічний шкіряний рюкзак')" title="Heritage Cognac Backpack">
                         <video autoplay muted loop playsinline preload="metadata" src="4K-video/ego_reel_03_720p.mp4"></video>
@@ -8584,6 +8517,15 @@
     // 5.7. Atmospheric Reel 2 Music Fade In / Fade Out (Woman in Violet Trench Coat)
     var currentFadingVideo = null;
     var audioFadeTimer = null;
+    var userAudioUnlocked = false;
+
+    function unlockAudio() {
+        userAudioUnlocked = true;
+    }
+    window.addEventListener('pointerdown', unlockAudio, { once: true });
+    window.addEventListener('scroll', unlockAudio, { once: true });
+    window.addEventListener('click', unlockAudio, { once: true });
+    window.addEventListener('keydown', unlockAudio, { once: true });
 
     function fadeAudioTo(v, targetVol, duration, onComplete) {
         if (!v) return;
@@ -8622,8 +8564,6 @@
             if (!v) return;
             currentFadingVideo = v;
             fadeAudioTo(v, 0.75, 500);
-            var pill = box.querySelector('.reel2-audio-pill');
-            if (pill) pill.style.borderColor = '#EAD5B3';
         } catch(e) {}
     };
 
@@ -8634,8 +8574,6 @@
             fadeAudioTo(v, 0, 500, function() {
                 if (currentFadingVideo === v) currentFadingVideo = null;
             });
-            var pill = box.querySelector('.reel2-audio-pill');
-            if (pill) pill.style.borderColor = 'var(--accent-gold)';
         } catch(e) {}
     };
 
@@ -8649,22 +8587,58 @@
         } catch(e) {}
     };
 
-    window.toggleReel2AudioBtn = function(pill) {
-        try {
-            var box = pill.closest('.v-box');
-            var v = box.querySelector('video');
-            if (!v) return;
-            if (v.muted || v.volume < 0.1) {
-                fadeAudioTo(v, 0.75, 400);
-                pill.style.background = 'var(--accent-gold)';
-                pill.style.color = '#060911';
+    // Autonomous Center-Proximity Tracker: Fades in Reel 2 when passing screen center during drift
+    var reel2Cards = [];
+    var proximityInterval = null;
+
+    function initProximityAudio() {
+        reel2Cards = Array.from(document.querySelectorAll('.reel2-card'));
+        if (reel2Cards.length === 0) return;
+
+        proximityInterval = setInterval(function() {
+            if (!userAudioUnlocked) return;
+            if (currentFadingVideo) return; // User is hovering a card
+
+            var screenCenter = window.innerWidth / 2;
+            var maxDistance = Math.min(window.innerWidth * 0.28, 380);
+            var closestCard = null;
+            var closestDistance = Infinity;
+
+            reel2Cards.forEach(function(card) {
+                var rect = card.getBoundingClientRect();
+                var cardCenter = rect.left + rect.width / 2;
+                var dist = Math.abs(cardCenter - screenCenter);
+                if (dist < closestDistance) {
+                    closestDistance = dist;
+                    closestCard = card;
+                }
+            });
+
+            if (closestCard && closestDistance < maxDistance) {
+                var v = closestCard.querySelector('video');
+                if (v) {
+                    var factor = 1 - (closestDistance / maxDistance);
+                    var targetVol = Math.max(0.08, factor * 0.72);
+                    v.muted = false;
+                    v.volume = targetVol;
+                }
             } else {
-                fadeAudioTo(v, 0, 400);
-                pill.style.background = 'rgba(6, 9, 17, 0.85)';
-                pill.style.color = 'var(--accent-gold-bright)';
+                reel2Cards.forEach(function(card) {
+                    var v = card.querySelector('video');
+                    if (v && !v.muted) {
+                        v.volume = Math.max(0, v.volume - 0.08);
+                        if (v.volume <= 0.05) v.muted = true;
+                    }
+                });
             }
-        } catch(e) {}
-    };
+        }, 120);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProximityAudio);
+    } else {
+        setTimeout(initProximityAudio, 500);
+    }
 
     if ('IntersectionObserver' in window) {
         var videoObserver = new IntersectionObserver(function(entries) {
@@ -8678,7 +8652,7 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.t8-row video, .t8-marquee-track video').forEach(function(v) {
+        document.querySelectorAll('.t8-marquee-track video').forEach(function(v) {
             videoObserver.observe(v);
         });
     }
