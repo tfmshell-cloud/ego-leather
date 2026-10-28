@@ -127,29 +127,9 @@
             display: block !important;
         }
 
-        /* PRELOADER SPLASH (PURE CSS AUTO-DISMISS GUARANTEE) */
-        @keyframes curtainSlideUp {
-            0% {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-            55% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            99% {
-                opacity: 0;
-                visibility: visible;
-                transform: translateY(-100%);
-            }
-            100% {
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-100%);
-            }
-        }
-
+        /* ==========================================================================
+           PRELOADER SPLASH & LUXURY PROGRESS BAR (1.4 SECONDS PROGRESSION)
+           ========================================================================== */
         #page-curtain {
             position: fixed;
             inset: 0;
@@ -159,15 +139,58 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            animation: curtainSlideUp 1.25s cubic-bezier(0.77, 0, 0.175, 1) forwards;
             cursor: pointer;
+            transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #page-curtain.loaded {
+            opacity: 0;
+            transform: translateY(-24px);
             pointer-events: none;
-            transition: background-color 0.3s ease;
         }
         #page-curtain.force-dismiss {
             display: none !important;
-            visibility: hidden !important;
             opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        .curtain-progress-container {
+            width: 250px;
+            max-width: 82vw;
+        }
+        @media (min-width: 640px) {
+            .curtain-progress-container {
+                width: 320px;
+            }
+        }
+        .curtain-progress-track {
+            width: 100%;
+            height: 3px;
+            background: rgba(200, 169, 126, 0.2);
+            border-radius: 9999px;
+            position: relative;
+            overflow: visible;
+        }
+        #curtain-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            background: linear-gradient(90deg, #9E7D4E 0%, #C8A97E 50%, #FFE5B4 100%);
+            border-radius: 9999px;
+            box-shadow: 0 0 16px rgba(255, 229, 180, 0.8), 0 0 8px rgba(200, 169, 126, 0.9);
+            transition: width 0.08s linear;
+        }
+        #curtain-bar::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -2px;
+            bottom: -2px;
+            width: 7px;
+            background: #FFFFFF;
+            border-radius: 9999px;
+            box-shadow: 0 0 8px #FFFFFF, 0 0 16px #FFE5B4;
         }
 
         /* Light Theme Splash Loading Screen (Повна світла тема заставки) */
@@ -187,12 +210,19 @@
         html[data-theme="light"] #page-curtain .curtain-loading-label {
             color: #8C7A68 !important;
         }
-        html[data-theme="light"] #page-curtain .curtain-progress-track {
-            background-color: rgba(140, 98, 57, 0.2) !important;
+        html[data-theme="light"] #page-curtain #curtain-percent {
+            color: #8C6239 !important;
         }
-        html[data-theme="light"] #page-curtain #curtain-bar {
-            background: linear-gradient(90deg, #A27B5C, #C8A97E, #A27B5C) !important;
-            box-shadow: 0 0 15px rgba(162, 123, 92, 0.5) !important;
+        html[data-theme="light"] .curtain-progress-track {
+            background: rgba(140, 98, 57, 0.2) !important;
+        }
+        html[data-theme="light"] #curtain-bar {
+            background: linear-gradient(90deg, #8C6239 0%, #C8A97E 60%, #EAD5B3 100%) !important;
+            box-shadow: 0 0 14px rgba(140, 98, 57, 0.5) !important;
+        }
+        html[data-theme="light"] #curtain-bar::after {
+            background: #FFE9D1 !important;
+            box-shadow: 0 0 8px #FFE9D1, 0 0 14px #C8A97E !important;
         }
         html[data-theme="light"] #page-curtain .leather-brand-badge {
             background: #EBD7BC !important;
@@ -993,6 +1023,7 @@
 <body>
 
     <!-- PRELOADER SPLASH WITH EGO LEATHER BRANDING -->
+    <!-- PRELOADER SPLASH WITH EGO LEATHER BRANDING (THEME-AWARE: LIGHT & DARK) -->
     <div id="page-curtain" onclick="forceDismissCurtain()">
         <div class="flex flex-col items-center px-6 text-center">
             <!-- Authentic Stitched Leather Badge: Gold Foil in Dark, Warm Cognac in Light -->
@@ -1003,15 +1034,20 @@
             <h1 class="font-logo text-2xl sm:text-3xl tracking-[0.35em] text-[#C8A97E] mb-2 font-normal curtain-title">EGO LEATHER</h1>
             <div class="font-signature text-xl sm:text-2xl text-[#EAD5B3] mb-3 curtain-signature">Olena Horshchar</div>
             <div class="text-[10px] sm:text-xs font-sub text-gray-400 tracking-[0.25em] curtain-subtext">КНУТД · АВТОРСЬКА МАЙСТЕРНЯ ШКІРИ</div>
-            <div class="w-48 sm:w-60 h-[2px] bg-[#C8A97E]/20 mt-6 relative overflow-hidden rounded-full curtain-progress-track">
-                <div id="curtain-bar" class="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#C8A97E] via-[#EAD5B3] to-[#C8A97E] w-full transition-all duration-700 shadow-[0_0_15px_rgba(234,213,179,0.8)]"></div>
+            
+            <!-- Luxury Progress Bar (1.4s progression in signature gold tones) -->
+            <div class="curtain-progress-container mt-6">
+                <div class="curtain-progress-track">
+                    <div id="curtain-bar"></div>
+                </div>
+                <div class="flex items-center justify-between mt-2.5 px-0.5 text-[10px] font-sub tracking-widest uppercase">
+                    <span class="curtain-loading-label opacity-75">Завантаження колекції</span>
+                    <span id="curtain-percent" class="font-semibold text-[#C8A97E]">0%</span>
+                </div>
             </div>
-            <div class="text-[9px] text-gray-500 mt-4 tracking-widest uppercase curtain-loading-label">Завантаження колекції...</div>
         </div>
     </div>
-            <div class="text-[9px] text-gray-500 mt-4 tracking-widest uppercase">Завантаження колекції...</div>
-        </div>
-    </div>
+
 <!-- МЕТАЛЕВА МОНОГРАМА EL (EGO LEATHER) SVG DEFINITION -->
     <svg width="0" height="0" class="hidden">
         <defs>
@@ -4503,10 +4539,57 @@
         function forceDismissCurtain() {
             const c = document.getElementById('page-curtain');
             if (c) {
+                c.classList.add('loaded');
                 c.classList.add('force-dismiss');
-                c.style.display = 'none';
             }
         }
+
+        // 1.4-Second Luxury Splash Progress Controller (Секунда-півтори завантаження)
+        (function initSplashProgress() {
+            function startProgress() {
+                const curtain = document.getElementById('page-curtain');
+                const bar = document.getElementById('curtain-bar');
+                const percentEl = document.getElementById('curtain-percent');
+                if (!curtain || !bar) return;
+
+                let startTime = performance.now();
+                const duration = 1400; // 1.4 seconds
+
+                function tick(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Organic ease-out progression
+                    const easeOut = 1 - Math.pow(1 - progress, 2.2);
+                    const percent = Math.round(easeOut * 100);
+
+                    bar.style.width = percent + '%';
+                    if (percentEl) {
+                        percentEl.textContent = percent + '%';
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        // Complete at 1.4s -> smooth reveal
+                        setTimeout(function() {
+                            curtain.classList.add('loaded');
+                            setTimeout(function() {
+                                curtain.classList.add('force-dismiss');
+                            }, 520);
+                        }, 100);
+                    }
+                }
+
+                requestAnimationFrame(tick);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', startProgress);
+            } else {
+                startProgress();
+            }
+        })();
 
         // Mobile Menu Toggle
         function toggleMobileMenu() {
