@@ -1101,16 +1101,20 @@
 
     
         /* ==========================================================================
-           CINEMATIC REELS: VARIANT 08 SLANTED EDGY SKEW (INFINITE SLOW DRIFT)
+           CINEMATIC REELS: VARIANT 08 SLANTED EDGY SKEW (FULL SCREEN VIEWPORT FILL)
            ========================================================================== */
         #hero-reels-showcase {
             position: relative;
             z-index: 25;
             background: radial-gradient(ellipse at 50% 0%, rgba(200, 169, 126, 0.08) 0%, rgba(6, 9, 17, 0.98) 100%);
             border-bottom: 1px solid var(--border-line);
-            padding: 8px 0 20px 0;
+            padding: 12px 0 24px 0;
             overflow: hidden;
             width: 100%;
+            height: calc(100vh - 195px);
+            min-height: 540px;
+            display: flex;
+            align-items: center;
         }
 
         :root[data-theme="light"] #hero-reels-showcase {
@@ -1122,6 +1126,8 @@
             overflow: hidden;
             position: relative;
             padding: 10px 0;
+            display: flex;
+            align-items: center;
         }
 
         .t8-marquee-track {
@@ -1137,8 +1143,8 @@
 
         .t8-marquee-group {
             display: flex;
-            gap: 16px;
-            padding-right: 16px;
+            gap: 20px;
+            padding-right: 20px;
             flex-shrink: 0;
         }
 
@@ -1153,16 +1159,16 @@
 
         .v-box {
             aspect-ratio: 9/16;
-            height: 44vh;
-            min-height: 320px;
-            max-height: 480px;
+            height: calc(100vh - 250px);
+            min-height: 480px;
+            max-height: 720px;
             position: relative;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             background: #0B101C;
             border: 1px solid var(--border-line);
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9);
             flex-shrink: 0;
             transform: skewX(-8deg);
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1170,7 +1176,7 @@
 
         :root[data-theme="light"] .v-box {
             background: #EDE7DB;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
         }
 
         .v-box video {
@@ -1186,7 +1192,7 @@
             transform: skewX(0deg) scale(1.08);
             z-index: 30;
             border-color: var(--accent-gold);
-            box-shadow: 0 18px 45px rgba(200, 169, 126, 0.4);
+            box-shadow: 0 20px 50px rgba(200, 169, 126, 0.45), 0 0 30px rgba(200, 169, 126, 0.3);
         }
 
         .v-box:hover video {
@@ -1195,22 +1201,24 @@
 
         @media (min-width: 1440px) {
             .v-box {
-                height: 46vh;
-                max-height: 500px;
+                height: calc(100vh - 250px);
+                max-height: 760px;
             }
         }
 
         @media (max-width: 768px) {
             #hero-reels-showcase {
-                padding: 6px 0 14px 0;
+                height: auto;
+                min-height: 440px;
+                padding: 10px 0 16px 0;
             }
             .v-box {
-                height: 320px;
-                border-radius: 10px;
-                transform: skewX(-5deg);
+                height: 380px;
+                border-radius: 12px;
+                transform: skewX(-6deg);
             }
             .v-box video {
-                transform: skewX(5deg) scale(1.18);
+                transform: skewX(6deg) scale(1.18);
             }
             .v-box:hover {
                 transform: skewX(0deg) scale(1.05);
@@ -1218,6 +1226,153 @@
             .v-box:hover video {
                 transform: skewX(0deg) scale(1);
             }
+        }
+
+        /* ==========================================================================
+           LUXURY SKEWED NAVIGATION BUTTONS (-8° DIAGONAL CUT MATCHING REELS)
+           ========================================================================== */
+        .nav-skew-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 54px;
+            min-width: 170px;
+            padding: 0 20px;
+            transform: skewX(-8deg); /* Точно такий же кут скосу -8°, як у відеорядку! */
+            background: rgba(200, 169, 126, 0.08);
+            border: 1px solid rgba(200, 169, 126, 0.35);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-sub, 'Tenor Sans', sans-serif);
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        @media (min-width: 1440px) {
+            .nav-skew-btn {
+                height: 58px;
+                min-width: 195px;
+                padding: 0 24px;
+                font-size: 14px;
+            }
+        }
+
+        :root[data-theme="light"] .nav-skew-btn {
+            background: rgba(140, 98, 57, 0.08);
+            border-color: rgba(140, 98, 57, 0.35);
+            color: #1F1914;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Текст всередині кнопки випрямляємо для ідеальної читабельності */
+        .nav-skew-btn .btn-inner-content {
+            display: inline-block;
+            transform: skewX(8deg);
+            white-space: nowrap;
+            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Золотий промінь при наведенні */
+        .nav-skew-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(234, 213, 179, 0.3), transparent);
+            transform: skewX(-15deg);
+            pointer-events: none;
+            transition: none;
+        }
+
+        .nav-skew-btn:hover::after {
+            left: 160%;
+            transition: left 0.75s ease-in-out;
+        }
+
+        /* Активність та підсвічування при наведенні курсору */
+        .nav-skew-btn:hover,
+        .nav-skew-btn.active {
+            background: linear-gradient(135deg, rgba(200, 169, 126, 0.25) 0%, rgba(154, 120, 76, 0.45) 100%);
+            border-color: var(--accent-gold);
+            color: #FFFFFF;
+            transform: skewX(-8deg) translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(200, 169, 126, 0.45), 0 0 25px rgba(200, 169, 126, 0.35);
+        }
+
+        :root[data-theme="light"] .nav-skew-btn:hover,
+        :root[data-theme="light"] .nav-skew-btn.active {
+            background: linear-gradient(135deg, rgba(200, 169, 126, 0.4) 0%, rgba(184, 148, 102, 0.5) 100%);
+            border-color: #8C6239;
+            color: #110B07;
+            box-shadow: 0 10px 25px rgba(140, 98, 57, 0.25);
+        }
+
+        .nav-skew-btn:hover .btn-inner-content,
+        .nav-skew-btn.active .btn-inner-content {
+            color: #FAF6EF;
+            text-shadow: 0 0 14px rgba(234, 213, 179, 0.85);
+        }
+
+        :root[data-theme="light"] .nav-skew-btn:hover .btn-inner-content,
+        :root[data-theme="light"] .nav-skew-btn.active .btn-inner-content {
+            color: #000000;
+            text-shadow: none;
+        }
+
+        /* Фірмова золота скошена кнопка дії (Call-To-Action) */
+        .nav-skew-btn-gold {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 54px;
+            padding: 0 24px;
+            transform: skewX(-8deg);
+            background: linear-gradient(135deg, #EAD5B3 0%, #C8A97E 50%, #9A784C 100%);
+            border: 1px solid rgba(250, 246, 239, 0.7);
+            border-radius: 8px;
+            color: #060911;
+            font-family: var(--font-sub, 'Tenor Sans', sans-serif);
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(200, 169, 126, 0.45);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 1440px) {
+            .nav-skew-btn-gold {
+                height: 58px;
+                padding: 0 28px;
+                font-size: 14px;
+            }
+        }
+
+        .nav-skew-btn-gold .btn-inner-content {
+            display: inline-block;
+            transform: skewX(8deg);
+            color: #060911;
+            font-weight: 700;
+        }
+
+        .nav-skew-btn-gold:hover {
+            transform: skewX(-8deg) translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 35px rgba(200, 169, 126, 0.65), 0 0 30px rgba(234, 213, 179, 0.5);
+            filter: brightness(1.1);
         }
 
         /* LIGHTBOX VIDEO MODAL (1080P RETINA) */
@@ -1349,82 +1504,94 @@
         </defs>
     </svg>
 
-    <!-- TOP HEADER -->
-    <header class="sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300" style="background-color: var(--bg-glass); border-color: var(--border-line);">
-        <div class="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
-            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged) -->
-            <a href="#hero" class="flex items-center gap-3.5 sm:gap-4.5 group shrink-0" aria-label="EGO LEATHER Головна">
-                <div class="leather-brand-badge gold-shimmer-sweep w-[66px] h-[51px] sm:w-[84px] sm:h-[65px] md:w-[94px] md:h-[73px] shrink-0">
+    <!-- TOP HEADER (DOUBLED HEIGHT & ENLARGED LUXURY BRANDING) -->
+    <header class="sticky top-0 z-50 border-b backdrop-blur-2xl transition-all duration-300" style="background-color: var(--bg-glass); border-color: var(--border-line);">
+        <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 min-h-[160px] sm:min-h-[185px] lg:min-h-[195px] py-4 sm:py-5 flex items-center justify-between gap-4 lg:gap-8">
+            <!-- Brand Logo: Authentic Stitched Leather Emblem with Golden Shimmer Wave (Enlarged 2.5x-3x) -->
+            <a href="#hero" class="flex items-center gap-4 sm:gap-6 group shrink-0" aria-label="EGO LEATHER Головна">
+                <div class="leather-brand-badge gold-shimmer-sweep w-[110px] h-[85px] sm:w-[145px] sm:h-[112px] lg:w-[170px] lg:h-[132px] shrink-0">
                     <img src="assets/branding/ego_leather_patch_gold.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover dark-only">
                     <img src="assets/branding/ego_leather_patch_light.png" alt="EGO LEATHER Натуральна шкіра ручної роботи" class="w-full h-full object-cover light-only hidden">
                 </div>
                 <div class="flex flex-col justify-center">
-                    <span class="font-logo text-lg sm:text-2xl md:text-[26px] tracking-[0.24em] font-normal leading-tight transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
-                    <span class="text-[9px] sm:text-[10.5px] font-sub tracking-[0.22em] sm:tracking-[0.26em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
+                    <span class="font-logo text-2xl sm:text-3xl lg:text-[42px] xl:text-[48px] tracking-[0.24em] font-normal leading-tight transition-colors" style="color: var(--text-primary);">EGO LEATHER</span>
+                    <span class="text-xs sm:text-sm lg:text-[14px] xl:text-[15.5px] font-sub tracking-[0.26em] uppercase transition-colors" style="color: var(--accent-gold);">OLENA HORSHCHAR · STUDIO</span>
                 </div>
             </a>
 
-            <!-- Navigation Links (Desktop) -->
-            <nav class="hidden lg:flex items-center gap-8 text-xs font-sub">
-                <a href="#artisan" data-i18n="nav_artisan" class="hover:text-[#C8A97E] transition-colors py-1">Майстриня Олена Горщар</a>
-                <a href="#creations" data-i18n="nav_creations" class="hover:text-[#C8A97E] transition-colors py-1">Колекція Виробів</a>
-                <a href="#support-zsu" data-i18n="nav_support" class="hover:text-[#C8A97E] transition-colors py-1">Підтримка ЗСУ</a>
-                <a href="#stamper" data-i18n="nav_stamper" class="hover:text-[#C8A97E] transition-colors py-1">Персоналізація</a>
-                <a href="#gallery" data-i18n="nav_gallery" class="hover:text-[#C8A97E] transition-colors py-1">Медіа-Архів (42 Фото)</a>
+            <!-- Navigation Links (Desktop: Skewed Diamond Cut Luxury Buttons matching -8° Reels) -->
+            <nav class="hidden xl:flex items-center gap-3 2xl:gap-4.5">
+                <a href="#artisan" class="nav-skew-btn">
+                    <span class="btn-inner-content" data-i18n="nav_artisan">Майстриня Олена Горщар</span>
+                </a>
+                <a href="#creations" class="nav-skew-btn">
+                    <span class="btn-inner-content" data-i18n="nav_creations">Колекція Виробів</span>
+                </a>
+                <a href="#support-zsu" class="nav-skew-btn">
+                    <span class="btn-inner-content" data-i18n="nav_support">Підтримка ЗСУ</span>
+                </a>
+                <a href="#stamper" class="nav-skew-btn">
+                    <span class="btn-inner-content" data-i18n="nav_stamper">Студія Тиснення</span>
+                </a>
+                <a href="#gallery" class="nav-skew-btn">
+                    <span class="btn-inner-content" data-i18n="nav_gallery">Медіа-Архів (42 Фото)</span>
+                </a>
             </nav>
 
             <!-- Actions -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-2.5 sm:gap-4">
                 <!-- Academic Multi-Language Selector Dropdown -->
                 <div class="relative inline-block text-left" id="lang-dropdown-wrapper">
-                    <button id="lang-dropdown-btn" onclick="toggleLangDropdown(event)" class="btn-luxury-secondary px-2.5 sm:px-3 py-2 text-xs shrink-0 flex items-center gap-1.5 transition-all duration-200" title="Оберіть мову / Select Language" aria-expanded="false">
-                        <span class="text-xs">🌐</span>
-                        <span id="current-lang-code" class="text-[11px] font-sub font-semibold uppercase tracking-wider text-[#C8A97E]">UA</span>
-                        <svg class="w-3 h-3 text-current opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                    <button id="lang-dropdown-btn" onclick="toggleLangDropdown(event)" class="btn-luxury-secondary px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm shrink-0 flex items-center gap-2 transition-all duration-200" title="Оберіть мову / Select Language" aria-expanded="false">
+                        <span class="text-sm">🌐</span>
+                        <span id="current-lang-code" class="text-xs sm:text-[13px] font-sub font-semibold uppercase tracking-wider text-[#C8A97E]">UA</span>
+                        <svg class="w-3.5 h-3.5 text-current opacity-70" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <div id="lang-menu" class="hidden absolute right-0 mt-2 w-48 rounded-2xl border backdrop-blur-2xl shadow-2xl py-2 z-50 transition-all duration-200" style="background-color: var(--bg-surface); border-color: var(--border-line);">
-                        <button onclick="setLanguage('ua')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="ua">
-                            <span class="flex items-center gap-2"><span>🇺🇦</span> <span class="font-sub font-normal">Українська</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px]">●</span>
+                    <div id="lang-menu" class="hidden absolute right-0 mt-2 w-52 rounded-2xl border backdrop-blur-2xl shadow-2xl py-2 z-50 transition-all duration-200" style="background-color: var(--bg-surface); border-color: var(--border-line);">
+                        <button onclick="setLanguage('ua')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="ua">
+                            <span class="flex items-center gap-2.5"><span>🇺🇦</span> <span class="font-sub font-normal">Українська</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs">●</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="en">
-                            <span class="flex items-center gap-2"><span>🇬🇧</span> <span class="font-sub font-normal">English</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px] hidden">●</span>
+                        <button onclick="setLanguage('en')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="en">
+                            <span class="flex items-center gap-2.5"><span>🇬🇧</span> <span class="font-sub font-normal">English</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs hidden">●</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="it">
-                            <span class="flex items-center gap-2"><span>🇮🇹</span> <span class="font-sub font-normal">Italiano</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px] hidden">●</span>
+                        <button onclick="setLanguage('it')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="it">
+                            <span class="flex items-center gap-2.5"><span>🇮🇹</span> <span class="font-sub font-normal">Italiano</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs hidden">●</span>
                         </button>
-                        <button onclick="setLanguage('de')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="de">
-                            <span class="flex items-center gap-2"><span>🇩🇪</span> <span class="font-sub font-normal">Deutsch</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px] hidden">●</span>
+                        <button onclick="setLanguage('de')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="de">
+                            <span class="flex items-center gap-2.5"><span>🇩🇪</span> <span class="font-sub font-normal">Deutsch</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs hidden">●</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="fr">
-                            <span class="flex items-center gap-2"><span>🇫🇷</span> <span class="font-sub font-normal">Français</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px] hidden">●</span>
+                        <button onclick="setLanguage('fr')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="fr">
+                            <span class="flex items-center gap-2.5"><span>🇫🇷</span> <span class="font-sub font-normal">Français</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs hidden">●</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="lang-option w-full px-4 py-2 text-left text-xs flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="es">
-                            <span class="flex items-center gap-2"><span>🇪🇸</span> <span class="font-sub font-normal">Español</span></span>
-                            <span class="lang-check text-[#C8A97E] text-[10px] hidden">●</span>
+                        <button onclick="setLanguage('es')" class="lang-option w-full px-4 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-[#C8A97E]/10 transition" data-lang="es">
+                            <span class="flex items-center gap-2.5"><span>🇪🇸</span> <span class="font-sub font-normal">Español</span></span>
+                            <span class="lang-check text-[#C8A97E] text-xs hidden">●</span>
                         </button>
                     </div>
                 </div>
 
-                <button onclick="toggleTheme()" class="btn-luxury-secondary px-2.5 sm:px-3.5 py-2 text-xs shrink-0" title="Перемкнути Світлу / Темну тему">
+                <button onclick="toggleTheme()" class="btn-luxury-secondary px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm shrink-0" title="Перемкнути Світлу / Темну тему">
                     <span id="theme-icon">🌓</span>
-                    <span class="hidden sm:inline text-[10px] font-sub ml-1" data-i18n="theme_toggle">Тема</span>
+                    <span class="hidden sm:inline text-xs font-sub ml-1.5" data-i18n="theme_toggle">Тема</span>
                 </button>
-                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex btn-luxury-primary px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-sub shadow-lg shrink-0">
-                    <span data-i18n="nav_order">Замовити виріб</span>
+
+                <a href="#order-modal-trigger" onclick="openOrderModal('Індивідуальне замовлення')" class="hidden sm:inline-flex nav-skew-btn-gold px-5 lg:px-6 shrink-0">
+                    <span class="btn-inner-content" data-i18n="nav_order">Замовити виріб</span>
                 </a>
+
                 <!-- Mobile Hamburger Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
-                    <svg id="hamburger-icon" class="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden flex items-center justify-center w-12 h-12 rounded-xl border transition-colors shrink-0" style="border-color: var(--border-line); background-color: var(--bg-surface);" aria-label="Меню">
+                    <svg id="hamburger-icon" class="w-6 h-6 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
-                    <svg id="close-icon" class="w-5 h-5 text-current hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg id="close-icon" class="w-6 h-6 text-current hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
@@ -1433,7 +1600,7 @@
     </header>
 
     <!-- MOBILE NAVIGATION DRAWER -->
-    <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-0 top-16 sm:top-20 z-40 border-b backdrop-blur-2xl transition-all duration-300 shadow-2xl p-6 flex flex-col gap-4" style="background-color: var(--bg-glass); border-color: var(--border-line);">
+    <div id="mobile-menu" class="hidden xl:hidden fixed inset-x-0 top-[160px] sm:top-[185px] lg:top-[195px] z-40 border-b backdrop-blur-2xl transition-all duration-300 shadow-2xl p-6 flex flex-col gap-4" style="background-color: var(--bg-glass); border-color: var(--border-line);">
         <!-- Mobile Language Selector Row -->
         <div class="flex items-center justify-between py-2 border-b border-white/10">
             <span class="text-xs font-sub text-gray-400">Мова / Language:</span>
@@ -8292,7 +8459,12 @@
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
-                el.innerHTML = dict[key];
+                const inner = el.querySelector('.btn-inner-content');
+                if (inner) {
+                    inner.innerHTML = dict[key];
+                } else {
+                    el.innerHTML = dict[key];
+                }
             }
         });
 
