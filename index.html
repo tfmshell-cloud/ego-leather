@@ -1401,53 +1401,53 @@
             filter: brightness(1.08);
         }
 
-        /* Кнопки утиліт хедера (Мова / Тема) зі скосом ребер -8° */
+        /* Кнопки утиліт хедера (Мова / Тема) зі скосом ребер -8° (Збільшені та шляхетні) */
         .header-util-btn {
             position: relative;
-            height: 44px;
-            min-width: 110px;
-            padding: 0 16px;
+            height: 48px;
+            min-width: 124px;
+            padding: 0 18px;
             transform: skewX(-8deg); /* Точно такий же скос ребер -8°, як у всіх кнопок і відео! */
-            border-radius: 6px;
+            border-radius: 7px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 12px;
+            gap: 10px;
+            font-size: 12.5px;
             font-family: var(--font-sub, 'Tenor Sans', sans-serif);
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            background: rgba(200, 169, 126, 0.08);
-            border: 1px solid rgba(200, 169, 126, 0.35);
+            background: rgba(200, 169, 126, 0.09);
+            border: 1.5px solid rgba(200, 169, 126, 0.42);
             color: var(--text-primary);
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.38);
+            backdrop-filter: blur(10px);
             white-space: nowrap;
         }
 
         .header-util-btn .btn-inner-content {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             transform: skewX(8deg); /* Випрямляємо текст для бездоганної читабельності */
             white-space: nowrap;
         }
 
         :root[data-theme="light"] .header-util-btn {
-            background: rgba(140, 98, 57, 0.08);
-            border-color: rgba(140, 98, 57, 0.35);
+            background: rgba(140, 98, 57, 0.1);
+            border-color: rgba(140, 98, 57, 0.45);
             color: #1F1914;
         }
 
         .header-util-btn:hover {
-            background: linear-gradient(135deg, rgba(200, 169, 126, 0.25) 0%, rgba(154, 120, 76, 0.48) 100%);
+            background: linear-gradient(135deg, rgba(200, 169, 126, 0.32) 0%, rgba(154, 120, 76, 0.58) 100%);
             border-color: var(--accent-gold);
             color: #FAF6EF;
-            transform: skewX(-8deg) translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(200, 169, 126, 0.42), 0 0 20px rgba(200, 169, 126, 0.3);
+            transform: skewX(-8deg) translateY(-2px) scale(1.03);
+            box-shadow: 0 10px 28px rgba(200, 169, 126, 0.48), 0 0 25px rgba(200, 169, 126, 0.35);
         }
 
         /* LIGHTBOX VIDEO MODAL (1080P RETINA) */
