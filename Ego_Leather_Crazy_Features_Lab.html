@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGO LEATHER — Інтерактивна Лабораторія Фіч | Brainstorm Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050811;
+            --bg-card: rgba(13, 19, 33, 0.75);
+            --bg-card-hover: rgba(20, 29, 50, 0.9);
+            --accent-gold: #C8A97E;
+            --accent-gold-bright: #F5E5C9;
+            --accent-gold-glow: rgba(200, 169, 126, 0.35);
+            --border-gold: rgba(200, 169, 126, 0.22);
+            --border-gold-strong: rgba(200, 169, 126, 0.6);
+            --text-main: #F8F5F0;
+            --text-dim: #9EA8B6;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-royal {
+            font-family: 'Forum', serif;
+            letter-spacing: 0.04em;
+        }
+
+        .font-mono-code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .glass-card-interactive {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-interactive:hover {
+            border-color: var(--border-gold-strong);
+            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.9), 0 0 40px -10px var(--accent-gold-glow);
+            transform: translateY(-3px);
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF1D6 0%, #C8A97E 50%, #9C784C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050811;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a3346;
+            border-radius: 999px;
+            border: 1px solid rgba(200, 169, 126, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C8A97E;
+        }
+
+        /* Sound waves animation */
+        @keyframes soundWave {
+            0%, 100% { height: 4px; }
+            50% { height: 18px; }
+        }
+        .sound-bar {
+            width: 3px;
+            background: #C8A97E;
+            border-radius: 2px;
+            animation: soundWave 1.2s ease-in-out infinite;
+        }
+        .sound-bar:nth-child(2) { animation-delay: 0.2s; }
+        .sound-bar:nth-child(3) { animation-delay: 0.4s; }
+        .sound-bar:nth-child(4) { animation-delay: 0.1s; }
+
+        /* Loupe lens */
+        #loupe-lens {
+            pointer-events: none;
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid #C8A97E;
+            box-shadow: 0 0 30px rgba(200, 169, 126, 0.6), inset 0 0 20px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 50;
+            cursor: none;
+        }
+
+        /* Stamp animation */
+        @keyframes stampPress {
+            0% { transform: scale(1.6) translateY(-40px); opacity: 0; filter: blur(8px); }
+            50% { transform: scale(0.97) translateY(2px); opacity: 1; filter: blur(0px); }
+            70% { transform: scale(1.02) translateY(-1px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .animate-stamp {
+            animation: stampPress 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* Floating PIP */
+        #floating-pip {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #floating-pip.pip-docked {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 220px;
+            height: 380px;
+            border-radius: 24px;
+            z-index: 9999;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 30px rgba(200,169,126,0.3);
+        }
+
+        /* Dial rotation */
+        .vault-dial {
+            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative antialiased selection:bg-[#C8A97E] selection:text-black">
+
+    <!-- AMBIENT AUDIO -->
+    <audio id="lab-ambient-audio" loop preload="auto">
+        <source src="assets/audio/ego_atmosphere.m4a" type="audio/mp4">
+    </audio>
+
+    <!-- TOP NAVIGATION HUD -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-[#C8A97E]/20 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-[#C8A97E]/40 flex items-center justify-center bg-[#C8A97E]/10 group-hover:scale-110 transition-transform">
+                    <span class="font-royal text-lg text-[#C8A97E] font-bold">EL</span>
+                </div>
+                <div>
+                    <h1 class="font-royal text-xl tracking-wider text-[#FAF6EF] group-hover:text-[#C8A97E] transition-colors">EGO LEATHER</h1>
+                    <p class="text-[10px] uppercase font-mono-code tracking-[0.2em] text-[#C8A97E]">Interactive Brainstorm Lab</p>
+                </div>
+            </a>
+            <span class="hidden md:inline-flex px-3 py-1 rounded-full text-[10px] font-mono-code bg-[#C8A97E]/10 text-[#C8A97E] border border-[#C8A97E]/20">
+                ⚡ 7 ЖИВИХ СЕНСОРНИХ ДЕМО
+            </span>
+        </div>
+
+        <!-- STATION QUICK JUMP PILLS -->
+        <nav class="hidden lg:flex items-center gap-2">
+            <a href="#station-loupe" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">1. Мікроскоп</a>
+            <a href="#station-waves" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">2. Хвилі-шмили</a>
+            <a href="#station-reels" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">3. Рілс-Скраб</a>
+            <a href="#station-dual" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">4. Подіум/Майстерня</a>
+            <a href="#station-stamp" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">5. Тиснення</a>
+            <a href="#station-asmr" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">6. ASMR Звук</a>
+            <a href="#station-vault" class="px-3 py-1.5 rounded-lg text-xs hover:bg-[#C8A97E]/15 hover:text-[#C8A97E] transition">7. Сейф ЗСУ</a>
+        </nav>
+
+        <!-- SOUND TOGGLE & BACK TO SITE -->
+        <div class="flex items-center gap-3">
+            <button id="audio-toggle-btn" onclick="toggleAudio()" class="px-3.5 py-1.5 rounded-full border border-[#C8A97E]/30 bg-[#0B101D] hover:border-[#C8A97E] flex items-center gap-2 text-xs transition cursor-pointer">
+                <div class="flex items-center gap-0.5 h-3">
+                    <span class="sound-bar" style="animation-play-state: paused;"></span>
+                    <span class="sound-bar" style="animation-play-state: paused;"></span>
+                    <span class="sound-bar" style="animation-play-state: paused;"></span>
+                    <span class="sound-bar" style="animation-play-state: paused;"></span>
+                </div>
+                <span id="audio-btn-text" class="text-[11px] font-mono-code text-[#C8A97E]">ЗВУК ВІМК</span>
+            </button>
+            <a href="index.html" class="px-4 py-1.5 rounded-full bg-[#C8A97E] hover:bg-[#e4cfb2] text-black text-xs font-semibold tracking-wider transition">
+                ← До Сайту
+            </a>
+        </div>
+    </header>
+
+    <!-- INTRO BANNER -->
+    <section class="max-w-7xl mx-auto px-6 pt-12 pb-8 text-center relative">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C8A97E]/10 border border-[#C8A97E]/30 text-[#C8A97E] text-xs font-mono-code uppercase tracking-widest mb-6">
+            ✨ Brainstorm Prototype & Sandbox
+        </div>
+        <h2 class="font-royal text-4xl sm:text-6xl lg:text-7xl mb-6 text-gold-gradient">
+            Поза Рамками Звичайного
+        </h2>
+        <p class="max-w-3xl mx-auto text-base sm:text-lg text-[#9EA8B6] font-light leading-relaxed">
+            Інтерактивний тестовий стенд унікальних механік для <span class="text-[#FAF6EF] font-medium">EGO LEATHER</span>. Кожен блок нижче — це не просто картинка, а <span class="text-[#C8A97E]">жива мікро-програма</span>, з якою ви можете взаємодіяти прямо зараз: водити мишею, слухати тактильний відгук, випалювати золото та скрабити 4K-відео.
+        </p>
+    </section>
+
+    <!-- MAIN INTERACTIVE STATIONS CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16 pb-32">
+
+        <!-- ========================================== -->
+        <!-- STATION 1: TACTILE X-RAY & MICRO-LOUPE    -->
+        <!-- ========================================== -->
+        <section id="station-loupe" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">01</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">Тактильний X-Ray Сканер</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Замість звичайного плоского зуму клієнт отримує **«лупу реставратора»**. Курсор миші сканує мікро-волокна італійської шкіри Cavallino та лусочки Python в реальній роздільній здатності 4K.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase">Параметри Сканування:</div>
+                        <div class="flex items-center justify-between">
+                            <span>Кратність збільшення:</span>
+                            <div class="flex gap-1">
+                                <button onclick="setLoupeZoom(2)" class="px-2 py-1 rounded bg-[#C8A97E]/20 hover:bg-[#C8A97E] hover:text-black transition loupe-btn" id="zoom-2x">2X</button>
+                                <button onclick="setLoupeZoom(3.5)" class="px-2 py-1 rounded bg-[#C8A97E] text-black font-bold loupe-btn" id="zoom-4x">4X</button>
+                                <button onclick="setLoupeZoom(6)" class="px-2 py-1 rounded bg-[#C8A97E]/20 hover:bg-[#C8A97E] hover:text-black transition loupe-btn" id="zoom-6x">6X</button>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Режим сенсора:</span>
+                            <select id="loupe-filter-select" onchange="changeLoupeFilter(this.value)" class="bg-[#111828] border border-[#C8A97E]/30 rounded px-2 py-1 text-white text-[11px] outline-none">
+                                <option value="natural">Оригінальне макро</option>
+                                <option value="emboss">Рельєф шва & волокон</option>
+                                <option value="infrared">Теплова карта тиснення</option>
+                            </select>
+                        </div>
+                        <div class="text-[11px] text-[#C8A97E]/80 pt-1 border-t border-white/5 flex items-center gap-2">
+                            <span>💡 Наведіть курсор або проведіть пальцем по шкірі справа!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Canvas/Image Viewport -->
+                <div class="lg:w-2/3 w-full relative">
+                    <div id="loupe-container" class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 shadow-2xl bg-black aspect-[16/10] cursor-crosshair select-none group">
+                        <img id="loupe-target-img" src="assets/studio/cavallino_magenta_detail.jpg" alt="Macro leather texture" class="w-full h-full object-cover transition duration-300">
+                        <div id="loupe-lens" class="w-48 h-48"></div>
+                        <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono-code text-white flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            Cavallino Zebra Magenta — 4K Micro Texture Active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 2: LIQUID LEATHER & WAVE SHADER   -->
+        <!-- ========================================== -->
+        <section id="station-waves" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">02</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">«Хвилі-Шмили» & Рідка Шкіра</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Динамічна симуляція рідкої поверхні (Liquid Displacement). Проведіть курсором по холсту: шкіра сумки та фон починають м'яко вигинатися рідкими золотими хвилями, передаючи плинність та еластичність натурального матеріалу.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase">Керування Хвилями:</div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span>Амплітуда сплеску:</span><span id="wave-amp-val">45</span></div>
+                            <input id="wave-amp" type="range" min="10" max="90" value="45" class="w-full accent-[#C8A97E] cursor-pointer">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span>В'язкість (Viscosity):</span><span id="wave-visc-val">0.96</span></div>
+                            <input id="wave-visc" type="range" min="80" max="99" value="96" class="w-full accent-[#C8A97E] cursor-pointer">
+                        </div>
+                        <div class="flex gap-2 pt-2">
+                            <button onclick="triggerWaveDrop(100, 100)" class="flex-1 py-1.5 bg-[#C8A97E]/20 hover:bg-[#C8A97E] hover:text-black rounded border border-[#C8A97E]/30 transition text-[11px] font-bold">
+                                💧 Сплеск Золота
+                            </button>
+                            <button onclick="clearWaves()" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded border border-white/10 transition text-[11px]">
+                                Скинути
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Wave Canvas -->
+                <div class="lg:w-2/3 w-full relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 shadow-2xl bg-black aspect-[16/10] select-none">
+                        <canvas id="waves-canvas" class="w-full h-full cursor-pointer"></canvas>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono-code text-[#C8A97E]">
+                            Рухайте мишкою або клікайте для хвиль 〰️
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 3: REELS SCRUBBING & FLOATING PIP -->
+        <!-- ========================================== -->
+        <section id="station-reels" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">03</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">Скрол-Рілс & Плаваючий PIP</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Повне злиття відео та сайту: рух моделі з багетом у руках прив'язаний до вашого скролу або повзунка. Користувач буквально «крутить час», розглядаючи рух сумки в повітрі.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase">Механіки Взаємодії:</div>
+                        <div class="space-y-1">
+                            <label class="block text-white mb-1">Покадровий скрабер (Frame Scrubber):</label>
+                            <input id="reel-scrubber" type="range" min="0" max="100" value="0" step="0.1" class="w-full accent-[#C8A97E] cursor-pointer" oninput="scrubReel(this.value)">
+                            <div class="flex justify-between text-[10px] text-gray-400">
+                                <span id="reel-time">0.00s</span>
+                                <span>Повільний рух моделі</span>
+                            </div>
+                        </div>
+                        <div class="pt-2 flex gap-2">
+                            <button id="pip-toggle-btn" onclick="toggleFloatingPIP()" class="flex-1 py-2 bg-[#C8A97E] text-black font-bold rounded-xl hover:bg-[#e4cfb2] transition flex items-center justify-center gap-2">
+                                <span>📌 Згорнути в Плаваючий PIP</span>
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-gray-400">Натисніть кнопку вище, щоб відео пішло за вами у нижній куток при дослідженні інших секцій!</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Video Player / PIP Container -->
+                <div class="lg:w-2/3 w-full flex justify-center">
+                    <div id="floating-pip" class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 bg-black aspect-[9/16] max-w-[340px] shadow-2xl group">
+                        <video id="lab-reel-video" class="w-full h-full object-cover" muted playsinline preload="auto">
+                            <source src="4K-video/ego_reel_01_720p.mp4" type="video/mp4">
+                        </video>
+                        
+                        <!-- Overlay interactive shopping hotspot -->
+                        <div id="video-hotspot" class="absolute top-[48%] right-6 bg-black/80 backdrop-blur-md p-3 rounded-2xl border border-[#C8A97E] shadow-2xl transition duration-300 transform group-hover:scale-105 cursor-pointer" onclick="openHotspotModal()">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#C8A97E] animate-pulse"></span>
+                                <span class="text-[10px] font-mono-code uppercase text-[#C8A97E] font-bold">У Кадрі: Baril Red</span>
+                            </div>
+                            <div class="text-xs font-royal text-white mt-1">Cylindre Baril Carmine</div>
+                            <div class="text-[10px] text-[#C8A97E] mt-0.5">Клікніть щоб відкрити картку →</div>
+                        </div>
+
+                        <!-- Scrubber status indicator -->
+                        <div class="absolute bottom-3 inset-x-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono-code text-center text-amber-200 border border-white/10">
+                            Таймлайн під вашим контролем
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 4: DUAL-REALITY RUNWAY ↔ ATELIER  -->
+        <!-- ========================================== -->
+        <section id="station-dual" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">04</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">Спліт «Подіум ↔ Майстерня»</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Клієнт бачить не просто красиву сумку на моделі, а одним рухом розкриває внутрішній світ створення: руки Олени Горщар, лекала, інструменти КНУТД та справжній авторський процес.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase">Спліт-контролер:</div>
+                        <div>
+                            <input id="split-slider" type="range" min="0" max="100" value="50" class="w-full accent-[#C8A97E] cursor-pointer" oninput="updateSplit(this.value)">
+                            <div class="flex justify-between text-[10px] text-gray-400 mt-1">
+                                <span>← 100% Catwalk (Подіум)</span>
+                                <span>100% Craft (Майстриня) →</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="setSplitPreset(15)" class="flex-1 py-1 rounded bg-[#C8A97E]/15 hover:bg-[#C8A97E] hover:text-black transition">Lookbook</button>
+                            <button onclick="setSplitPreset(50)" class="flex-1 py-1 rounded bg-[#C8A97E]/15 hover:bg-[#C8A97E] hover:text-black transition">50 / 50</button>
+                            <button onclick="setSplitPreset(85)" class="flex-1 py-1 rounded bg-[#C8A97E]/15 hover:bg-[#C8A97E] hover:text-black transition">Atelier</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Split Viewport -->
+                <div class="lg:w-2/3 w-full relative">
+                    <div id="split-container" class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 shadow-2xl aspect-[16/10] bg-black select-none cursor-ew-resize">
+                        <!-- Atelier Background Layer (Right) -->
+                        <img src="assets/studio/olena_horshchar_founder_portrait.jpg" alt="Atelier Craft" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute bottom-4 right-4 bg-black/80 px-3 py-1 rounded-full text-[11px] font-mono-code text-[#C8A97E] border border-white/10 z-10">
+                            🛠️ Майстерня Олени Горщар
+                        </div>
+
+                        <!-- Catwalk Top Layer (Left Clipped) -->
+                        <div id="split-overlay" class="absolute inset-y-0 left-0 overflow-hidden border-r-2 border-[#C8A97E] shadow-[0_0_25px_rgba(200,169,126,0.8)]" style="width: 50%;">
+                            <img src="assets/studio/lookbook_coat_cognac_cylindre.jpg" alt="Fashion Catwalk" class="absolute inset-0 w-[100vw] max-w-none h-full object-cover" id="split-img-left">
+                            <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 rounded-full text-[11px] font-mono-code text-white border border-white/10">
+                                👗 High-Fashion Editorial
+                            </div>
+                        </div>
+
+                        <!-- Divider handle -->
+                        <div id="split-handle" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#C8A97E] text-black font-bold flex items-center justify-center text-xs shadow-2xl pointer-events-none z-20" style="left: 50%;">
+                            ⇄
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 5: LIVE HOT-FOIL MONOGRAM STAMP   -->
+        <!-- ========================================== -->
+        <section id="station-stamp" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">05</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">Гаряче Тиснення 24K Золотом</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Клієнт персоналізує виріб прямо на екрані. Введіть ініціали чи ім'я — латунний прес опускається зі звуком розігрітого штампа, випалюючи рельєфне золото на текстурі шкіри.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div>
+                            <label class="block text-white mb-1">Ваш Текст / Ініціали:</label>
+                            <input id="monogram-input" type="text" maxlength="12" value="EGO 2026" class="w-full bg-[#111828] border border-[#C8A97E]/40 rounded-xl px-3 py-2 text-white font-mono uppercase tracking-widest text-center text-sm outline-none focus:border-[#C8A97E]">
+                        </div>
+                        <div>
+                            <label class="block text-white mb-1">Оберіть фольгу:</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="setFoilStyle('gold')" class="py-1.5 rounded border border-[#C8A97E] bg-[#C8A97E]/20 text-[#C8A97E] text-[11px] font-bold foil-btn active-foil" id="foil-gold">24K Золото</button>
+                                <button onclick="setFoilStyle('silver')" class="py-1.5 rounded border border-white/20 bg-white/5 text-gray-300 text-[11px] foil-btn" id="foil-silver">Срібло</button>
+                                <button onclick="setFoilStyle('blind')" class="py-1.5 rounded border border-white/20 bg-white/5 text-gray-300 text-[11px] foil-btn" id="foil-blind">Сліпе Тиснення</button>
+                            </div>
+                        </div>
+                        <button onclick="executeHotStamp()" class="w-full py-3 bg-[#C8A97E] hover:bg-[#e4cfb2] text-black font-bold uppercase tracking-wider rounded-xl transition shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                            🔥 Натиснути Прес (Stamp It)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Leather Stamping Canvas -->
+                <div class="lg:w-2/3 w-full relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 shadow-2xl aspect-[16/10] bg-[#1a120c] flex items-center justify-center select-none" id="stamp-surface">
+                        <img src="assets/branding/leather_clean_texture.jpg" alt="Leather hide" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity">
+                        
+                        <!-- 3D Monogram Plaque -->
+                        <div id="monogram-target" class="relative z-10 px-8 py-5 rounded-2xl border border-[#C8A97E]/30 bg-black/40 backdrop-blur-sm shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)] transition duration-300 text-center">
+                            <div class="text-[9px] uppercase tracking-[0.3em] font-mono-code text-[#C8A97E]/70 mb-1">ATELIER HANDMADE EMBOSS</div>
+                            <div id="monogram-rendered-text" class="font-royal text-3xl sm:text-5xl tracking-[0.25em] text-[#C8A97E] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] transition-all duration-300">
+                                EGO 2026
+                            </div>
+                            <div class="text-[8px] font-mono text-gray-400 mt-1">EGO LEATHER KYIV • VERIFIED GENUINE</div>
+                        </div>
+
+                        <!-- Steam Particles Canvas -->
+                        <canvas id="steam-canvas" class="absolute inset-0 pointer-events-none z-20"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 6: ASMR CRAFT EQUALIZER           -->
+        <!-- ========================================== -->
+        <section id="station-asmr" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">06</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">ASMR Анатомія Ремесла</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Тактильні звуки майстерні, синтезовані за допомогою Web Audio API. Клікайте на інструменти, щоб відчути кінетичну міць та точність ручної праці з натуральною шкірою.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-2 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase mb-2">Тактильні Сенсори:</div>
+                        <div class="text-gray-300">Кожен звук має власну частотну характеристику, що передає матеріал і щільність шкіри.</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Soundboard -->
+                <div class="lg:w-2/3 w-full space-y-4">
+                    <!-- Equalizer Canvas -->
+                    <div class="rounded-2xl border border-[#C8A97E]/30 bg-black/60 p-4 h-28 flex items-end justify-center gap-1.5 overflow-hidden shadow-2xl relative" id="eq-container">
+                        <div class="absolute top-3 left-4 text-[10px] font-mono-code text-[#C8A97E]">LIVE ASMR FREQUENCY SPECTRUM</div>
+                        <!-- EQ Bars dynamically generated via JS -->
+                    </div>
+
+                    <!-- 4 Sensory Sound Buttons -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <button onclick="playCraftASMR('hammer')" class="glass-panel glass-card-interactive p-4 rounded-2xl border border-[#C8A97E]/20 text-center group cursor-pointer active:scale-95">
+                            <div class="text-2xl mb-1 group-hover:scale-125 transition-transform">🔨</div>
+                            <div class="text-xs font-bold text-white group-hover:text-[#C8A97E]">Киянка & Штамп</div>
+                            <div class="text-[9px] font-mono text-gray-400 mt-1">Глухий удар по пробійнику</div>
+                        </button>
+
+                        <button onclick="playCraftASMR('blade')" class="glass-panel glass-card-interactive p-4 rounded-2xl border border-[#C8A97E]/20 text-center group cursor-pointer active:scale-95">
+                            <div class="text-2xl mb-1 group-hover:scale-125 transition-transform">✂️</div>
+                            <div class="text-xs font-bold text-white group-hover:text-[#C8A97E]">Розріз Шкіри</div>
+                            <div class="text-[9px] font-mono text-gray-400 mt-1">Хрускіт шорного ножа</div>
+                        </button>
+
+                        <button onclick="playCraftASMR('snap')" class="glass-panel glass-card-interactive p-4 rounded-2xl border border-[#C8A97E]/20 text-center group cursor-pointer active:scale-95">
+                            <div class="text-2xl mb-1 group-hover:scale-125 transition-transform">🔒</div>
+                            <div class="text-xs font-bold text-white group-hover:text-[#C8A97E]">Магнітний Замок</div>
+                            <div class="text-[9px] font-mono text-gray-400 mt-1">Чітке клацання замка</div>
+                        </button>
+
+                        <button onclick="playCraftASMR('brush')" class="glass-panel glass-card-interactive p-4 rounded-2xl border border-[#C8A97E]/20 text-center group cursor-pointer active:scale-95">
+                            <div class="text-2xl mb-1 group-hover:scale-125 transition-transform">✨</div>
+                            <div class="text-xs font-bold text-white group-hover:text-[#C8A97E]">Шелест Cavallino</div>
+                            <div class="text-[9px] font-mono text-gray-400 mt-1">М'який дотик до ворсу</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- STATION 7: MYSTERY VAULT & ZSU CHARITY    -->
+        <!-- ========================================== -->
+        <section id="station-vault" class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-[#C8A97E]/20 border border-[#C8A97E]/40 text-[#C8A97E] font-mono-code text-sm font-bold flex items-center justify-center">07</span>
+                        <h3 class="font-royal text-2xl sm:text-3xl text-white">Секретний Сейф & ЗСУ</h3>
+                    </div>
+                    <p class="text-sm text-[#9EA8B6] leading-relaxed">
+                        Гейміфікація ексклюзивності: закритий бункер авторських екземплярів та благодійних лотів для Збройних Сил України. Поверніть лімб замка на правильну комбінацію (або натисніть «Відімкнути»), щоб відкрити двері.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/40 border border-[#C8A97E]/15 space-y-3 text-xs font-mono-code">
+                        <div class="text-[#C8A97E] font-bold uppercase">Статус Замка:</div>
+                        <div class="flex items-center justify-between text-white">
+                            <span>Код комбінації:</span>
+                            <span id="vault-code-display" class="text-base text-[#C8A97E] font-bold tracking-widest">7 - 7 - 7</span>
+                        </div>
+                        <button onclick="unlockVault()" class="w-full py-2.5 bg-[#C8A97E] hover:bg-[#e4cfb2] text-black font-bold uppercase rounded-xl transition cursor-pointer">
+                            🔓 Відімкнути Сейф (Open Vault)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Vault Door / Reveal Viewport -->
+                <div class="lg:w-2/3 w-full relative">
+                    <div id="vault-box" class="relative rounded-2xl overflow-hidden border border-[#C8A97E]/30 shadow-2xl aspect-[16/10] bg-[#080d1a] flex items-center justify-center select-none">
+                        
+                        <!-- REVEALED CONTENT (Inside the Safe) -->
+                        <div id="vault-content" class="absolute inset-0 p-6 flex flex-col sm:flex-row items-center justify-around gap-6 bg-gradient-to-br from-[#060b18] to-[#121c33] opacity-0 transition-opacity duration-700 pointer-events-none">
+                            <div class="relative w-44 sm:w-56 aspect-[3/4] rounded-2xl overflow-hidden border border-[#C8A97E] shadow-2xl">
+                                <img src="assets/collection/13_Blue_Sculptural_Drape/DSC00506.jpg" alt="Vault Bag" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-amber-500 text-black text-[9px] font-bold font-mono">
+                                    LOT #01
+                                </div>
+                            </div>
+                            <div class="space-y-3 max-w-sm text-center sm:text-left">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[10px] font-mono-code">
+                                    🇺🇦 100% ПРИБУТКУ ДЛЯ ЗСУ
+                                </div>
+                                <h4 class="font-royal text-2xl text-white">Sculptural Blue Orb Baguette</h4>
+                                <p class="text-xs text-gray-300 leading-relaxed">
+                                    Лімітований єдиний екземпляр із темно-синьої драпованої наппи ручного формування. Виготовлено в ательє Олени Горщар.
+                                </p>
+                                <div class="pt-2 flex items-center gap-3 justify-center sm:justify-start">
+                                    <span class="text-lg font-royal text-[#C8A97E] font-bold">18 500 ₴</span>
+                                    <button class="px-4 py-1.5 rounded-full bg-[#C8A97E] text-black text-xs font-bold hover:scale-105 transition">
+                                        Забронювати Лот
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VAULT DOOR (Overlay) -->
+                        <div id="vault-door" class="absolute inset-0 bg-gradient-to-br from-[#121929] via-[#090d17] to-[#04060c] border border-white/10 flex flex-col items-center justify-center transition-all duration-1000 origin-left">
+                            <div class="relative w-36 h-36 rounded-full border-4 border-[#C8A97E]/40 flex items-center justify-center bg-black/60 shadow-[0_0_50px_rgba(0,0,0,0.9)] cursor-pointer vault-dial" id="dial-wheel" onclick="rotateDial()">
+                                <div class="w-28 h-28 rounded-full border-2 border-dashed border-[#C8A97E]/30 flex items-center justify-center text-xs font-mono text-[#C8A97E]">
+                                    ROTATION
+                                </div>
+                                <div class="absolute w-2 h-6 bg-[#C8A97E] rounded-full top-2 shadow-[0_0_10px_#C8A97E]"></div>
+                            </div>
+                            <div class="mt-4 text-xs font-mono-code text-[#C8A97E] uppercase tracking-widest">
+                                Клацніть на лімб для прокрутки
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-panel border-t border-[#C8A97E]/20 py-8 text-center text-xs text-gray-400 font-mono-code">
+        EGO LEATHER CREATIVE LAB • АВТОРСЬКІ ШКІРЯНІ ВИРОБИ ОЛЕНИ ГОРЩАР • 2026
+    </footer>
+
+    <!-- INTERACTIVE HOTSPOT MODAL -->
+    <div id="hotspot-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[10000] hidden items-center justify-center p-4">
+        <div class="glass-panel max-w-lg w-full rounded-3xl p-6 border border-[#C8A97E] relative animate-stamp">
+            <button onclick="closeHotspotModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">✕</button>
+            <div class="flex gap-4 items-center">
+                <img src="assets/collection/01_Red_Cylindre_Carmine/DSC00032.jpg" alt="Bag" class="w-24 h-24 rounded-xl object-cover border border-[#C8A97E]/40">
+                <div>
+                    <span class="text-[10px] font-mono uppercase text-[#C8A97E]">Рітейл-Специфікація</span>
+                    <h3 class="font-royal text-2xl text-white">Cylindre Baril Carmine</h3>
+                    <p class="text-xs text-gray-300 mt-1">Архітектурний багет із натуральної червоної шкіри Nappa. Довгий плечовий ремінь у комплекті.</p>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-between items-center border-t border-white/10 pt-4">
+                <span class="font-royal text-xl text-[#C8A97E]">9 400 ₴</span>
+                <a href="index.html" class="px-5 py-2 rounded-full bg-[#C8A97E] text-black font-bold text-xs hover:bg-[#e4cfb2] transition">
+                    Оформити Замовлення →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- JAVASCRIPT: COMPLETE INTERACTIVE ENGINE FOR ALL 7 FEATS  -->
+    <!-- ======================================================== -->
+    <script>
+        // --- WEB AUDIO API ENGINE FOR ASMR SOUND EFFECTS ---
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        // Tactile sound synthesizing
+        function playHapticTick(freq = 600, duration = 0.03) {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + duration);
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function playCraftASMR(type) {
+            const ctx = getAudioContext();
+            const now = ctx.currentTime;
+
+            if (type === 'hammer') {
+                // Heavy dull wooden punch sound
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(180, now);
+                osc.frequency.exponentialRampToValueAtTime(45, now + 0.15);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.15);
+                pulseEqualizer(1.8);
+            } else if (type === 'blade') {
+                // High-frequency noise cut
+                const bufferSize = ctx.sampleRate * 0.12;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'highpass';
+                filter.frequency.value = 2500;
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+                noise.start(now);
+                pulseEqualizer(1.4);
+            } else if (type === 'snap') {
+                // Sharp metallic buckle click
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(2200, now);
+                osc.frequency.exponentialRampToValueAtTime(600, now + 0.04);
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.04);
+                pulseEqualizer(1.6);
+            } else if (type === 'brush') {
+                // Soft hair rustle
+                const bufferSize = ctx.sampleRate * 0.25;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * 0.2;
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = 1800;
+                filter.Q.value = 2.0;
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+                noise.start(now);
+                pulseEqualizer(1.2);
+            }
+        }
+
+        // --- AMBIENT SOUND CONTROLLER ---
+        let isAudioPlaying = false;
+        function toggleAudio() {
+            const audio = document.getElementById('lab-ambient-audio');
+            const bars = document.querySelectorAll('.sound-bar');
+            const btnText = document.getElementById('audio-btn-text');
+
+            if (!isAudioPlaying) {
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    bars.forEach(b => b.style.animationPlayState = 'running');
+                    btnText.textContent = 'ЗВУК УВІМКНЕНО';
+                }).catch(() => {});
+            } else {
+                audio.pause();
+                isAudioPlaying = false;
+                bars.forEach(b => b.style.animationPlayState = 'paused');
+                btnText.textContent = 'ЗВУК ВІМК';
+            }
+        }
+
+        // --- STATION 1: TACTILE LOUPE LOGIC ---
+        let loupeZoom = 3.5;
+        const loupeContainer = document.getElementById('loupe-container');
+        const loupeLens = document.getElementById('loupe-lens');
+        const loupeTargetImg = document.getElementById('loupe-target-img');
+
+        function setLoupeZoom(zoom) {
+            loupeZoom = zoom;
+            document.querySelectorAll('.loupe-btn').forEach(b => {
+                b.classList.remove('bg-[#C8A97E]', 'text-black', 'font-bold');
+                b.classList.add('bg-[#C8A97E]/20');
+            });
+            event.target.classList.add('bg-[#C8A97E]', 'text-black', 'font-bold');
+            playHapticTick(800, 0.05);
+        }
+
+        function changeLoupeFilter(filter) {
+            if (filter === 'natural') {
+                loupeLens.style.filter = 'none';
+            } else if (filter === 'emboss') {
+                loupeLens.style.filter = 'contrast(220%) brightness(1.1) grayscale(80%)';
+            } else if (filter === 'infrared') {
+                loupeLens.style.filter = 'invert(100%) hue-rotate(180deg) contrast(150%)';
+            }
+            playHapticTick(900, 0.05);
+        }
+
+        let lastLoupeTick = 0;
+        loupeContainer.addEventListener('mousemove', (e) => {
+            const rect = loupeContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            loupeLens.style.display = 'block';
+            const lensW = loupeLens.offsetWidth;
+            const lensH = loupeLens.offsetHeight;
+
+            loupeLens.style.left = `${x - lensW / 2}px`;
+            loupeLens.style.top = `${y - lensH / 2}px`;
+
+            loupeLens.style.backgroundImage = `url('${loupeTargetImg.src}')`;
+            loupeLens.style.backgroundRepeat = 'no-repeat';
+            loupeLens.style.backgroundSize = `${loupeContainer.offsetWidth * loupeZoom}px ${loupeContainer.offsetHeight * loupeZoom}px`;
+            loupeLens.style.backgroundPosition = `-${x * loupeZoom - lensW / 2}px -${y * loupeZoom - lensH / 2}px`;
+
+            // Subtle tactile tick as user traverses texture
+            const now = Date.now();
+            if (now - lastLoupeTick > 80) {
+                playHapticTick(450 + (x % 200), 0.015);
+                lastLoupeTick = now;
+            }
+        });
+
+        loupeContainer.addEventListener('mouseleave', () => {
+            loupeLens.style.display = 'none';
+        });
+
+        // --- STATION 2: 2D LIQUID WAVE SIMULATION ---
+        const waveCanvas = document.getElementById('waves-canvas');
+        const waveCtx = waveCanvas.getContext('2d');
+        let width = 0, height = 0;
+        let cols = 0, rows = 0;
+        const resolution = 4;
+        let currentWave = [];
+        let previousWave = [];
+        let damping = 0.96;
+        let waveAmplitude = 45;
+
+        const waveBgImg = new Image();
+        waveBgImg.src = 'assets/studio/drape_blue_orb_front.jpg';
+
+        function resizeWaveCanvas() {
+            width = waveCanvas.offsetWidth;
+            height = waveCanvas.offsetHeight;
+            waveCanvas.width = width;
+            waveCanvas.height = height;
+            cols = Math.floor(width / resolution);
+            rows = Math.floor(height / resolution);
+            currentWave = new Float32Array(cols * rows);
+            previousWave = new Float32Array(cols * rows);
+        }
+        window.addEventListener('resize', resizeWaveCanvas);
+        setTimeout(resizeWaveCanvas, 200);
+
+        function triggerWaveDrop(x, y, radius = 5, strength = null) {
+            const st = strength || waveAmplitude;
+            const col = Math.floor(x / resolution);
+            const row = Math.floor(y / resolution);
+            for (let i = -radius; i <= radius; i++) {
+                for (let j = -radius; j <= radius; j++) {
+                    const c = col + i;
+                    const r = row + j;
+                    if (c >= 0 && c < cols && r >= 0 && r < rows) {
+                        const dist = Math.sqrt(i * i + j * j);
+                        if (dist <= radius) {
+                            previousWave[r * cols + c] += (1 - dist / radius) * st;
+                        }
+                    }
+                }
+            }
+            playHapticTick(300 + Math.random() * 200, 0.04);
+        }
+
+        waveCanvas.addEventListener('mousemove', (e) => {
+            const rect = waveCanvas.getBoundingClientRect();
+            triggerWaveDrop(e.clientX - rect.left, e.clientY - rect.top, 3, 20);
+        });
+
+        waveCanvas.addEventListener('click', (e) => {
+            const rect = waveCanvas.getBoundingClientRect();
+            triggerWaveDrop(e.clientX - rect.left, e.clientY - rect.top, 8, waveAmplitude);
+        });
+
+        document.getElementById('wave-amp').addEventListener('input', (e) => {
+            waveAmplitude = parseFloat(e.target.value);
+            document.getElementById('wave-amp-val').textContent = waveAmplitude;
+        });
+        document.getElementById('wave-visc').addEventListener('input', (e) => {
+            damping = parseFloat(e.target.value) / 100;
+            document.getElementById('wave-visc-val').textContent = damping.toFixed(2);
+        });
+
+        function clearWaves() {
+            currentWave.fill(0);
+            previousWave.fill(0);
+        }
+
+        function renderWaveFrame() {
+            if (cols > 0 && rows > 0) {
+                // Wave propagation algorithm
+                for (let r = 1; r < rows - 1; r++) {
+                    for (let c = 1; c < cols - 1; c++) {
+                        const idx = r * cols + c;
+                        currentWave[idx] = (
+                            previousWave[idx - 1] +
+                            previousWave[idx + 1] +
+                            previousWave[idx - cols] +
+                            previousWave[idx + cols]
+                        ) / 2 - currentWave[idx];
+                        currentWave[idx] *= damping;
+                    }
+                }
+
+                // Swap buffers
+                const temp = previousWave;
+                previousWave = currentWave;
+                currentWave = temp;
+
+                // Draw background image
+                waveCtx.drawImage(waveBgImg, 0, 0, width, height);
+
+                // Overlay golden ripple effect
+                waveCtx.fillStyle = 'rgba(200, 169, 126, 0.12)';
+                waveCtx.beginPath();
+                for (let r = 0; r < rows; r += 2) {
+                    for (let c = 0; c < cols; c += 2) {
+                        const val = previousWave[r * cols + c];
+                        if (Math.abs(val) > 0.5) {
+                            waveCtx.rect(c * resolution, r * resolution + val * 0.3, resolution * 2, resolution * 2);
+                        }
+                    }
+                }
+                waveCtx.fill();
+            }
+            requestAnimationFrame(renderWaveFrame);
+        }
+        requestAnimationFrame(renderWaveFrame);
+
+
+        // --- STATION 3: REEL SCRUBBER & FLOATING PIP ---
+        const reelVideo = document.getElementById('lab-reel-video');
+        const reelTimeDisplay = document.getElementById('reel-time');
+        const pipContainer = document.getElementById('floating-pip');
+
+        function scrubReel(val) {
+            if (reelVideo.duration) {
+                const targetTime = (val / 100) * reelVideo.duration;
+                reelVideo.currentTime = targetTime;
+                reelTimeDisplay.textContent = targetTime.toFixed(2) + 's';
+                playHapticTick(700, 0.02);
+            }
+        }
+
+        let isPipDocked = false;
+        function toggleFloatingPIP() {
+            isPipDocked = !isPipDocked;
+            const btn = document.getElementById('pip-toggle-btn');
+            if (isPipDocked) {
+                pipContainer.classList.add('pip-docked');
+                btn.innerHTML = '<span>↖️ Повернути у Стенд</span>';
+                reelVideo.play();
+            } else {
+                pipContainer.classList.remove('pip-docked');
+                btn.innerHTML = '<span>📌 Згорнути в Плаваючий PIP</span>';
+                reelVideo.pause();
+            }
+            playHapticTick(900, 0.06);
+        }
+
+        function openHotspotModal() {
+            document.getElementById('hotspot-modal').classList.remove('hidden');
+            document.getElementById('hotspot-modal').classList.add('flex');
+            playHapticTick(1000, 0.05);
+        }
+
+        function closeHotspotModal() {
+            document.getElementById('hotspot-modal').classList.add('hidden');
+            document.getElementById('hotspot-modal').classList.remove('flex');
+        }
+
+
+        // --- STATION 4: DUAL REALITY RUNWAY/ATELIER SPLIT ---
+        const splitOverlay = document.getElementById('split-overlay');
+        const splitHandle = document.getElementById('split-handle');
+        const splitContainer = document.getElementById('split-container');
+        const splitSlider = document.getElementById('split-slider');
+
+        function updateSplit(val) {
+            splitOverlay.style.width = `${val}%`;
+            splitHandle.style.left = `${val}%`;
+            playHapticTick(400 + val * 4, 0.02);
+        }
+
+        function setSplitPreset(val) {
+            splitSlider.value = val;
+            updateSplit(val);
+        }
+
+        let isSplitting = false;
+        splitContainer.addEventListener('mousedown', () => isSplitting = true);
+        window.addEventListener('mouseup', () => isSplitting = false);
+        splitContainer.addEventListener('mousemove', (e) => {
+            if (isSplitting) {
+                const rect = splitContainer.getBoundingClientRect();
+                const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+                const pct = (x / rect.width) * 100;
+                splitSlider.value = pct;
+                updateSplit(pct);
+            }
+        });
+
+
+        // --- STATION 5: LIVE HOT FOIL STAMPING ---
+        const monogramInput = document.getElementById('monogram-input');
+        const monogramText = document.getElementById('monogram-rendered-text');
+        const monogramTarget = document.getElementById('monogram-target');
+
+        monogramInput.addEventListener('input', (e) => {
+            const val = e.target.value.toUpperCase() || 'EGO';
+            monogramText.textContent = val;
+        });
+
+        let currentFoil = 'gold';
+        function setFoilStyle(type) {
+            currentFoil = type;
+            document.querySelectorAll('.foil-btn').forEach(b => {
+                b.classList.remove('border-[#C8A97E]', 'bg-[#C8A97E]/20', 'text-[#C8A97E]', 'font-bold');
+            });
+            event.target.classList.add('border-[#C8A97E]', 'bg-[#C8A97E]/20', 'text-[#C8A97E]', 'font-bold');
+
+            if (type === 'gold') {
+                monogramText.className = 'font-royal text-3xl sm:text-5xl tracking-[0.25em] text-[#C8A97E] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]';
+            } else if (type === 'silver') {
+                monogramText.className = 'font-royal text-3xl sm:text-5xl tracking-[0.25em] text-slate-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]';
+            } else if (type === 'blind') {
+                monogramText.className = 'font-royal text-3xl sm:text-5xl tracking-[0.25em] text-[#33251c] drop-shadow-[0_2px_1px_rgba(255,255,255,0.15)] shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]';
+            }
+            playHapticTick(800, 0.04);
+        }
+
+        function executeHotStamp() {
+            // Sizzle audio
+            playCraftASMR('blade');
+            playCraftASMR('hammer');
+
+            monogramTarget.classList.remove('animate-stamp');
+            void monogramTarget.offsetWidth; // Trigger reflow
+            monogramTarget.classList.add('animate-stamp');
+
+            // Steam particles effect
+            spawnSteamParticles();
+        }
+
+        function spawnSteamParticles() {
+            const canvas = document.getElementById('steam-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            let particles = [];
+            for (let i = 0; i < 40; i++) {
+                particles.push({
+                    x: canvas.width / 2 + (Math.random() * 120 - 60),
+                    y: canvas.height / 2 + 10,
+                    vx: (Math.random() - 0.5) * 1.5,
+                    vy: -Math.random() * 3 - 1,
+                    radius: Math.random() * 15 + 8,
+                    alpha: 0.6
+                });
+            }
+
+            function animateSteam() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let alive = false;
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha -= 0.015;
+                    p.radius += 0.4;
+                    if (p.alpha > 0) {
+                        alive = true;
+                        ctx.fillStyle = `rgba(240, 220, 190, ${p.alpha * 0.3})`;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+                if (alive) requestAnimationFrame(animateSteam);
+            }
+            animateSteam();
+        }
+
+
+        // --- STATION 6: EQUALIZER FREQUENCY PULSE ---
+        const eqContainer = document.getElementById('eq-container');
+        const eqBars = [];
+        for (let i = 0; i < 32; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'flex-1 bg-gradient-to-t from-[#C8A97E] to-[#FAF6EF] rounded-t transition-all duration-75';
+            bar.style.height = `${Math.random() * 15 + 4}px`;
+            bar.style.opacity = '0.6';
+            eqContainer.appendChild(bar);
+            eqBars.push(bar);
+        }
+
+        function pulseEqualizer(mult = 1.0) {
+            eqBars.forEach((bar, idx) => {
+                const h = Math.min(85, Math.random() * 70 * mult + 8);
+                bar.style.height = `${h}px`;
+                bar.style.opacity = '1';
+                setTimeout(() => {
+                    bar.style.height = `${Math.random() * 12 + 4}px`;
+                    bar.style.opacity = '0.5';
+                }, 180 + idx * 4);
+            });
+        }
+
+
+        // --- STATION 7: MYSTERY VAULT INTERACTION ---
+        let dialDeg = 0;
+        const dialWheel = document.getElementById('dial-wheel');
+        function rotateDial() {
+            dialDeg += 45;
+            dialWheel.style.transform = `rotate(${dialDeg}deg)`;
+            playCraftASMR('snap');
+            playHapticTick(900, 0.03);
+            if (dialDeg % 360 === 0) {
+                unlockVault();
+            }
+        }
+
+        let isVaultOpen = false;
+        function unlockVault() {
+            if (isVaultOpen) return;
+            isVaultOpen = true;
+            playCraftASMR('hammer');
+            playCraftASMR('snap');
+
+            const door = document.getElementById('vault-door');
+            const content = document.getElementById('vault-content');
+            
+            door.style.transform = 'perspective(1000px) rotateY(-85deg)';
+            content.style.opacity = '1';
+            content.style.pointerEvents = 'auto';
+
+            document.getElementById('vault-code-display').textContent = 'UNLOCKED';
+            document.getElementById('vault-code-display').classList.add('text-emerald-400');
+        }
+    </script>
+</body>
+</html>
