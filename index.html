@@ -2298,22 +2298,15 @@
             <div class="ambient-glow bottom-10 left-10 w-[500px] h-[500px]"></div>
 
             <div class="w-full max-w-[1440px] mx-auto relative z-10">
-                <!-- Header with Info -->
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 lg:mb-4">
-                    <div>
-                        <div class="inline-flex items-center gap-2 mb-2">
-                            <svg viewBox="0 0 120 100" class="w-5 h-4"><use href="#ego-monogram-el"/></svg>
-                            <span class="text-xs font-sub" style="color: var(--accent-gold);" data-i18n="creations_badge">СИНХРОНІЗОВАНИЙ КАТАЛОГ 2026</span>
-                        </div>
-                        <h2 class="font-royal text-3xl sm:text-5xl font-light" data-i18n="creations_title">
-                            Колекція Виробів Ручної Роботи
-                        </h2>
+                <!-- Header: Centered -->
+                <div class="text-center max-w-3xl mx-auto mb-4 sm:mb-6 lg:mb-4">
+                    <div class="inline-flex items-center justify-center gap-2 mb-2">
+                        <svg viewBox="0 0 120 100" class="w-5 h-4"><use href="#ego-monogram-el"/></svg>
+                        <span class="text-xs font-sub" style="color: var(--accent-gold);" data-i18n="creations_badge">СИНХРОНІЗОВАНИЙ КАТАЛОГ 2026</span>
                     </div>
-
-                    <div class="flex items-center gap-3">
-                        <span class="text-xs text-[#C8A97E] font-sub tracking-wider bg-black/40 px-3.5 py-1.5 rounded-full border border-[#C8A97E]/30 backdrop-blur-sm" data-i18n="creations_info">16 авторських колекцій • Рівно 3 моделі на екрані • 5 сек автозміна • Тачпад скрол
-                        </span>
-                    </div>
+                    <h2 class="font-royal text-3xl sm:text-5xl font-light whitespace-normal sm:whitespace-nowrap" data-i18n="creations_title">
+                        Колекція Виробів Ручної Роботи
+                    </h2>
                 </div>
 
                 <!-- Carousel Viewport Wrapper with Floating Controls -->
@@ -8600,9 +8593,14 @@
         }
 
         // Dynamically compute exact card width so EXACTLY getCardsPerView() cards fit 100% of mask
+        let lastMaskWidth = 0;
         function updateCardDimensions() {
             const maskWidth = mask.clientWidth;
             if (!maskWidth) return;
+            // Avoid resetting styles if width hasn't meaningfully changed
+            if (Math.abs(maskWidth - lastMaskWidth) < 2 && cardStep > 0) return;
+            lastMaskWidth = maskWidth;
+
             const count = getCardsPerView();
             const gap = 24;
             const exactCardWidth = Math.floor((maskWidth - ((count - 1) * gap)) / count);
@@ -8619,10 +8617,12 @@
 
             cardStep = exactCardWidth + gap;
 
-            // Instantly apply position without animation
-            track.style.transition = 'none';
-            track.style.transform = `translate3d(${-cardOffset * cardStep}px, 0, 0)`;
-            void track.offsetWidth;
+            // Only snap position if not currently in a transition
+            if (!isAnimating) {
+                track.style.transition = 'none';
+                track.style.transform = `translate3d(${-cardOffset * cardStep}px, 0, 0)`;
+                void track.offsetWidth;
+            }
         }
         window.updateCardDimensions = updateCardDimensions;
 
@@ -8639,13 +8639,17 @@
             track.style.transition = 'transform 1.15s cubic-bezier(0.22, 1, 0.36, 1)';
             track.style.transform = `translate3d(${-cardOffset * cardStep}px, 0, 0)`;
 
+            let ended = false;
+            let animFallback = null;
+
             const onEnd = (e) => {
+                if (ended) return;
                 if (e && e.target !== track) return;
+                ended = true;
+                if (animFallback) { clearTimeout(animFallback); animFallback = null; }
                 track.removeEventListener('transitionend', onEnd);
 
                 // Seamless circular normalization: 48 is the LCM of 16 models and 3 cards!
-                // After 16 cycles of 3 cards (48 cards), Model 1 is next at card 48.
-                // Wrap seamlessly between 0 and 48 without animation.
                 let wrapped = false;
                 if (cardOffset >= 48) {
                     cardOffset -= 48;
@@ -8664,6 +8668,9 @@
                 track.classList.remove('animating');
                 isAnimating = false;
             };
+
+            // Safety fallback: guarantees carousel never gets stuck if transitionend is missed
+            animFallback = setTimeout(onEnd, 1250);
             track.addEventListener('transitionend', onEnd);
         };
 
@@ -8676,11 +8683,12 @@
         window.carouselPrev = () => window.carouselSlideManual(-1);
         window.scrollCollectionsInfinite = (dir) => window.carouselSlideManual(dir);
 
-        // 5-Second Circular Autoplay (GOLDEN STANDARD)
+        // 5-Second Circular Autoplay (Guaranteed Active & Resilient)
         function startAutoplay() {
             stopAutoplay();
             autoplayTimer = setInterval(() => {
-                if (!isHovered && !isAnimating) {
+                if (!isHovered) {
+                    isAnimating = false; // Always clear lock before new scheduled slide
                     window.carouselSlide(1, false);
                 }
             }, 5000);
@@ -8698,9 +8706,9 @@
             startAutoplay();
         }
 
-        // Hover pause
-        viewport.addEventListener('mouseenter', () => { isHovered = true; });
-        viewport.addEventListener('mouseleave', () => { isHovered = false; });
+        // Hover pause only when mouse is directly over the cards
+        track.addEventListener('mouseenter', () => { isHovered = true; });
+        track.addEventListener('mouseleave', () => { isHovered = false; });
 
         // Two-Finger Trackpad Gesture & Wheel Navigation
         let wheelDeltaX = 0;
