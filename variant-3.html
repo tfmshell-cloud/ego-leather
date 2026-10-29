@@ -8754,5 +8754,53 @@
         </svg>
     </button>
 
+    <!-- BESPOKE DESIGN LAB: FLOATING LUXURY VARIANT SWITCHER -->
+    <div id="design-switcher-widget" class="fixed bottom-6 left-6 z-50">
+        <div class="relative inline-block text-left">
+            <button onclick="toggleDesignSwitcher(event)" class="px-4 py-2.5 rounded-full border backdrop-blur-2xl flex items-center gap-2.5 text-xs font-sub transition-all duration-300 shadow-2xl cursor-pointer hover:scale-105 active:scale-95" style="background: rgba(6, 9, 17, 0.85); border-color: rgba(200, 169, 126, 0.45); color: var(--accent-gold);" title="Перемикач макетів дизайну">
+                <span>🎨</span>
+                <span class="text-[11px] font-semibold tracking-wider uppercase text-[#FAF6EF]">Макет: <span class="text-[#C8A97E]">3 (Сітка 2×3)</span></span>
+                <svg class="w-3.5 h-3.5 text-current opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+            <div id="design-switcher-menu" class="hidden absolute bottom-14 left-0 w-72 rounded-2xl border backdrop-blur-2xl shadow-2xl p-2.5 z-50 flex flex-col gap-1.5 transition-all duration-200" style="background: rgba(6, 9, 17, 0.95); border-color: rgba(200, 169, 126, 0.35);">
+                <div class="px-3 py-1.5 text-[10px] font-sub uppercase tracking-[0.2em] text-[#C8A97E] border-b border-white/10">Лабораторія Дизайну EGO LEATHER</div>
+                
+                <a href="index.html" class="px-3 py-2 rounded-xl text-xs font-sub flex items-center justify-between transition hover:bg-[#C8A97E]/10 text-gray-300 hover:text-white">
+                    <span class="flex flex-col">
+                        <span class="font-semibold text-gray-200">★ Макет 2: Золотий Стандарт</span>
+                        <span class="text-[10px] text-gray-400">Центрований логотип + скошені кнопки</span>
+                    </span>
+                </a>
+                
+                <a href="ego-leather-1.html" class="px-3 py-2 rounded-xl text-xs font-sub flex items-center justify-between transition hover:bg-[#C8A97E]/10 text-gray-300 hover:text-white">
+                    <span class="flex flex-col">
+                        <span class="font-semibold text-gray-200">Макет 1: Класичний лінійний</span>
+                        <span class="text-[10px] text-gray-400">Лого зліва + горизонтальні посилання</span>
+                    </span>
+                </a>
+                
+                <a href="ego-leather-2.html" class="px-3 py-2 rounded-xl text-xs font-sub flex items-center justify-between transition bg-[#C8A97E]/15 border border-[#C8A97E] text-white">
+                    <span class="flex flex-col">
+                        <span class="font-semibold text-[#FAF6EF]">Макет 3: Компактна сітка 2×3</span>
+                        <span class="text-[10px] text-gray-300">Лого зліва + скошені кнопки блоком</span>
+                    </span>
+                    <span class="text-[#C8A97E]">●</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDesignSwitcher(e) {
+            e.stopPropagation();
+            const m = document.getElementById('design-switcher-menu');
+            if (m) m.classList.toggle('hidden');
+        }
+        document.addEventListener('click', function(e) {
+            const m = document.getElementById('design-switcher-menu');
+            const w = document.getElementById('design-switcher-widget');
+            if (m && w && !w.contains(e.target)) m.classList.add('hidden');
+        });
+    </script>
+
 </body>
 </html>
