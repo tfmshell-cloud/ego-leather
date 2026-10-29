@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGO LEATHER — Концепція преміального сайту та 10 дизайн-систем</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0B0A09;
+            --bg-card: #141210;
+            --bg-elevated: #1C1917;
+            --gold: #C8A97E;
+            --gold-light: #E5D3B3;
+            --leather-cognac: #8B4513;
+            --text-main: #F5F2EB;
+            --text-muted: #A39E93;
+            --border-subtle: rgba(200, 169, 126, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .font-serif-luxury {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .font-mono-tech {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .font-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .font-syne {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Fine leather grain subtle background texture */
+        .leather-grain {
+            background-image: radial-gradient(rgba(200, 169, 126, 0.06) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0A09;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2925;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C8A97E;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F5EFE6 0%, #C8A97E 50%, #9E7B4F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-luxury {
+            background: linear-gradient(180deg, rgba(28, 25, 23, 0.85) 0%, rgba(18, 16, 14, 0.95) 100%);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-luxury:hover {
+            border-color: rgba(200, 169, 126, 0.45);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(200, 169, 126, 0.12);
+        }
+
+        .stitch-border {
+            border: 1px dashed rgba(200, 169, 126, 0.35);
+        }
+
+        .tab-btn.active {
+            background-color: #C8A97E;
+            color: #0B0A09;
+            font-weight: 600;
+            border-color: #C8A97E;
+        }
+
+        /* Mockup Browser Window Styling */
+        .browser-frame {
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes pulseSlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-pulse-slow {
+            animation: pulseSlow 4s infinite ease-in-out;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #fff; color: #000; }
+        }
+    </style>
+</head>
+<body class="leather-grain selection:bg-[#C8A97E] selection:text-[#0B0A09]">
+
+    <!-- TOP STICKY NAVIGATION -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#0B0A09]/85 border-b border-[#C8A97E]/20 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full border border-[#C8A97E] flex items-center justify-center bg-[#141210]">
+                    <span class="font-serif-luxury text-xl font-bold tracking-widest text-[#C8A97E]">E</span>
+                </div>
+                <div>
+                    <span class="font-serif-luxury text-2xl tracking-[0.25em] font-semibold text-white block leading-none">EGO LEATHER</span>
+                    <span class="text-xs text-[#A39E93] tracking-widest uppercase mt-1 block">Brand & Digital Flagship Concept 2026</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#A39E93]">
+                <a href="#research" class="hover:text-[#C8A97E] transition-colors">1. Ресьорч & Бенчмарки</a>
+                <a href="#architecture" class="hover:text-[#C8A97E] transition-colors">2. Архітектура & UX</a>
+                <a href="#ten-designs" class="px-4 py-2 rounded-full bg-[#C8A97E]/15 text-[#E5D3B3] border border-[#C8A97E]/40 hover:bg-[#C8A97E] hover:text-[#0B0A09] transition-all">3. 10 Дизайнів Сайту (Інтерактивно)</a>
+                <a href="#all-grid" class="hover:text-[#C8A97E] transition-colors">4. Огляд усіх 10</a>
+                <a href="#tech" class="hover:text-[#C8A97E] transition-colors">5. Технології & Конверсія</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()" class="px-4 py-2 rounded-lg border border-[#C8A97E]/30 text-xs uppercase tracking-wider text-[#E5D3B3] hover:bg-[#C8A97E]/10 transition">
+                    Експорт / PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO PRESENTATION COVER -->
+    <section class="relative min-h-[82vh] flex items-center justify-center border-b border-[#C8A97E]/20 overflow-hidden px-4 sm:px-8 py-20">
+        <!-- Decorative Ambient Glow -->
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[400px] bg-[#C8A97E]/10 blur-[140px] pointer-events-none rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#8B4513]/15 blur-[120px] pointer-events-none rounded-full"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C8A97E]/35 bg-[#141210]/90 mb-8">
+                <span class="w-2 h-2 rounded-full bg-[#C8A97E] animate-ping"></span>
+                <span class="text-xs uppercase tracking-[0.2em] text-[#E5D3B3]">Стратегічна дизайн-презентація • Сумки • Рюкзаки • Ремені • Аксесуари</span>
+            </div>
+
+            <h1 class="font-serif-luxury text-5xl sm:text-7xl md:text-8xl font-normal tracking-tight leading-[1.05] mb-8">
+                Мистецтво шкіри у <br>
+                <span class="gold-gradient-text italic font-semibold">цифровому вимірі</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-base sm:text-lg text-[#A39E93] font-light leading-relaxed mb-12">
+                Глибоке дослідження світових лідерів преміального сегменту (<strong class="text-[#F5F2EB] font-normal">Hermès, Bottega Veneta, Polène, Valextra, Berluti, Frank Clegg</strong>), повна концепція цифрового флагмана для бренду <strong class="text-[#E5D3B3]">EGO LEATHER</strong> та <strong class="text-[#E5D3B3]">10 унікальних інтерактивних дизайн-концептів</strong> із живим перемиканням.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#ten-designs" class="px-8 py-4 rounded-xl bg-[#C8A97E] text-[#0B0A09] font-semibold text-sm uppercase tracking-widest hover:bg-[#E5D3B3] transition shadow-lg shadow-[#C8A97E]/20">
+                    Дивитись 10 концептів сайту →
+                </a>
+                <a href="#research" class="px-8 py-4 rounded-xl border border-[#C8A97E]/30 bg-[#141210]/80 text-[#F5F2EB] text-sm uppercase tracking-widest hover:border-[#C8A97E] transition">
+                    Результати ресьорчу
+                </a>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-[#C8A97E]/15 text-left">
+                <div class="p-4 rounded-xl bg-[#141210]/60 border border-white/5">
+                    <div class="text-xs uppercase tracking-widest text-[#A39E93]">Проаналізовано брендів</div>
+                    <div class="font-serif-luxury text-3xl text-[#E5D3B3] mt-1">25+ світових домів</div>
+                    <div class="text-xs text-[#A39E93] mt-1">Awwwards SOTD, Luxury E-com</div>
+                </div>
+                <div class="p-4 rounded-xl bg-[#141210]/60 border border-white/5">
+                    <div class="text-xs uppercase tracking-widest text-[#A39E93]">Розроблено концепцій</div>
+                    <div class="font-serif-luxury text-3xl text-[#E5D3B3] mt-1">10 Дизайн-систем</div>
+                    <div class="text-xs text-[#A39E93] mt-1">Унікальна типографіка, сітка та UI</div>
+                </div>
+                <div class="p-4 rounded-xl bg-[#141210]/60 border border-white/5">
+                    <div class="text-xs uppercase tracking-widest text-[#A39E93]">Фокус-категорії</div>
+                    <div class="font-serif-luxury text-3xl text-[#E5D3B3] mt-1">4 Лінійки</div>
+                    <div class="text-xs text-[#A39E93] mt-1">Сумки, Рюкзаки, Ремені, SLG</div>
+                </div>
+                <div class="p-4 rounded-xl bg-[#141210]/60 border border-white/5">
+                    <div class="text-xs uppercase tracking-widest text-[#A39E93]">Цільовий чек & Позиціонування</div>
+                    <div class="font-serif-luxury text-3xl text-[#E5D3B3] mt-1">Quiet Luxury</div>
+                    <div class="text-xs text-[#A39E93] mt-1">Висока маржинальність & LTV</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: DEEP RESEARCH & BENCHMARKING -->
+    <section id="research" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-b border-[#C8A97E]/15">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+                <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] block mb-3">Частина 01 // Глобальний Ресьорч</span>
+                <h2 class="font-serif-luxury text-4xl sm:text-5xl text-white">Аналіз найкращих сайтів шкіряних виробів</h2>
+            </div>
+            <p class="max-w-md text-sm text-[#A39E93] leading-relaxed">
+                Головна проблема шкіряних виробів в онлайні — покупець не може відчути запах шкіри, її товщину та м'якість через екран. Топові світові сайти вирішують це через <strong class="text-white">«тактильний дизайн» (Tactile Digital Design)</strong>.
+            </p>
+        </div>
+
+        <!-- Benchmark Matrix Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Brand 1 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">Париж, Франція</span>
+                        <span class="text-xs text-[#A39E93]">Еталон скульптурності</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">1. Polène Paris</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Найкращий у світі приклад сучасного D2C-бренду сумок. Мінімум тексту, максимум уваги на вигини шкіри та архітектурну форму.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Плавні відео-лупи на картках товару (як рухається сумка при ходьбі) та галерею на весь екран без рамок.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Кольоровий світ:</strong> Теплий пісок, кремова глина, м'яке студійне світло.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Brand 2 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">Париж / Італія</span>
+                        <span class="text-xs text-[#A39E93]">Чоловічий ультра-люкс</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">2. Berluti & Serapian</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Королі патинованої шкіри Venezia, чоловічих портфелів, рюкзаків та ременів. Глибока темна естетика, акцент на ручну роботу майстрів.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Подачу чоловічих рюкзаків та ременів на темному тлі з драматичним боковим світлом (к'яроскуро), що підкреслює зернистість шкіри.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Фішка:</strong> Розділ про спадщину та майстерню (Savoir-Faire).</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Brand 3 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">Мілан, Італія</span>
+                        <span class="text-xs text-[#A39E93]">Інженерна геометрія</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">3. Valextra & Bottega Veneta</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Відмова від кричущих логотипів ("No Logo"). Упізнаваність через фактуру плетіння, фірмовий зріз торця шкіри (Costa edge painting) та строгу сітку.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Макро-зум швів, фурнітури та пряжок ременів у 4K роздільній здатності. Чітка модульна сітка каталогу.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Фішка:</strong> Фільтрація за типом вичинки шкіри та кольором металу.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Brand 4 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">США, Массачусетс</span>
+                        <span class="text-xs text-[#A39E93]">Вічна класика & Крафт</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">4. Frank Clegg & Tanner Goods</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Бренди, які продають сумки та ремені з гарантією на десятиліття. Фокус на рослинному дубленні (Vegetable Tanned) та тому, як виріб старіє.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Інтерактивний «Patina Slider» — слайдер, що показує, як сумка або ремінь виглядає в День 1 і через 5 років носіння.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Фішка:</strong> Прозорість походження сировини та латунної фурнітури.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Brand 5 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">Лондон, Британія</span>
+                        <span class="text-xs text-[#A39E93]">Сучасні преміум-рюкзаки</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">5. Troubadour & Métier London</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Еталон презентації функціональності в люксі: ергономіка рюкзаків, водостійкість шкіри, відділення для MacBook 16", магнітні замки.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Інтерактивний перемикач «Ззовні / Всередині (X-Ray)» та візуалізатор «Що вміщується всередину сумки/рюкзака».</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Фішка:</strong> Порівняння габаритів на силуеті людини (ріст 165–190 см).</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Brand 6 -->
+            <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono-tech uppercase px-2.5 py-1 rounded bg-[#C8A97E]/15 text-[#E5D3B3]">Париж, Франція</span>
+                        <span class="text-xs text-[#A39E93]">Абсолютна вершина</span>
+                    </div>
+                    <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">6. Hermès (Leather & Belts)</h3>
+                    <p class="text-sm text-[#A39E93] mb-4 leading-relaxed">
+                        Неперевершений сторітелінг сідельного шва, конструктор ременів (вибір пряжки + двосторонньої шкіряної стрічки) та бездоганна типографіка.
+                    </p>
+                    <ul class="text-xs text-[#F5F2EB]/90 space-y-2 border-t border-white/10 pt-4">
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Що беремо для EGO Leather:</strong> Конструктор ременів («Belt Studio») + персоналізацію гарячим тисненням ініціалів (золота/срібна фольга або сліпе тиснення) прямо на сайті.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-[#C8A97E]">✦</span> <span><strong>Фішка:</strong> Подарунковий досвід розпакування (Unboxing preview).</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 Pillars of Luxury Leather E-commerce -->
+        <div class="rounded-2xl bg-[#141210] border border-[#C8A97E]/30 p-8">
+            <h3 class="font-serif-luxury text-2xl sm:text-3xl text-[#E5D3B3] mb-6">5 Золотих Правил преміального сайту EGO LEATHER</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="border-l-2 border-[#C8A97E] pl-4">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-1">ПРАВИЛО 01</div>
+                    <div class="font-semibold text-white text-sm mb-2">Макро-тактильність</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Показувати пори шкіри Full-Grain, вощену нитку, зріз торця та гравіювання на карабіні так близько, ніби виріб у руках.</p>
+                </div>
+                <div class="border-l-2 border-[#C8A97E] pl-4">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-1">ПРАВИЛО 02</div>
+                    <div class="font-semibold text-white text-sm mb-2">Повітря та Тиша</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Жодних дешевих поп-апів «Купи за 30 секунд зі знижкою 50%». Преміум продається через спокій, простір та впевненість.</p>
+                </div>
+                <div class="border-l-2 border-[#C8A97E] pl-4">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-1">ПРАВИЛО 03</div>
+                    <div class="font-semibold text-white text-sm mb-2">Анатомія місткості</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Для рюкзаків і сумок критично показати: чи влізе MacBook 16", документи А4, яка вага порожньої сумки в грамах.</p>
+                </div>
+                <div class="border-l-2 border-[#C8A97E] pl-4">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-1">ПРАВИЛО 04</div>
+                    <div class="font-semibold text-white text-sm mb-2">Кастомізація (Монограма)</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Можливість вписати 2-3 літери своїх ініціалів і миттєво побачити їх на бирці сумки або кінчику ременя підвищує конверсію на +34%.</p>
+                </div>
+                <div class="border-l-2 border-[#C8A97E] pl-4">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-1">ПРАВИЛО 05</div>
+                    <div class="font-semibold text-white text-sm mb-2">Довічна цінність</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Акцент на гарантії, реставрації, догляді за шкірою (бальзами, щітки) та преміальному пакуванні у дерев'яні/тканинні бокси.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SITE ARCHITECTURE & UX STRUCTURE -->
+    <section id="architecture" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-b border-[#C8A97E]/15">
+        <div class="mb-14">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] block mb-3">Частина 02 // Інформаційна Архітектура</span>
+            <h2 class="font-serif-luxury text-4xl sm:text-5xl text-white mb-4">Структура сайту EGO LEATHER (Sitemap & Ключові Модулі)</h2>
+            <p class="text-sm text-[#A39E93] max-w-3xl">
+                Продумана навігація, яка одночасно працює на імідж виробника високого класу та забезпечує швидку покупку в 2 кліки.
+            </p>
+        </div>
+
+        <!-- Sitemap Tree Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">01 / ГОЛОВНА</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">Flagship Home</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Кінематографічний Hero-відеоролик майстерні та колекції</li>
+                    <li>• Навігація за категоріями (Сумки, Рюкзаки, Ремені, Аксесуари)</li>
+                    <li>• Бестселери з перемиканням кольорів шкіри</li>
+                    <li>• Блок «Анатомія шкіри EGO» (Full-Grain vs звичайна)</li>
+                    <li>• Вітрина персоналізації (Тиснення ініціалів)</li>
+                </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">02 / КАТАЛОГ</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">Розумний Шоурум</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Жіночі та Чоловічі шкіряні сумки (Тоути, Крос-боді, Месенджери, Дорожні Duffle)</li>
+                    <li>• Міські та бізнес-рюкзаки (під ноутбук 14" / 16")</li>
+                    <li>• Ремені (Класичні, Кежуал, Двосторонні, Під джинси)</li>
+                    <li>• Дрібна галантерея (Гаманці, Картхолдери, Обкладинки, Несесери)</li>
+                </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">03 / КАРТКА ТОВАРУ</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">Immersive PDP</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Галерея: Студія + На моделі + Внутрішній простір + Відео</li>
+                    <li>• Живий прев'ю монограми (введення 3 літер)</li>
+                    <li>• Інтерактивний чек-лист «Що поміститься» (Ноутбук, Планшет, Папка)</li>
+                    <li>• Калькулятор розміру ременя (таблиця обхвату талії)</li>
+                    <li>• Паспорт виробу (Товщина шкіри в мм, фурнітура, вага)</li>
+                </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">04 / КАСТОМІЗАТОР</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">EGO Bespoke & Belts</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Конструктор ременя за 3 кроки: Пряжка → Колір та тип шкіри → Прошивка ниткою</li>
+                    <li>• Індивідуальне пошиття (Made-to-Order) з вибором підкладки</li>
+                    <li>• Подарунковий консьєрж (дерев'яний бокс, листівка з каліграфією)</li>
+                </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">05 / МАЙСТЕРНЯ</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">Виробництво & Шкіра</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Енциклопедія шкіри (Crazy Horse, Nappa, Saffiano, Рослинне дублення)</li>
+                    <li>• Етапи створення: від відбору шкури до ручного полірування урізу</li>
+                    <li>• Гід по догляду та безкоштовне сервісне обслуговування (SPA для сумок)</li>
+                </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#141210] border border-[#C8A97E]/25">
+                <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">06 / B2B & КОРПОРАТИВ</div>
+                <h4 class="font-serif-luxury text-xl text-white font-semibold mb-3">Корпоративні Замовлення</h4>
+                <ul class="text-xs text-[#A39E93] space-y-2">
+                    <li>• Оскільки EGO Leather — виробник: окремий преміум-розділ для VIP-подарунків компаніям</li>
+                    <li>• Брендування власним кліше замовника</li>
+                    <li>• Оптові колекції та співпраця з шоурумами / дистриб'юторами</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE 10 WEBSITE DESIGNS STUDIO -->
+    <section id="ten-designs" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-b border-[#C8A97E]/15">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C8A97E]/20 text-[#E5D3B3] text-xs uppercase tracking-widest mb-3">
+                    Інтерактивний стенд • Натискайте на концепти 01–10
+                </div>
+                <h2 class="font-serif-luxury text-4xl sm:text-6xl text-white">10 Концептів Дизайну Сайту <span class="text-[#C8A97E] italic">EGO LEATHER</span></h2>
+            </div>
+            <p class="max-w-md text-sm text-[#A39E93]">
+                Кожен із 10 концептів нижче має власну філософію, колірну палітру, шрифтову пару, сітку, подачу товарів (сумки, рюкзаки, ремені) та орієнтацію на свій архетип покупця. <strong class="text-white">Перемикайте вкладки, щоб дослідити кожен макет наживо.</strong>
+            </p>
+        </div>
+
+        <!-- 10 DESIGN SELECTOR PILLS -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 mb-8 no-print" id="design-tabs">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- ACTIVE DESIGN SPECIFICATION BAR -->
+        <div id="design-meta-bar" class="rounded-2xl bg-[#141210] border border-[#C8A97E]/30 p-6 mb-8 transition-all">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- LIVE INTERACTIVE BROWSER MOCKUP -->
+        <div class="browser-frame rounded-2xl overflow-hidden border border-white/15 bg-[#0E0D0C]">
+            <!-- Browser Top Bar -->
+            <div class="bg-[#181614] px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-[#FF5F56]/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#FFBD2E]/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#27C93F]/80"></span>
+                </div>
+                <div class="flex items-center gap-2 px-4 py-1 rounded-md bg-black/40 border border-white/10 text-xs font-mono-tech text-[#A39E93]">
+                    <svg class="w-3.5 h-3.5 text-[#C8A97E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    <span id="browser-url">https://egoleather.com/concept-01-obsidian-atelier</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="prevDesign()" class="px-3 py-1 rounded bg-white/5 hover:bg-white/10 text-xs text-[#E5D3B3] transition">← Попередній</button>
+                    <span id="design-counter" class="text-xs font-mono-tech text-[#C8A97E] px-2">01 / 10</span>
+                    <button onclick="nextDesign()" class="px-3 py-1 rounded bg-white/5 hover:bg-white/10 text-xs text-[#E5D3B3] transition">Наступний →</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Rendered Website Viewport -->
+            <div id="live-website-viewport" class="min-h-[760px] transition-all duration-300">
+                <!-- Populated dynamically via JS with full bespoke layout per concept -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ALL 10 DESIGNS SIDE-BY-SIDE MASTER OVERVIEW -->
+    <section id="all-grid" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-b border-[#C8A97E]/15">
+        <div class="mb-14">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] block mb-3">Частина 04 // Зведена Матриця 10 Концептів</span>
+            <h2 class="font-serif-luxury text-4xl sm:text-5xl text-white mb-4">Порівняльний каталог усіх 10 дизайнів</h2>
+            <p class="text-sm text-[#A39E93] max-w-3xl">
+                Зручна шпаргалка для вибору основного напрямку або комбінації елементів (наприклад, взяти кольорову гаму з Дизайну №1, картку товару з Дизайну №2, а конструктор ременів з Дизайну №7). Натисніть «Відкрити у прев'ю» на будь-якій картці, щоб завантажити її у великий інтерактивний екран вище.
+            </p>
+        </div>
+
+        <div id="all-designs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Populated via JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 5: KILLER UX FEATURES, TECH STACK & CONVERSION STRATEGY -->
+    <section id="tech" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="mb-14">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] block mb-3">Частина 05 // Функціонал & Реалізація</span>
+            <h2 class="font-serif-luxury text-4xl sm:text-5xl text-white mb-4">Інтерактивні фішки, що продають шкіру дорого</h2>
+            <p class="text-sm text-[#A39E93] max-w-3xl">
+                Окрім візуального дизайну, преміальний сайт виробника <strong class="text-white">EGO LEATHER</strong> має містити інженерні мікро-інструменти, які знімають усі заперечення клієнта перед покупкою.
+            </p>
+        </div>
+
+        <!-- Interactive Demo Widgets inside Presentation -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <!-- Widget 1: Interactive Hot-Stamping Monogram Simulator -->
+            <div class="card-luxury rounded-2xl p-8">
+                <div class="text-xs font-mono-tech text-[#C8A97E] uppercase mb-2">Інтерактивний Модуль №1 (Спробуйте прямо тут)</div>
+                <h3 class="font-serif-luxury text-3xl text-white mb-3">Симулятор гарячого тиснення (Monogram Studio)</h3>
+                <p class="text-xs text-[#A39E93] mb-6 leading-relaxed">
+                    На сторінці сумки, рюкзака або ременя клієнт вводить свої ініціали та обирає тип тиснення. Персоналізовані товари не повертають, а середній чек зростає.
+                </p>
+
+                <!-- Leather Patch Preview -->
+                <div id="leather-patch-preview" class="h-44 rounded-xl mb-6 flex flex-col items-center justify-center relative overflow-hidden border border-[#C8A97E]/40 shadow-inner transition-all" style="background: radial-gradient(circle at 30% 30%, #4A2511, #261207);">
+                    <!-- Stitch border inside patch -->
+                    <div class="absolute inset-3 border border-dashed border-[#C8A97E]/40 rounded-lg pointer-events-none"></div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-[#C8A97E]/60 mb-2">EGO LEATHER • HANDCRAFTED</span>
+                    <div id="monogram-output" class="font-serif-luxury text-5xl tracking-[0.25em] font-semibold transition-all duration-300" style="color: #E5C158; text-shadow: 0 2px 4px rgba(0,0,0,0.7);">
+                        V.K.
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="text-xs text-[#A39E93] block mb-1.5">Ваші ініціали (до 4 симв.)</label>
+                        <input id="monogram-input" type="text" maxlength="4" value="V.K." oninput="updateMonogram()" class="w-full px-3 py-2 rounded-lg bg-[#0B0A09] border border-[#C8A97E]/40 text-white font-serif-luxury text-lg tracking-widest uppercase focus:outline-none focus:border-[#C8A97E]">
+                    </div>
+                    <div>
+                        <label class="text-xs text-[#A39E93] block mb-1.5">Тип тиснення (Фольга)</label>
+                        <select id="foil-select" onchange="updateMonogram()" class="w-full px-3 py-2.5 rounded-lg bg-[#0B0A09] border border-[#C8A97E]/40 text-white text-xs focus:outline-none">
+                            <option value="gold">Золота фольга (24K Gold)</option>
+                            <option value="silver">Срібна платина (Silver)</option>
+                            <option value="blind">Сліпе тиснення (Blind Deboss)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs text-[#A39E93] block mb-1.5">Колір шкіри виробу</label>
+                        <select id="patch-color-select" onchange="updateMonogram()" class="w-full px-3 py-2.5 rounded-lg bg-[#0B0A09] border border-[#C8A97E]/40 text-white text-xs focus:outline-none">
+                            <option value="cognac">Італійський Коньяк (Cognac)</option>
+                            <option value="obsidian">Чорний Обсидіан (Black)</option>
+                            <option value="emerald">Британський Зелений (Green)</option>
+                            <option value="oxblood">Бордо Оксблад (Oxblood)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 2: Patina Evolution & Capacity Visualizer -->
+            <div class="card-luxury rounded-2xl p-8">
+                <div class="text-xs font-mono-tech text-[#C8A97E] uppercase mb-2">Інтерактивний Модуль №2 (Спробуйте прямо тут)</div>
+                <h3 class="font-serif-luxury text-3xl text-white mb-3">Еволюція Патини (Patina Time-Machine)</h3>
+                <p class="text-xs text-[#A39E93] mb-6 leading-relaxed">
+                    Покупці натуральної шкіри обожнюють бачити, як благородно темніє та полірується шкіра з роками. Посуньте повзунок, щоб побачити трансформацію виробу EGO LEATHER.
+                </p>
+
+                <div id="patina-box" class="h-44 rounded-xl mb-6 p-6 flex items-center justify-between relative overflow-hidden border border-[#C8A97E]/40 transition-all duration-300" style="background: linear-gradient(135deg, #9C5A25 0%, #6E3B14 100%);">
+                    <div>
+                        <span id="patina-badge" class="px-2.5 py-1 rounded bg-black/40 text-xs font-mono-tech text-[#E5D3B3] uppercase">День 1 • Новий виріб з майстерні</span>
+                        <h4 id="patina-title" class="font-serif-luxury text-2xl text-white mt-3">Світло-коньячна матова фактура</h4>
+                        <p id="patina-desc" class="text-xs text-white/80 mt-1 max-w-md">Натуральні пори відкриті, рівномірний тон рослинного дублення, пружна форма.</p>
+                    </div>
+                    <div class="w-20 h-20 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 shadow-2xl" id="patina-circle" style="background: radial-gradient(circle at 30% 30%, #B86F35, #7A4216);">
+                        <span class="text-xs font-mono-tech text-white/90" id="patina-year-label">0 р.</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-xs text-[#A39E93] mb-2">
+                        <span>День покупки (Нова)</span>
+                        <span>1 рік активного носіння</span>
+                        <span>3 роки</span>
+                        <span>5+ років (Вінтажна патина)</span>
+                    </div>
+                    <input id="patina-slider" type="range" min="0" max="100" value="0" oninput="updatePatina(this.value)" class="w-full accent-[#C8A97E] cursor-pointer">
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Tech Stack -->
+        <div class="rounded-2xl bg-[#141210] border border-[#C8A97E]/25 p-8">
+            <h3 class="font-serif-luxury text-3xl text-white mb-6">Рекомендований технологічний стек для запуску EGO LEATHER</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-5 rounded-xl bg-[#0B0A09] border border-white/5">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">FRONTEND & АНІМАЦІЯ</div>
+                    <div class="font-semibold text-white mb-2">Next.js 15 + Tailwind + GSAP</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Миттєвий перехід між сторінками без перезавантаження, плавний інерційний скрол (Lenis Smooth Scroll) як на сайтах Awwwards.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-[#0B0A09] border border-white/5">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">E-COMMERCE ЯДРО</div>
+                    <div class="font-semibold text-white mb-2">Shopify Plus / Medusa.js / Custom</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Зручне управління залишками шкіри, модифікаціями (колір шкіри + колір фурнітури + розмір ременя) та B2B прайсами.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-[#0B0A09] border border-white/5">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">ВІЗУАЛ & 3D/ ВІДЕО</div>
+                    <div class="font-semibold text-white mb-2">WebP/AVIF 4K + HTML5 Video Loops</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Короткі 4-секундні відео у картках каталогу замість статичних фото (показують м'якість шкіри та блиск блискавки).</p>
+                </div>
+                <div class="p-5 rounded-xl bg-[#0B0A09] border border-white/5">
+                    <div class="text-xs font-mono-tech text-[#C8A97E] mb-2">ОПЛАТА & КОНВЕРСІЯ</div>
+                    <div class="font-semibold text-white mb-2">Apple Pay / Google Pay / Частинами</div>
+                    <p class="text-xs text-[#A39E93] leading-relaxed">Купівля в 1 клік прямо з картки товару, розстрочка на преміальні дорожні сумки та рюкзаки, авто-підбір супутнього ременя чи гаманця (+25% до AOV).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-[#C8A97E]/20 py-12 px-4 sm:px-8 text-center text-xs text-[#A39E93]">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-serif-luxury text-lg text-[#C8A97E] tracking-widest">EGO LEATHER</span>
+                <span>— Концепція сайту та 10 дизайн-систем</span>
+            </div>
+            <div>Збережено у папці <code class="text-[#E5D3B3]">Desktop/Ego Leather</code> • Готово до презентації та розробки</div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: 10 COMPLETE DESIGN SYSTEMS & INTERACTIVE RENDERER -->
+    <script>
+        const designs = [
+            {
+                id: 1,
+                slug: "01-obsidian-atelier",
+                name: "01. L'Atelier Noir (Чорний Обсидіан & Латунь)",
+                archetype: "Ультра-преміум • Вечірній люкс • Кінематографічний Dark Mode",
+                benchmarks: "Berluti, Saint Laurent, Tom Ford",
+                palette: [
+                    { hex: "#0A0908", name: "Obsidian Black" },
+                    { hex: "#171412", name: "Smoked Espresso" },
+                    { hex: "#C8A97E", name: "Brushed Brass" },
+                    { hex: "#7A3E18", name: "Deep Cognac" }
+                ],
+                fonts: "Cormorant Garamond (Заголовки) + Inter (Інтерфейс)",
+                bestFor: "Флагманського позиціонування з акцентом на чоловічі та унісекс портфелі, преміальні рюкзаки й ремені ручної роботи.",
+                layoutStyle: "dark-luxury",
+                heroTitle: "СТВОРЕНО НА ДЕСЯТИЛІТТЯ. ВИКУВАНО ЗІ ШКІРИ.",
+                heroSubtitle: "Лімітована колекція сумок, рюкзаків та ременів із цільної телячої шкіри Full-Grain тосканського дублення та литої латуні.",
+                heroBadge: "ATELIER COLLECTION • ОСІНЬ-ЗИМА 2026"
+            },
+            {
+                id: 2,
+                slug: "02-sculptural-sand",
+                name: "02. Sculptural Sand (Паризький Мінімалізм & Теплий Пісок)",
+                archetype: "Quiet Luxury • Світлий галерейний простір • Фокус на силует",
+                benchmarks: "Polène Paris, Lemaire, The Row",
+                palette: [
+                    { hex: "#F6F3EC", name: "Warm Alabaster" },
+                    { hex: "#EAE3D5", name: "Travertine Sand" },
+                    { hex: "#231F1C", name: "Espresso Ink" },
+                    { hex: "#8C5230", name: "Saddle Tan" }
+                ],
+                fonts: "Playfair Display Italic + Plus Jakarta Sans",
+                bestFor: "Жіночих та унісекс дизайнерських сумок, тоутів, крос-боді та витончених ременів. Максимальне відчуття легкості та високої моди.",
+                layoutStyle: "light-gallery",
+                heroTitle: "Архітектура м'якої форми",
+                heroSubtitle: "Кожен вигин шкіри повторює природну пластику руху. Мінімалістичні сумки та ремені без зайвого шуму.",
+                heroBadge: "EDITION N°02 • PARISIAN GALLERY"
+            },
+            {
+                id: 3,
+                slug: "03-milanese-architect",
+                name: "03. Milanese Grid (Міланський Конструктивізм & Швейцарська Сітка)",
+                archetype: "Модульна сітка • Інженерна точність • Макро-деталізація",
+                benchmarks: "Valextra, Bottega Veneta, Prada",
+                palette: [
+                    { hex: "#EFECE6", name: "Milanese Stone" },
+                    { hex: "#111111", name: "Carbon Grid" },
+                    { hex: "#2D4A3E", name: "Bottega Racing Green" },
+                    { hex: "#9E472A", name: "Terracotta Edge" }
+                ],
+                fonts: "Space Grotesk + JetBrains Mono (Технічні паспорти виробів)",
+                bestFor: "Каталогу з великим асортиментом сумок, рюкзаків і ременів, де покупець цінує точні характеристики: міліметри, грами, тип замків YKK Excella.",
+                layoutStyle: "swiss-grid",
+                heroTitle: "ФОРМА СЛІДУЄ ЗА ФУНКЦІЄЮ.",
+                heroSubtitle: "Геометрично вивірені шкіряні рюкзаки під MacBook 16\", структуровані тоути та ремені з ручним фарбуванням урізу Costa.",
+                heroBadge: "MILANO ARCHIVE // SPEC 2026.4"
+            },
+            {
+                id: 4,
+                slug: "04-british-saddle-club",
+                name: "04. Heritage Saddle Club (Британський Клуб & Сідельна Спадщина)",
+                archetype: "Аристократична класика • Клубна естетика • Вічні цінності",
+                benchmarks: "Hermès, Connolly, Ettinger, Mulberry",
+                palette: [
+                    { hex: "#0F241C", name: "British Racing Green" },
+                    { hex: "#591C21", name: "Oxblood Burgundy" },
+                    { hex: "#F4EFE6", name: "Parchment Cream" },
+                    { hex: "#D4AF37", name: "Saddle Gold" }
+                ],
+                fonts: "Cormorant Garamond Bold + Класична антиква",
+                bestFor: "Статусних подарунків, дорожніх сумок (Weekender / Duffle), класичних портфелів та ременів з пожиттєвою гарантією.",
+                layoutStyle: "heritage-green",
+                heroTitle: "Спадщина сідельного шва",
+                heroSubtitle: "Вироби, які передають у спадок. Вощена лляна нитка, шкіра рослинного дублення та ручне кування кожної пряжки.",
+                heroBadge: "EST. CRAFTSMANSHIP • SADDLE SERIES"
+            },
+            {
+                id: 5,
+                slug: "05-urban-nomad-tech",
+                name: "05. Urban Nomad Pro (Сучасна Ергономіка & Бізнес-Рюкзаки)",
+                archetype: "Преміум-функціональність • Динаміка мегаполісу • Tech-Luxury",
+                benchmarks: "Troubadour Goods, Métier London, Rimowa",
+                palette: [
+                    { hex: "#141619", name: "Titanium Slate" },
+                    { hex: "#1F2328", name: "Graphite" },
+                    { hex: "#D97736", name: "Amber Leather Accent" },
+                    { hex: "#E5E7EB", name: "Aluminized Silver" }
+                ],
+                fonts: "Space Grotesk + Inter Medium",
+                bestFor: "Продажу преміальних шкіряних рюкзаків, бізнес-месенджерів та тревел-аксесуарів для підприємців, IT-лідерів та мандрівників.",
+                layoutStyle: "urban-tech",
+                heroTitle: "ІНЖЕНЕРІЯ КОМФОРТУ В НАТУРАЛЬНІЙ ШКІРІ",
+                heroSubtitle: "Водовідштовхувальна шкіра Nappa, анатомічна спинка, захищений відсік для ноутбука 16\" та магнітна фурнітура Fidlock.",
+                heroBadge: "PERFORMANCE LEATHER • URBAN SERIES"
+            },
+            {
+                id: 6,
+                slug: "06-editorial-lookbook",
+                name: "06. Vogue Editorial (Журнальний Глянець & Shop-the-Look)",
+                archetype: "Fashion Magazine • Горизонтальний сторітелінг • Образи цілком",
+                benchmarks: "Loewe, Jacquemus, Celine",
+                palette: [
+                    { hex: "#FFFFFF", name: "Pure Editorial White" },
+                    { hex: "#000000", name: "Vogue Ink" },
+                    { hex: "#6B3E26", name: "Suede Chocolate" },
+                    { hex: "#D6C7B2", name: "Cashmere Beige" }
+                ],
+                fonts: "Playfair Display High-Contrast + Syne",
+                bestFor: "Підвищення середнього чека через продаж готових комплектів («Сумка + Ремінь + Картхолдер в один тон шкіри»).",
+                layoutStyle: "vogue-editorial",
+                heroTitle: "ISSUE 01: ДОТИК ШКІРИ",
+                heroSubtitle: "Інтерактивний лукбук нової колекції. Натискайте на точки на фото, щоб миттєво придбати сумку, рюкзак або ремінь з образу моделі.",
+                heroBadge: "EDITORIAL CAMPAIGN • SHOP THE LOOK"
+            },
+            {
+                id: 7,
+                slug: "07-bespoke-customizer",
+                name: "07. Bespoke Configurator (Інтерактивне Ательє Кастомізації)",
+                archetype: "Product-First • Конструктор на першому екрані • Персоналізація",
+                benchmarks: "Hermès Belt Studio, Nike By You (Luxury Edition), Carl Friedrik",
+                palette: [
+                    { hex: "#1B1816", name: "Workshop Umber" },
+                    { hex: "#F7F4EF", name: "Canvas Light" },
+                    { hex: "#C89D66", name: "Natural Veg-Tan" },
+                    { hex: "#3D2314", name: "Dark Havana" }
+                ],
+                fonts: "Cormorant Garamond + JetBrains Mono",
+                bestFor: "Виробника, який хоче виділитися серед усіх конкурентів можливістю зібрати власний ремінь або замовити сумку з обраним кольором нитки й монограмою.",
+                layoutStyle: "bespoke-studio",
+                heroTitle: "СТВОРІТЬ СВІЙ ЕКЗЕМПЛЯР EGO LEATHER",
+                heroSubtitle: "Оберіть модель сумки чи ременя, тип шкіри, колір металевої пряжки, контрастну прошивку та нанесіть власні ініціали.",
+                heroBadge: "BESPOKE STUDIO • MADE TO ORDER"
+            },
+            {
+                id: 8,
+                slug: "08-raw-tannery-craft",
+                name: "08. Tuscan Tannery (Органічний Крафт, Патина & Майстерня)",
+                archetype: "Автентичний виробник • Чесна сировина • Теплі землисті тони",
+                benchmarks: "Frank Clegg, Tanner Goods, Il Bussetto",
+                palette: [
+                    { hex: "#231912", name: "Roasted Bark" },
+                    { hex: "#9E5827", name: "Tuscan Cognac" },
+                    { hex: "#D9B99B", name: "Raw Hide" },
+                    { hex: "#4A5D4E", name: "Olive Wax" }
+                ],
+                fonts: "Playfair Display + Inter",
+                bestFor: "Демонстрації власного виробництва в Україні/Європі, акценту на шкірі рослинного дублення, Crazy Horse та довічній гарантії.",
+                layoutStyle: "tannery-craft",
+                heroTitle: "ВІД СИРОЇ ШКУРИ ДО ШЕДЕВРУ В РУКАХ",
+                heroSubtitle: "Ми не перепродаємо — ми створюємо. 42 операції вручну для кожного рюкзака, сумки та ременя у нашій власній майстерні.",
+                heroBadge: "DIRECT FROM MANUFACTURER • 100% FULL-GRAIN"
+            },
+            {
+                id: 9,
+                slug: "09-avant-garde-monolith",
+                name: "09. Monolith Brutalism (Авангардний Бруталізм & Велика Типографіка)",
+                archetype: "Сміливий характер • Для тих, хто має EGO • Контраст текстур",
+                benchmarks: "Balenciaga, Rick Owens, Acne Studios, Awwwards SOTD",
+                palette: [
+                    { hex: "#0D0D0D", name: "Pitch Black" },
+                    { hex: "#E6E4E0", name: "Raw Concrete" },
+                    { hex: "#8F241E", name: "Crimson Leather" },
+                    { hex: "#B8B2A6", name: "Brushed Steel" }
+                ],
+                fonts: "Syne ExtraBold + JetBrains Mono",
+                bestFor: "Обмежених дропів (Limited Drops), сміливого молодіжного преміуму, акцентних сумок, масивних ременів та яскравого брендингу «EGO».",
+                layoutStyle: "brutalist-ego",
+                heroTitle: "PURE EGO. UNCOMPROMISED LEATHER.",
+                heroSubtitle: "Асиметрична подача, гігантські макро-кадри фактури шкіри та безапеляційний характер кожного виробу.",
+                heroBadge: "DROP 001 // LIMITED PRODUCTION"
+            },
+            {
+                id: 10,
+                slug: "10-private-concierge-club",
+                name: "10. Private Concierge & VIP Gift Flagship (Закритий Клуб & Подарунки)",
+                archetype: "Ексклюзивність • Корпоративний і подарунковий люкс • Персональний сервіс",
+                benchmarks: "Goyard, Moynat, Smythson London",
+                palette: [
+                    { hex: "#10131A", name: "Midnight Sapphire" },
+                    { hex: "#1B202B", name: "Velvet Navy" },
+                    { hex: "#D4AF7A", name: "Champagne Gold" },
+                    { hex: "#632626", name: "Bordeaux Box" }
+                ],
+                fonts: "Cormorant Garamond + Inter Light",
+                bestFor: "Продажу подарункових сетів у дерев'яних боксах, корпоративних VIP-замовлень з логотипом компанії та преміум-сервісу.",
+                layoutStyle: "vip-concierge",
+                heroTitle: "МИСТЕЦТВО ДАРУВАТИ СТАТУС",
+                heroSubtitle: "Іменні шкіряні сумки, рюкзаки та подарункові набори ременів у фірмових шкатулках із персональним консьєрж-супроводом.",
+                heroBadge: "PRIVATE CLIENT & GIFTING SERVICE"
+            }
+        ];
+
+        // Sample realistic products for EGO LEATHER across categories
+        const sampleProducts = [
+            {
+                category: "СУМКА-ТОУТ / ПОРТФЕЛЬ",
+                name: "The Sovereign Briefcase 16\"",
+                specs: "Шкіра Tuscan Full-Grain 2.2 мм • Латунь • Відділ під MacBook 16\"",
+                price: "14 800 ₴",
+                priceUsd: "$360",
+                colors: ["#5C2C16", "#141210", "#1E3329"],
+                badge: "БЕСТСЕЛЕР",
+                svgType: "bag"
+            },
+            {
+                category: "МІСЬКИЙ & БІЗНЕС РЮКЗАК",
+                name: "EGO Nomad Backpack Pro",
+                specs: "Водовідштовхувальна Nappa • Анато. спинка • Блискавки YKK Excella",
+                price: "16 400 ₴",
+                priceUsd: "$395",
+                colors: ["#141210", "#4A2511", "#2A3439"],
+                badge: "НОВИНКА 2026",
+                svgType: "backpack"
+            },
+            {
+                category: "РЕМІНЬ РУЧНОЇ РОБОТИ",
+                name: "The Heritage Saddle Belt 35mm",
+                specs: "Цільна ремінна чепрачна шкіра 4.0 мм • Лита латунна пряжка • Довічна гарантія",
+                price: "3 900 ₴",
+                priceUsd: "$95",
+                colors: ["#6E3B14", "#111111", "#4F1D21"],
+                badge: "+ МОНОГРАМА",
+                svgType: "belt"
+            },
+            {
+                category: "ЖІНОЧА АРХІТЕКТУРНА СУМКА",
+                name: "EGO Aura Sculpted Hobo",
+                specs: "М'яка теляча шкіра Fjord • Замшева підкладка • Регульований ремінець",
+                price: "12 200 ₴",
+                priceUsd: "$295",
+                colors: ["#C2A88E", "#5C2C16", "#141210"],
+                badge: "ICONIC",
+                svgType: "womens-bag"
+            }
+        ];
+
+        let currentDesignIndex = 0;
+
+        // Helper SVG illustrations for luxury Bags, Backpacks, Belts
+        function getProductSVG(type, strokeColor = "#C8A97E", fillAccent = "rgba(200,169,126,0.12)") {
+            if (type === "bag") {
+                return `
+                <svg viewBox="0 0 200 160" class="w-36 h-32 mx-auto transition-transform duration-500 group-hover:scale-105">
+                    <path d="M72 48 C72 24, 128 24, 128 48" fill="none" stroke="${strokeColor}" stroke-width="4" stroke-linecap="round"/>
+                    <rect x="30" y="48" width="140" height="92" rx="10" fill="${fillAccent}" stroke="${strokeColor}" stroke-width="2.5"/>
+                    <path d="M30 78 L100 96 L170 78" fill="none" stroke="${strokeColor}" stroke-width="2"/>
+                    <rect x="92" y="86" width="16" height="20" rx="3" fill="${strokeColor}"/>
+                    <line x1="38" y1="55" x2="162" y2="55" stroke="${strokeColor}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+                </svg>`;
+            }
+            if (type === "backpack") {
+                return `
+                <svg viewBox="0 0 200 160" class="w-36 h-32 mx-auto transition-transform duration-500 group-hover:scale-105">
+                    <path d="M80 28 C80 14, 120 14, 120 28" fill="none" stroke="${strokeColor}" stroke-width="3.5"/>
+                    <path d="M52 40 C52 28, 148 28, 148 40 L154 134 C154 142, 146 146, 138 146 L62 146 C54 146, 46 142, 46 134 Z" fill="${fillAccent}" stroke="${strokeColor}" stroke-width="2.5"/>
+                    <path d="M56 46 Q100 72 144 46" fill="none" stroke="${strokeColor}" stroke-width="2"/>
+                    <rect x="64" y="84" width="72" height="46" rx="6" fill="none" stroke="${strokeColor}" stroke-width="2"/>
+                    <line x1="82" y1="56" x2="82" y2="96" stroke="${strokeColor}" stroke-width="3"/>
+                    <line x1="118" y1="56" x2="118" y2="96" stroke="${strokeColor}" stroke-width="3"/>
+                </svg>`;
+            }
+            if (type === "belt") {
+                return `
+                <svg viewBox="0 0 200 160" class="w-36 h-32 mx-auto transition-transform duration-500 group-hover:scale-105">
+                    <ellipse cx="105" cy="86" rx="58" ry="36" fill="${fillAccent}" stroke="${strokeColor}" stroke-width="10"/>
+                    <ellipse cx="105" cy="86" rx="42" ry="22" fill="none" stroke="${strokeColor}" stroke-width="4" opacity="0.6"/>
+                    <rect x="28" y="66" width="38" height="36" rx="6" fill="none" stroke="${strokeColor}" stroke-width="4"/>
+                    <line x1="46" y1="84" x2="72" y2="84" stroke="${strokeColor}" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="135" cy="84" r="2.5" fill="${strokeColor}"/>
+                    <circle cx="147" cy="84" r="2.5" fill="${strokeColor}"/>
+                </svg>`;
+            }
+            return `
+            <svg viewBox="0 0 200 160" class="w-36 h-32 mx-auto transition-transform duration-500 group-hover:scale-105">
+                <path d="M55 35 C45 95, 45 140, 100 140 C155 140, 155 95, 145 35 C130 65, 70 65, 55 35 Z" fill="${fillAccent}" stroke="${strokeColor}" stroke-width="2.5"/>
+                <path d="M55 35 C75 10, 125 10, 145 35" fill="none" stroke="${strokeColor}" stroke-width="3"/>
+                <circle cx="100" cy="95" r="6" fill="${strokeColor}"/>
+            </svg>`;
+        }
+
+        function renderTabs() {
+            const container = document.getElementById('design-tabs');
+            container.innerHTML = designs.map((d, idx) => `
+                <button onclick="selectDesign(${idx})" class="tab-btn text-left px-3.5 py-3 rounded-xl border border-[#C8A97E]/25 bg-[#141210] hover:border-[#C8A97E] transition-all flex flex-col justify-between ${idx === currentDesignIndex ? 'active' : ''}">
+                    <div class="flex items-center justify-between w-full mb-1">
+                        <span class="text-xs font-mono-tech opacity-80">КОНЦЕПТ 0${idx + 1 > 9 ? '' : ''}${idx + 1}</span>
+                        <div class="flex -space-x-1">
+                            ${d.palette.map(c => `<span class="w-3 h-3 rounded-full border border-white/20" style="background:${c.hex}"></span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="text-xs font-semibold truncate">${d.name.replace(/^\d+\.\s*/, '')}</div>
+                </button>
+            `).join('');
+        }
+
+        function renderMetaBar(d) {
+            const metaBar = document.getElementById('design-meta-bar');
+            metaBar.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="text-xs font-mono-tech text-[#C8A97E] uppercase mb-1">${d.archetype}</div>
+                        <h3 class="font-serif-luxury text-2xl sm:text-3xl text-white font-semibold">${d.name}</h3>
+                        <p class="text-xs text-[#A39E93] mt-2 leading-relaxed">${d.bestFor}</p>
+                    </div>
+                    <div class="lg:col-span-3 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-6">
+                        <div class="text-xs text-[#A39E93] mb-1">Референси (Бенчмарки):</div>
+                        <div class="text-xs font-medium text-white mb-3">${d.benchmarks}</div>
+                        <div class="text-xs text-[#A39E93] mb-1">Шрифтова система:</div>
+                        <div class="text-xs font-medium text-[#E5D3B3]">${d.fonts}</div>
+                    </div>
+                    <div class="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-6">
+                        <div class="text-xs text-[#A39E93] mb-2">Колірна палітра концепту:</div>
+                        <div class="grid grid-cols-2 gap-2">
+                            ${d.palette.map(p => `
+                                <div class="flex items-center gap-2 p-1.5 rounded-lg bg-black/40 border border-white/10">
+                                    <span class="w-5 h-5 rounded border border-white/20 shrink-0" style="background:${p.hex}"></span>
+                                    <div class="truncate">
+                                        <div class="text-xs text-white leading-none">${p.name}</div>
+                                        <div class="text-xs font-mono-tech text-[#A39E93] mt-0.5">${p.hex}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderViewport(d, idx) {
+            document.getElementById('browser-url').textContent = `https://egoleather.com/${d.slug}`;
+            document.getElementById('design-counter').textContent = `${idx + 1 < 10 ? '0' + (idx + 1) : idx + 1} / 10`;
+
+            const viewport = document.getElementById('live-website-viewport');
+
+            // Each of the 10 concepts gets a genuinely distinct visual theme, typography, header, hero, and product showcase
+            const isLight = [2, 3, 6].includes(d.id);
+            const bgMain = d.palette[0].hex;
+            const bgSec = d.palette[1].hex;
+            const accent = d.palette[2].hex;
+            const accent2 = d.palette[3].hex;
+            const textPrimary = isLight ? "#141210" : "#F5F2EB";
+            const textSecondary = isLight ? "#57524A" : "#A8A096";
+            const borderCol = isLight ? "rgba(20,18,16,0.12)" : "rgba(255,255,255,0.12)";
+
+            let fontHeadingClass = "font-serif-luxury";
+            if (d.id === 3 || d.id === 5) fontHeadingClass = "font-grotesk";
+            if (d.id === 6 || d.id === 8) fontHeadingClass = "font-playfair";
+            if (d.id === 9) fontHeadingClass = "font-syne";
+
+            // Special Top Announcement Bar per concept
+            viewport.innerHTML = `
+                <div style="background-color: ${bgMain}; color: ${textPrimary};" class="min-h-[760px] flex flex-col justify-between transition-colors duration-500">
+                    
+                    <!-- Mockup Announcement Ribbon -->
+                    <div style="background-color: ${bgSec}; border-bottom: 1px solid ${borderCol}; color: ${textSecondary};" class="px-6 py-2 text-xs flex items-center justify-between">
+                        <span>✦ ВЛАСНЕ ВИРОБНИЦТВО ШКІРЯНИХ ВИРОБІВ • ДОВІЧНА ГАРАНТІЯ НА ФУРНІТУРУ ТА ШВИ</span>
+                        <span class="hidden sm:inline font-mono-tech">БЕЗКОШТОВНЕ ТИСНЕННЯ ІНІЦІАЛІВ ТА ПОДАРУНКОВИЙ БОКС</span>
+                    </div>
+
+                    <!-- Mockup Website Header -->
+                    <div style="border-bottom: 1px solid ${borderCol};" class="px-6 sm:px-10 py-5 flex items-center justify-between">
+                        <div class="flex items-center gap-6 text-xs uppercase tracking-widest font-medium" style="color: ${textSecondary}">
+                            <span class="cursor-pointer hover:opacity-100" style="color: ${textPrimary}">Сумки</span>
+                            <span class="cursor-pointer hover:opacity-100">Рюкзаки</span>
+                            <span class="cursor-pointer hover:opacity-100">Ремені</span>
+                            <span class="hidden md:inline cursor-pointer hover:opacity-100">Портмоне & Аксесуари</span>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="${fontHeadingClass} text-2xl sm:text-3xl tracking-[0.28em] font-bold">EGO LEATHER</div>
+                            <div class="text-xs tracking-[0.3em] uppercase opacity-60">Handcrafted Luxury</div>
+                        </div>
+
+                        <div class="flex items-center gap-5 text-xs uppercase tracking-wider">
+                            <span class="hidden sm:inline cursor-pointer opacity-75">Bespoke Монограма</span>
+                            <span class="hidden md:inline cursor-pointer opacity-75">Майстерня</span>
+                            <span style="background-color: ${accent}; color: ${isLight ? '#FFF' : '#0B0A09'};" class="px-3.5 py-1.5 rounded-full font-semibold">Кошик (2)</span>
+                        </div>
+                    </div>
+
+                    <!-- CONCEPT-SPECIFIC HERO SECTION -->
+                    <div class="px-6 sm:px-10 py-10 border-b" style="border-color: ${borderCol};">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-5">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded text-xs font-mono-tech uppercase tracking-widest" style="background-color: ${accent}22; color: ${isLight ? textPrimary : accent}; border: 1px solid ${accent}55;">
+                                    ${d.heroBadge}
+                                </div>
+                                <h1 class="${fontHeadingClass} text-4xl sm:text-5xl lg:text-6xl leading-[1.08] font-semibold">
+                                    ${d.heroTitle}
+                                </h1>
+                                <p class="text-sm sm:text-base max-w-xl leading-relaxed" style="color: ${textSecondary};">
+                                    ${d.heroSubtitle}
+                                </p>
+                                <div class="flex flex-wrap items-center gap-4 pt-2">
+                                    <button style="background-color: ${isLight ? '#141210' : accent}; color: ${isLight ? '#FFFFFF' : '#0B0A09'};" class="px-6 py-3.5 rounded-lg text-xs font-semibold uppercase tracking-widest shadow-lg">
+                                        Перейти до каталогу →
+                                    </button>
+                                    <button style="border: 1px solid ${borderCol};" class="px-6 py-3.5 rounded-lg text-xs uppercase tracking-widest">
+                                        Конструктор ременя та монограми
+                                    </button>
+                                </div>
+
+                                <!-- Category Quick Pills inside Mockup -->
+                                <div class="pt-4 flex flex-wrap gap-6 text-xs border-t" style="border-color: ${borderCol}; color: ${textSecondary};">
+                                    <div><strong style="color:${textPrimary}">48 моделей</strong> сумок та портфелів</div>
+                                    <div><strong style="color:${textPrimary}">16 моделей</strong> міських рюкзаків</div>
+                                    <div><strong style="color:${textPrimary}">35+ варіацій</strong> ременів із пряжками</div>
+                                </div>
+                            </div>
+
+                            <!-- Right Hero Feature Showcase Card inside Mockup -->
+                            <div class="lg:col-span-5">
+                                <div style="background-color: ${bgSec}; border: 1px solid ${borderCol};" class="rounded-2xl p-6 relative overflow-hidden">
+                                    <div class="flex items-center justify-between text-xs mb-4">
+                                        <span class="font-mono-tech uppercase opacity-75">Флагман тижня • Ручна робота</span>
+                                        <span style="color: ${accent};" class="font-semibold">★ 4.98 (420 відгуків)</span>
+                                    </div>
+                                    <div class="py-4">
+                                        ${getProductSVG(idx % 2 === 0 ? 'bag' : 'backpack', isLight ? '#5C2C16' : accent, isLight ? 'rgba(140,82,48,0.1)' : 'rgba(200,169,126,0.12)')}
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t flex items-center justify-between" style="border-color: ${borderCol};">
+                                        <div>
+                                            <div class="text-xs uppercase opacity-70">Тосканська шкіра Рослинного Дублення</div>
+                                            <div class="${fontHeadingClass} text-xl font-semibold">EGO Grand Atelier Edition</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-sm font-bold">15 600 ₴</div>
+                                            <div class="text-xs opacity-65">В наявності • 4 кольори</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT SHOWCASE GRID (BAGS, BACKPACKS, BELTS) -->
+                    <div class="px-6 sm:px-10 py-10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                            <div>
+                                <span class="text-xs font-mono-tech uppercase tracking-widest opacity-70">Ключові категорії виробника</span>
+                                <h3 class="${fontHeadingClass} text-2xl sm:text-3xl font-semibold mt-1">Колекція EGO LEATHER: Сумки, Рюкзаки, Ремені</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span style="background:${accent}; color:${isLight ? '#FFF' : '#000'};" class="px-3 py-1.5 rounded-full font-medium">Усі вироби</span>
+                                <span style="border: 1px solid ${borderCol};" class="px-3 py-1.5 rounded-full">Сумки (48)</span>
+                                <span style="border: 1px solid ${borderCol};" class="px-3 py-1.5 rounded-full">Рюкзаки (16)</span>
+                                <span style="border: 1px solid ${borderCol};" class="px-3 py-1.5 rounded-full">Ремені (35)</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                            ${sampleProducts.map(prod => `
+                                <div style="background-color: ${bgSec}; border: 1px solid ${borderCol};" class="group rounded-xl p-5 flex flex-col justify-between transition-all hover:-translate-y-1">
+                                    <div>
+                                        <div class="flex items-center justify-between text-xs mb-3">
+                                            <span class="font-mono-tech opacity-70">${prod.category}</span>
+                                            <span style="background-color: ${accent}25; color: ${isLight ? textPrimary : accent};" class="px-2 py-0.5 rounded text-xs font-medium">${prod.badge}</span>
+                                        </div>
+                                        <div class="py-5 my-2 rounded-lg" style="background-color: ${bgMain}80;">
+                                            ${getProductSVG(prod.svgType, isLight ? '#3D2314' : accent, isLight ? 'rgba(140,82,48,0.08)' : 'rgba(200,169,126,0.1)')}
+                                        </div>
+                                        <h4 class="${fontHeadingClass} text-lg font-semibold mt-3">${prod.name}</h4>
+                                        <p class="text-xs mt-1 leading-relaxed" style="color: ${textSecondary};">${prod.specs}</p>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t flex items-center justify-between" style="border-color: ${borderCol};">
+                                        <div class="flex items-center gap-1.5">
+                                            ${prod.colors.map(c => `<span class="w-4 h-4 rounded-full border border-white/30" style="background:${c}"></span>`).join('')}
+                                        </div>
+                                        <div class="text-sm font-semibold">${prod.price}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- CRAFTSMANSHIP & BELT CONFIGURATOR FOOTER STRIP INSIDE MOCKUP -->
+                    <div style="background-color: ${bgSec}; border-top: 1px solid ${borderCol};" class="px-6 sm:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+                        <div class="flex items-center gap-3">
+                            <span style="background:${accent}; color:#000;" class="px-2.5 py-1 rounded font-mono-tech font-bold">УНІКАЛЬНИЙ МОДУЛЬ КОНЦЕПТУ 0${d.id}</span>
+                            <span>Інтерактивний підбір шкіри за вичинкою (Crazy Horse / Nappa / Tuscan Veg-Tan) + Гаряче тиснення ініціалів замовника</span>
+                        </div>
+                        <span class="font-mono-tech uppercase underline cursor-pointer">Дивитись паспорт якості шкіри →</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAllDesignsGrid() {
+            const grid = document.getElementById('all-designs-grid');
+            grid.innerHTML = designs.map((d, idx) => `
+                <div class="card-luxury rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono-tech text-[#C8A97E] px-2.5 py-1 rounded bg-[#C8A97E]/15">${d.archetype}</span>
+                            <div class="flex gap-1.5">
+                                ${d.palette.map(p => `<span class="w-4 h-4 rounded-full border border-white/20" title="${p.name}" style="background:${p.hex}"></span>`).join('')}
+                            </div>
+                        </div>
+                        <h3 class="font-serif-luxury text-2xl text-white font-semibold mb-2">${d.name}</h3>
+                        <p class="text-xs text-[#A39E93] mb-4 leading-relaxed">${d.bestFor}</p>
+
+                        <!-- Mini Visual Wireframe Preview -->
+                        <div class="rounded-xl p-4 mb-4 border border-white/10" style="background-color: ${d.palette[0].hex}; color: ${[2,3,6].includes(d.id) ? '#141210' : '#F5F2EB'}">
+                            <div class="flex items-center justify-between text-xs opacity-70 pb-2 mb-3 border-b border-current/15">
+                                <span class="font-bold tracking-widest">EGO LEATHER</span>
+                                <span>Сумки • Рюкзаки • Ремені</span>
+                            </div>
+                            <div class="text-sm font-semibold mb-1">${d.heroTitle}</div>
+                            <div class="text-xs opacity-75 line-clamp-2 mb-3">${d.heroSubtitle}</div>
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded text-xs font-semibold" style="background:${d.palette[2].hex}; color:#0B0A09;">Дивитись колекцію</span>
+                                <span class="text-xs font-mono-tech opacity-75">Референс: ${d.benchmarks.split(',')[0]}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                        <span class="text-[#A39E93]">Шрифти: <strong class="text-white">${d.fonts.split('+')[0]}</strong></span>
+                        <a href="#ten-designs" onclick="selectDesign(${idx})" class="text-[#C8A97E] hover:text-[#E5D3B3] font-semibold uppercase tracking-wider">
+                            Відкрити у прев'ю ↑
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectDesign(index) {
+            currentDesignIndex = index;
+            renderTabs();
+            renderMetaBar(designs[index]);
+            renderViewport(designs[index], index);
+        }
+
+        function nextDesign() {
+            selectDesign((currentDesignIndex + 1) % designs.length);
+        }
+
+        function prevDesign() {
+            selectDesign((currentDesignIndex - 1 + designs.length) % designs.length);
+        }
+
+        // Interactive Monogram Simulator Logic
+        function updateMonogram() {
+            const input = document.getElementById('monogram-input').value || 'EGO';
+            const foil = document.getElementById('foil-select').value;
+            const patchColor = document.getElementById('patch-color-select').value;
+            const output = document.getElementById('monogram-output');
+            const patch = document.getElementById('leather-patch-preview');
+
+            output.textContent = input.toUpperCase();
+
+            if (foil === 'gold') {
+                output.style.color = '#E5C158';
+                output.style.textShadow = '0 2px 4px rgba(0,0,0,0.75)';
+            } else if (foil === 'silver') {
+                output.style.color = '#E2E8F0';
+                output.style.textShadow = '0 2px 4px rgba(0,0,0,0.75)';
+            } else {
+                output.style.color = 'rgba(0,0,0,0.55)';
+                output.style.textShadow = '1px 1px 0px rgba(255,255,255,0.15)';
+            }
+
+            if (patchColor === 'cognac') {
+                patch.style.background = 'radial-gradient(circle at 30% 30%, #6E3B14, #2E1605)';
+            } else if (patchColor === 'obsidian') {
+                patch.style.background = 'radial-gradient(circle at 30% 30%, #262423, #0D0C0B)';
+            } else if (patchColor === 'emerald') {
+                patch.style.background = 'radial-gradient(circle at 30% 30%, #1B3B2B, #0A1912)';
+            } else {
+                patch.style.background = 'radial-gradient(circle at 30% 30%, #591C21, #24090B)';
+            }
+        }
+
+        // Interactive Patina Evolution Logic
+        function updatePatina(val) {
+            const v = parseInt(val, 10);
+            const box = document.getElementById('patina-box');
+            const badge = document.getElementById('patina-badge');
+            const title = document.getElementById('patina-title');
+            const desc = document.getElementById('patina-desc');
+            const circle = document.getElementById('patina-circle');
+            const yearLabel = document.getElementById('patina-year-label');
+
+            if (v < 25) {
+                box.style.background = 'linear-gradient(135deg, #9C5A25 0%, #6E3B14 100%)';
+                circle.style.background = 'radial-gradient(circle at 30% 30%, #B86F35, #7A4216)';
+                badge.textContent = 'День 1 • Новий виріб з майстерні';
+                title.textContent = 'Світло-коньячна матова фактура';
+                desc.textContent = 'Натуральні пори відкриті, рівномірний тон рослинного дублення, пружна архітектурна форма.';
+                yearLabel.textContent = '0 р.';
+            } else if (v < 60) {
+                box.style.background = 'linear-gradient(135deg, #7D4218 0%, #4F270B 100%)';
+                circle.style.background = 'radial-gradient(circle at 30% 30%, #945020, #52290C)';
+                badge.textContent = '1–2 Роки • Перша карамельна патина';
+                title.textContent = 'Теплий бурштиновий відтінок і м\'якість';
+                desc.textContent = 'Шкіра адаптувалася під власника, з\'явився природний восковий полиск на ручках та кутах сумки.';
+                yearLabel.textContent = '1.5 р.';
+            } else if (v < 85) {
+                box.style.background = 'linear-gradient(135deg, #5E2E0D 0%, #361805 100%)';
+                circle.style.background = 'radial-gradient(circle at 30% 30%, #733912, #381905)';
+                badge.textContent = '3 Роки • Глибокий каштановий глянець';
+                title.textContent = 'Благородний темний коньяк';
+                desc.textContent = 'Насичений колір еспресо на місцях дотику, бездоганна цілісність сідельного шва та латуні.';
+                yearLabel.textContent = '3 р.';
+            } else {
+                box.style.background = 'linear-gradient(135deg, #3D1C06 0%, #1F0D02 100%)';
+                circle.style.background = 'radial-gradient(circle at 30% 30%, #54270B, #210E02)';
+                badge.textContent = '5+ Років • Колекційний Вінтаж (Heirloom)';
+                title.textContent = 'Унікальна дзеркальна патина власника';
+                desc.textContent = 'Жодна інша сумка у світі не має такого малюнка. Виріб виглядає дорожче, ніж у день покупки.';
+                yearLabel.textContent = '5+ р.';
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            selectDesign(0);
+            renderAllDesignsGrid();
+        });
+    </script>
+</body>
+</html>

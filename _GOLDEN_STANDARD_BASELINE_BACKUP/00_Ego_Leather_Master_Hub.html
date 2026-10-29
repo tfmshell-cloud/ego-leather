@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGO LEATHER — Майстер-Портал Усіх Розробок та Документів</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Forum&family=Jost:wght@300;400;500;600;700&family=Tenor+Sans&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #060911;
+            --bg-card: linear-gradient(180deg, rgba(17, 24, 40, 0.94) 0%, rgba(9, 13, 22, 0.98) 100%);
+            --gold: #C8A97E;
+            --gold-light: #DFC39B;
+            --gold-dark: #8C6239;
+            --leather-cognac: #8b4513;
+            --leather-carmine: #801818;
+            --text-main: #F4EFE6;
+            --text-muted: #949BA6;
+            --border-card: rgba(200, 169, 126, 0.22);
+            --border-hover: #C8A97E;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 120px;
+        }
+
+        .font-royal { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+        .font-logo { font-family: 'Forum', Georgia, serif; letter-spacing: 0.3em; }
+        .font-sub { font-family: 'Tenor Sans', sans-serif; letter-spacing: 0.16em; }
+        .font-code { font-family: 'JetBrains Mono', monospace; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #030407; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8C6239 0%, #C8A97E 100%); border-radius: 4px; }
+
+        /* Card Hub Styling */
+        .card-hub {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 26px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card-hub:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(200, 169, 126, 0.28);
+        }
+
+        /* Luxury Button */
+        .btn-luxury {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #DFC39B 0%, #C8A97E 50%, #A68254 100%);
+            color: #060911;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+        .btn-luxury:hover {
+            box-shadow: 0 10px 25px -4px rgba(200, 169, 126, 0.6);
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        .btn-outline-gold {
+            border: 1px solid rgba(200, 169, 126, 0.45);
+            color: #F4EFE6;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
+        .btn-outline-gold:hover {
+            border-color: var(--gold);
+            background: rgba(200, 169, 126, 0.15);
+            color: #fff;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2rem;
+            color: #fff;
+            border-left: 3px solid var(--gold);
+            padding-left: 14px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-8 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- HEADER WITH LOGO & BRAND IDENTITY -->
+        <header class="border-b border-[#C8A97E]/25 pb-10 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-center gap-6">
+                <img src="ego_leather_logo.jpg" onerror="this.src='../EGO_LEATHER/ego_leather_logo.jpg'" alt="EGO LEATHER Official Logo" class="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-2xl border border-[#C8A97E]/30 shadow-2xl bg-black/60 p-1">
+                <div>
+                    <div class="text-xs font-sub uppercase text-[#C8A97E] tracking-widest mb-1">
+                        EGO LEATHER KYIV • ГОЛОВНИЙ ПОРТАЛ-КОМПІЛЯТОР
+                    </div>
+                    <h1 class="font-royal text-3xl sm:text-5xl font-light text-white">
+                        Всі Матеріали & Розробки <span class="italic text-[#C8A97E]">EGO LEATHER</span>
+                    </h1>
+                    <p class="text-xs text-gray-400 mt-1 font-sub">
+                        Єдиний вхідний документ, що структурує та відкриває кожен HTML-файл у цій папці
+                    </p>
+                </div>
+            </div>
+
+            <!-- Header Quick Stats -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 text-right">
+                <div class="px-4 py-2 rounded-2xl bg-black/50 border border-[#C8A97E]/30 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-sub text-[#C8A97E] font-semibold">34 Готові HTML-Документи</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LIVE SEARCH INPUT TOOLBAR -->
+        <div class="bg-black/60 border border-[#C8A97E]/25 rounded-2xl p-4 mb-12 backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <div class="relative w-full sm:w-96">
+                <input type="text" id="filter-input" oninput="filterHubCards()" placeholder="🔍 Швидкий пошук документа, макета чи анімації..." class="w-full h-11 pl-11 pr-4 rounded-full bg-[#111828] border border-[#C8A97E]/30 text-xs font-sub text-[#F4EFE6] placeholder-gray-500 focus:outline-none focus:border-[#C8A97E] transition">
+                <span class="absolute left-4 top-3 text-gray-400 text-xs">⚡</span>
+            </div>
+            <div class="text-xs font-sub text-gray-400">
+                <span>Каталог розробок: <strong id="hub-count" class="text-amber-400 font-bold">Усі файли активні</strong></span>
+            </div>
+        </div>
+
+        <!-- ========================================================
+             BLOCK 1: TOP HIGHLIGHTS (50 SCROLL ANIMATIONS & 4 SITES)
+             ======================================================== -->
+        <section class="mb-14">
+            <h2 class="section-title">🌟 Головні Флагманські Розробки 2026</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                
+                <!-- CARD: 50 SCROLL & REELS ANIMATIONS ENCYCLOPEDIA (NEW!) -->
+                <a href="50_scroll_animations.html" class="card-hub p-8 sm:p-9 border-2 border-[#C8A97E] bg-gradient-to-br from-[#182033] via-[#101524] to-[#080b12] group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3.5 py-1 rounded-full bg-[#C8A97E] text-[#060911] text-xs font-sub font-bold uppercase tracking-wider shadow-lg">
+                            НОВИЙ ШЕДЕВР // 50 АНІМАЦІЙ
+                        </span>
+                        <span class="text-amber-400 font-code text-xs font-bold">50_scroll_animations.html ↗</span>
+                    </div>
+                    <div>
+                        <div class="text-xs font-sub text-[#C8A97E] uppercase tracking-wider mb-1">ПОВНОРОЗМІРНА ЕНЦИКЛОПЕДІЯ</div>
+                        <h3 class="font-royal text-2xl sm:text-4xl text-white font-normal mb-3 group-hover:text-[#DFC39B] transition">
+                            50 Скрол-Анімацій & Відеорядів EGO LEATHER
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed mb-6">
+                            Повний збірник усіх 50 дизайн-концепцій для 6 виробів майстерні. Містить виправлену <strong>Тему 02 (Dual Counter-Current Drift) у два зустрічні горизонтальні яруси</strong>, 3D Coverflow з дзеркалом, акордеони, аудіо-супровід, копіювання CSS/JS коду та 1080p кінотеатр.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-[11px] font-sub text-gray-400">Всі 6 відео 4K/720p • Звук • Фільтри</span>
+                        <span class="btn-luxury px-6 py-2.5 text-xs font-sub">Відкрити 50 Анімацій →</span>
+                    </div>
+                </a>
+
+                <!-- CARD: MASTER LANDING PAGE -->
+                <a href="Ego_Leather_Master_Landing.html" class="card-hub p-8 sm:p-9 border border-[#C8A97E]/50 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3.5 py-1 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-xs font-sub font-bold uppercase tracking-wider border border-[#C8A97E]/40">
+                            ПОВНИЙ БРЕНД-ЛЕНДІНГ
+                        </span>
+                        <span class="text-gray-400 font-code text-xs">Ego_Leather_Master_Landing.html ↗</span>
+                    </div>
+                    <div>
+                        <div class="text-xs font-sub text-[#C8A97E] uppercase tracking-wider mb-1">ПРЕЗЕНТАЦІЯ МАЙСТРИНІ ОЛЕНИ ГОРЩАР</div>
+                        <h3 class="font-royal text-2xl sm:text-4xl text-white font-normal mb-3 group-hover:text-[#DFC39B] transition">
+                            EGO LEATHER Master Landing
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed mb-6">
+                            Інтерактивний лендінг з історією майстрині Олени Горщар (КНУТД), авторськими виробами (шоколадний кардхолдер 650 ₴, ремені, чохли, сумки), підтримкою ЗСУ, студією персоналізації тиснення, фотогалереєю та перемиканням Темної/Світлої тем.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-[11px] font-sub text-gray-400">42 Фото • Студія Тиснення • Dark/Light</span>
+                        <span class="btn-luxury px-6 py-2.5 text-xs font-sub">Відкрити Лендінг →</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- SUB-BLOCK: 4 MAIN SITE LAYOUTS (GOLDEN STANDARD) -->
+            <div class="card-hub p-7 sm:p-8 border border-[#C8A97E]/40 mb-10">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-sub text-[#C8A97E] uppercase tracking-wider">🌟 4 ОСНОВНІ ВЕРСІЇ ГОЛОВНОГО ВЕБ-САЙТУ</span>
+                    <span class="px-3 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-bold uppercase">МІЖНАРОДНІ 6 МОВ</span>
+                </div>
+                <p class="text-xs text-gray-400 mb-6 font-sub">
+                    Повнофункціональні версії офіційного сайту EGO LEATHER з академічним перекладом на 6 мов (UA, EN, IT, DE, FR, ES), 16 колекціями виробів та музикою:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Variant 2: Golden Standard -->
+                    <a href="ego-leather-2.html" class="p-5 rounded-2xl bg-black/60 border border-[#C8A97E] hover:border-[#DFC39B] transition flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-base">👑</span>
+                                <span class="text-[9.5px] font-code text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">ГОЛОВНИЙ</span>
+                            </div>
+                            <h4 class="font-royal text-lg text-white font-medium group-hover:text-amber-200 transition">Золотий Стандарт</h4>
+                            <div class="text-[11px] text-[#C8A97E] font-sub mt-0.5">Макет 2 (Grand Maison)</div>
+                            <p class="text-[10px] text-gray-400 mt-2 leading-relaxed">Центрований логотип + скошені кнопки + 4K відеоряд + 16 колекцій</p>
+                        </div>
+                        <span class="btn-luxury w-full py-2 text-[10.5px] font-sub mt-4 text-center">Відкрити Макет 2 →</span>
+                    </a>
+
+                    <!-- Variant 1: Linear Nav -->
+                    <a href="ego-leather-1.html" class="p-5 rounded-2xl bg-black/60 border border-[#C8A97E]/30 hover:border-[#C8A97E] transition flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-base">📐</span>
+                                <span class="text-[9.5px] font-code text-gray-400">ego-leather-1.html</span>
+                            </div>
+                            <h4 class="font-royal text-lg text-white font-medium group-hover:text-amber-200 transition">Лінійне Меню</h4>
+                            <div class="text-[11px] text-[#C8A97E] font-sub mt-0.5">Макет 1 (Linear Nav)</div>
+                            <p class="text-[10px] text-gray-400 mt-2 leading-relaxed">Класична горизонтальна навігаційна смуга в один рівень</p>
+                        </div>
+                        <span class="btn-luxury w-full py-2 text-[10.5px] font-sub mt-4 text-center">Відкрити Макет 1 →</span>
+                    </a>
+
+                    <!-- Variant 3: 2x3 Grid -->
+                    <a href="ego-leather-3.html" class="p-5 rounded-2xl bg-black/60 border border-[#C8A97E]/30 hover:border-[#C8A97E] transition flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-base">🗂️</span>
+                                <span class="text-[9.5px] font-code text-gray-400">ego-leather-3.html</span>
+                            </div>
+                            <h4 class="font-royal text-lg text-white font-medium group-hover:text-amber-200 transition">Компактна Сітка</h4>
+                            <div class="text-[11px] text-[#C8A97E] font-sub mt-0.5">Макет 3 (2×3 Grid)</div>
+                            <p class="text-[10px] text-gray-400 mt-2 leading-relaxed">Блочне розташування кнопок у два яруси праворуч від логотипа</p>
+                        </div>
+                        <span class="btn-luxury w-full py-2 text-[10.5px] font-sub mt-4 text-center">Відкрити Макет 3 →</span>
+                    </a>
+
+                    <!-- Variant 4: Pure Gold Standard without Video -->
+                    <a href="ego-leather-4.html" class="p-5 rounded-2xl bg-black/60 border border-[#C8A97E]/30 hover:border-[#C8A97E] transition flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-base">💎</span>
+                                <span class="text-[9.5px] font-code text-gray-400">ego-leather-4.html</span>
+                            </div>
+                            <h4 class="font-royal text-lg text-white font-medium group-hover:text-amber-200 transition">Чистий Золотий</h4>
+                            <div class="text-[11px] text-[#C8A97E] font-sub mt-0.5">Макет 4 (Без відео)</div>
+                            <p class="text-[10px] text-gray-400 mt-2 leading-relaxed">Початок відразу з блоку Майстерності Олени Горщар</p>
+                        </div>
+                        <span class="btn-luxury w-full py-2 text-[10.5px] font-sub mt-4 text-center">Відкрити Макет 4 →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             BLOCK 2: SCROLL ANIMATIONS & VIDEO SHOWCASES
+             ======================================================== -->
+        <section class="mb-14">
+            <h2 class="section-title">🎬 Енциклопедії Скрол-Анімацій & Відеорядів</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 50 Scroll Animations -->
+                <a href="50_scroll_animations.html" class="card-hub p-6 border border-[#C8A97E]/40 group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold">50 КОНЦЕПЦІЙ</span>
+                            <span class="text-[9px] font-code text-gray-400">50_scroll_animations.html</span>
+                        </div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">50 Scroll & Reels Animations</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Повна енциклопедія з усіма 50 індивідуальними стилями руху: зустрічні потоки, каверфлоу, акордеони, технічний код.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Переглянути 50 тем →</span>
+                </a>
+
+                <!-- 20 Reels Video Showcase -->
+                <a href="20_Reels_Video_Showcase.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold">20 РЕЙКІВ</span>
+                            <span class="text-[9px] font-code text-gray-400">20_Reels_Video_Showcase.html</span>
+                        </div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">20 Reels Video Showcase</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Попередня добірка з 20 оригінальних концепцій вітрин: Stories Bar, Isometric 3D, Capsule Morpher, Saddle Stitch.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Переглянути 20 тем →</span>
+                </a>
+
+                <!-- 100 Scroll Animations Encyclopedia -->
+                <a href="100_Scroll_Animations_Encyclopedia.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold">100 ПЕРЕХОДІВ</span>
+                            <span class="text-[9px] font-code text-gray-400">100_Scroll_Animations_Encyclopedia.html</span>
+                        </div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">100 Scroll Animations Encyclopedia</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Грандіозна бібліотека зі 100 повнорозмірних скрол-ефектів, паралакс-переходів, синусоїд та фізики прокручування.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити 100 скролів →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             BLOCK 3: FEATURES & CRAZY MEDIA LABS
+             ======================================================== -->
+        <section class="mb-14">
+            <h2 class="section-title">🔬 Лабораторії Медіа-Фіч & Експериментів</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 100 Features Continuous Scroll -->
+                <a href="100_Features_Continuous_Scroll.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">БЕЗПЕРЕРВНИЙ СКРОЛ</div>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">100 Неіснуючих Фіч</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Повний нескінченний скрол-фід із сотнею концептуальних інтерактивних фіч для люксового e-Commerce.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити Скрол-Фід →</span>
+                </a>
+
+                <!-- 100 Unreal Media Features -->
+                <a href="100_Unreal_Media_Features_Encyclopedia.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">МЕДІА-ЕНЦИКЛОПЕДІЯ</div>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">100 Unreal Media Features</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Футуристичні мультимедійні блоки, інтерактивний скраббінг, HUD, звукові генератори та 3D-матеріали.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити Лабораторію →</span>
+                </a>
+
+                <!-- 100 Visual Media Features Lab -->
+                <a href="100_Visual_Media_Features_Lab.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">VISUAL LAB</div>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">Visual Media Features Lab</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Візуальні експерименти над відеокартками: лінзи збільшення, фільтри зернистості та відблиски.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити Visual Lab →</span>
+                </a>
+
+                <!-- Ego Leather Crazy Features Lab -->
+                <a href="Ego_Leather_Crazy_Features_Lab.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">CRAZY LAB</div>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">Crazy Features Lab</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Креативні прототипи нестандартних інтерфейсних взаємодій, віртуального приміряння та 3D-деконструкції.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити Crazy Lab →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             BLOCK 4: TYPOGRAPHY & LUXURY FONTS
+             ======================================================== -->
+        <section class="mb-14">
+            <h2 class="section-title">🖋️ Шрифтові Системи & Люксова Типографіка</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 100 Monolithic Fonts -->
+                <a href="Ego_Leather_100_Monolithic_Fonts.html" class="card-hub p-6 group">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-bold uppercase mb-2 inline-block">МОНОЛІТНІ СИСТЕМИ</span>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">ТОП-100 Монолітних Шрифтів</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Структуровані шрифтові пари та системи без хаосу: 100% наслідування стилю в усіх елементах інтерфейсу.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити 100 Шрифтів →</span>
+                </a>
+
+                <!-- 50 Artistic Fonts -->
+                <a href="Ego_Leather_50_Artistic_Fonts_Showcase.html" class="card-hub p-6 group">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-bold uppercase mb-2 inline-block">АРТ-КОЛЕКЦІЯ</span>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">50 Художніх Шрифтів</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Еклектичні та художні гарнітури: Art-Nouveau, каліграфічні розчерки, Duet-комбінації.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити 50 Шрифтів →</span>
+                </a>
+
+                <!-- 20 Luxury Fonts -->
+                <a href="Ego_Leather_20_Luxury_Fonts_Showcase.html" class="card-hub p-6 group">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-bold uppercase mb-2 inline-block">LUXURY SUITE</span>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">20 Люксових Шрифтів</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Ексклюзивні гарнітури для світових будинків моди (Haute Horlogerie, High Fashion, Roman Serif).
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити 20 Шрифтів →</span>
+                </a>
+
+                <!-- 100 Artistic Fonts -->
+                <a href="Ego_Leather_100_Artistic_Fonts.html" class="card-hub p-6 group">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#C8A97E]/20 text-[#C8A97E] text-[10px] font-sub font-bold uppercase mb-2 inline-block">АРХІВНА ЗБІРКА</span>
+                        <h3 class="font-royal text-xl text-white mb-2 group-hover:text-[#DFC39B] transition">100 Артистичних Шрифтів</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Розширена шрифтова колекція для тиснення та створення авторських монограм на шкірі.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2 text-xs font-sub text-center">Відкрити Архів →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             BLOCK 5: FLAGSHIPS, HYBRIDS & CONCEPTS
+             ======================================================== -->
+        <section class="mb-14">
+            <h2 class="section-title">🏛️ Флагмани, Архітектурні Концепти & Медіа</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Flagship Site -->
+                <a href="Ego_Leather_Flagship_Site.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">ЦИФРОВИЙ ФЛАГМАН</div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">EGO LEATHER Flagship Site</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Повномасштабний сайт бренду: заокруглені модулі, світлові відблиски, 3D-нахили та повна презентація.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити Флагман →</span>
+                </a>
+
+                <!-- Hybrid Flagship -->
+                <a href="Ego_Leather_Hybrid_Flagship_Duclos_Serapian_Valextra.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">ГІБРИДНА ЕСТЕТИКА</div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">Hybrid: Duclos / Serapian / Valextra</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Гібридний дизайн за стандартами провідних шкіряних домів Парижа та Мілана з акцентом на чисту геометрію.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити Гібрид →</span>
+                </a>
+
+                <!-- 10 Concepts -->
+                <a href="Ego_Leather_10_Concepts_Presentation.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">АНАЛІТИКА & РЕСЬОРЧ</div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">10 Концептів Сайту</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                            Базовий аналітичний документ: аналіз світових брендів, структура каталогу та 10 авторських напрямків.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити 10 Концептів →</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Media Hub 42 Photos -->
+                <a href="Ego_Leather_Complete_Media_Hub.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">МЕДІА-ЦЕНТР 42 ФОТО</div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">Complete Media Hub & Photos</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Єдиний архів усіх 42 студійних фотографій: 12 портретів Олени Горщар та 30 виробів високої роздільної здатності.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити Медіа-Центр →</span>
+                </a>
+
+                <!-- E-Commerce Features -->
+                <a href="ecommerce-features.html" class="card-hub p-6 group">
+                    <div>
+                        <div class="text-[10px] font-sub uppercase text-[#C8A97E] font-bold mb-2">МАГАЗИННІ МОДУЛІ</div>
+                        <h3 class="font-royal text-2xl text-white mb-2 group-hover:text-[#DFC39B] transition">e-Commerce Features Suite</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                            Комплекс інструментів онлайн-бутика: кошик, конфігуратор кольору шкіри, калькулятор пошиття та швидке замовлення.
+                        </p>
+                    </div>
+                    <span class="btn-luxury w-full py-2.5 text-xs font-sub text-center">Відкрити Магазинні Фічі →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-[#C8A97E]/20 pt-8 mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sub text-gray-500">
+            <div>
+                EGO LEATHER KYIV • КИЇВСЬКА МАЙСТЕРНЯ АВТОРСЬКИХ ШКІРЯНИХ ВИРОБІВ (ОЛЕНА ГОРЩАР)
+            </div>
+            <div class="text-[#C8A97E]">
+                Всі документи структуровано та синхронізовано
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- FILTER SCRIPT -->
+    <script>
+        function filterHubCards() {
+            const query = (document.getElementById('filter-input').value || '').toLowerCase().trim();
+            const cards = document.querySelectorAll('.card-hub');
+            let count = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (!query || text.includes(query)) {
+                    card.style.display = 'flex';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('hub-count').textContent = query ? `Знайдено: ${count}` : 'Усі файли активні';
+        }
+    </script>
+</body>
+</html>

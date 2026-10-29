@@ -878,17 +878,18 @@
         .collection-card-item {
             box-sizing: border-box !important;
             min-width: 0 !important;
-            flex: 0 0 420px !important;
-            width: 420px !important;
+            flex: 0 0 calc((100% - 48px) / 3) !important;
+            width: calc((100% - 48px) / 3) !important;
+            max-width: calc((100% - 48px) / 3) !important;
             will-change: transform;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
         @media (max-width: 639px) {
             .collection-card-item {
-                flex: 0 0 88vw !important;
-                width: 88vw !important;
-                max-width: 88vw !important;
-                min-width: 88vw !important;
+                flex: 0 0 calc(100vw - 32px) !important;
+                width: calc(100vw - 32px) !important;
+                max-width: calc(100vw - 32px) !important;
+                min-width: calc(100vw - 32px) !important;
             }
         }
         
@@ -2100,7 +2101,7 @@
 
 
         <!-- SCENE 1: HERO (ФЛАГМАНСЬКИЙ ВСТУП ТА АВТОРСЬКИЙ ВИТВІР) -->
-        <section id="hero" class="cinematic-block page-stack-layer section-scene scene-active  relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden py-12 sm:py-16 px-4 sm:px-6 lg:px-10">
+        <section id="hero" class="cinematic-block page-stack-layer section-scene scene-active  relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden py-8 sm:py-12 lg:py-8 px-4 sm:px-6 lg:px-10">
             <div class="ambient-glow -top-32 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[550px]"></div>
 
             <div class="max-w-[1360px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
@@ -2186,18 +2187,18 @@
         </section>
 
         <!-- SCENE 2: МАЙСТРИНЯ ОЛЕНА ГОРЩАР -->
-        <section id="artisan" class="cinematic-block page-stack-layer section-scene py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-secondary); border-color: var(--border-line);">
+        <section id="artisan" class="cinematic-block page-stack-layer section-scene py-10 sm:py-14 lg:py-8 xl:py-10 lg:min-h-screen lg:flex lg:flex-col lg:justify-center px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-secondary); border-color: var(--border-line);">
             <div class="seam-laser-gold"></div>
             <div class="ambient-glow top-1/4 -right-20 w-[500px] h-[500px]"></div>
 
             <div class="max-w-[1360px] mx-auto relative z-10">
                 <!-- Section Header -->
-                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+                <div class="text-center max-w-3xl mx-auto mb-4 sm:mb-6 lg:mb-4">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <svg viewBox="0 0 120 100" class="w-6 h-5"><use href="#ego-monogram-el"/></svg>
                         <span class="text-xs font-sub" style="color: var(--accent-gold);" data-i18n="artisan_badge">ДУША ТА ЗАСНОВНИЦЯ БРЕНДУ</span>
                     </div>
-                    <h2 class="font-royal text-3xl sm:text-5xl font-light mb-4" data-i18n="artisan_title">
+                    <h2 class="font-royal text-2xl sm:text-4xl lg:text-3xl xl:text-4xl font-light mb-2 sm:mb-3" data-i18n="artisan_title">
                         Олена Вікторівна Горщар
                     </h2>
                     <p class="text-xs sm:text-sm font-light max-w-xl mx-auto" style="color: var(--text-secondary);" data-i18n="artisan_subtitle">
@@ -2208,11 +2209,11 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                     <!-- Left: Singular Grand Portrait (Face peeking behind red leather) -->
                     <div class="lg:col-span-5 flex flex-col items-center">
-                        <div class="w-full max-w-md relative group">
+                        <div class="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[320px] xl:max-w-[350px] relative group">
                             <!-- Subtle luxury glow behind portrait -->
                             <div class="absolute -inset-1.5 bg-gradient-to-tr from-[#C8A97E]/30 via-transparent to-[#C8A97E]/20 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-700"></div>
 
-                            <div class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-black/80 border border-[#C8A97E]/35 shadow-2xl">
+                            <div class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-black/80 border border-[#C8A97E]/35 shadow-2xl max-h-[46vh]">
                                 <img id="artisan-main-img" src="assets/studio/olena_horshchar_founder_portrait.jpg" alt="Олена Горщар — засновниця та майстриня бренду EGO LEATHER" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy">
 
                                 <!-- Bottom Signature Card Overlay -->
@@ -2235,11 +2236,11 @@
                             <span data-i18n="artisan_quote_title">ВЛАСНІ СЛОВА МАЙСТРИНІ</span>
                         </div>
 
-                        <blockquote class="font-royal text-xl sm:text-2xl lg:text-3xl font-light italic leading-relaxed mb-6 pl-4 border-l-2 border-[#C8A97E]" style="color: var(--text-primary);" data-i18n="artisan_quote">
+                        <blockquote class="font-royal text-base sm:text-xl lg:text-base xl:text-lg font-light italic leading-snug sm:leading-relaxed mb-3 sm:mb-4 lg:mb-3 pl-3.5 sm:pl-4 border-l-2 border-[#C8A97E]" style="color: var(--text-primary);" data-i18n="artisan_quote">
                             «Шкіра для мене — це живий матеріал, який дихає, пам’ятає тепло людських рук і зберігає характер. Я створюю не просто сумки, а предмети особистої історії, що стають надійними супутниками на все життя».
                         </blockquote>
 
-                        <div class="space-y-4 text-xs sm:text-sm leading-relaxed mb-8 font-light" style="color: var(--text-secondary);">
+                        <div class="space-y-2 sm:space-y-2.5 text-xs lg:text-[11.5px] xl:text-[13px] leading-relaxed mb-4 sm:mb-5 lg:mb-4 font-light" style="color: var(--text-secondary);">
                             <p data-i18n="artisan_bio_1">Любов до благородного ремесла має глибоке родинне коріння. Батько Олени, <strong>Віктор</strong>, багато років присвятив праці на легендарному київському шкіряному заводі <strong>«Чинбар»</strong> — найстарішому та найвідомішому осередку шкіряної справи столиці з віковими цеховими традиціями. Той неповторний, терпкий аромат свіжовичиненої шкіри, повага до природної фактури юхти й шевро та щире захоплення майстерністю батька заклали фундамент покликання Олени ще в ранньому дитинстві.</p>
                             <p data-i18n="artisan_bio_2">Це спадкове натхнення переросло в ґрунтовну академічну професію: Олена здобула вищу освіту в <strong>Київському національному університеті технологій та дизайну (КНУТД)</strong> — головній школі конструювання та модельєрного проєктування виробів зі шкіри в Україні. Глибоке знання анатомії лекал, фізики волокон та пластики натуральних італійських матеріалів дозволяє створювати архітектурно досконалі форми.</p>
                             <p data-i18n="artisan_bio_3">В епоху конвеєрного мас-маркету Олена Вікторівна залишається вірною <strong>виключно ручній праці</strong>. Кожен шов виконується за класичною сідельною технікою у дві голки вощеною ниткою, без використання швейної машини. Це гарантує речам EGO LEATHER бездоганну естетику, незламну міцність і душу, вкладену в кожен міліметр стібка.</p>
@@ -2247,17 +2248,17 @@
 
                         <!-- Credential badges: 3 columns -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                            <div class="p-4 rounded-2xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
+                            <div class="p-2.5 sm:p-3 xl:p-4 rounded-xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
                                 <div class="text-[10px] font-sub text-[#C8A97E] mb-1" data-i18n="artisan_card1_tag">РОДИННЕ НАТХНЕННЯ</div>
                                 <div class="font-royal text-base sm:text-lg text-white font-medium" data-i18n="artisan_card1_title">Завод «Чинбар»</div>
                                 <div class="text-[11px] text-gray-400 mt-1" data-i18n="artisan_card1_desc">Традиції, передані батьком Віктором у Києві</div>
                             </div>
-                            <div class="p-4 rounded-2xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
+                            <div class="p-2.5 sm:p-3 xl:p-4 rounded-xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
                                 <div class="text-[10px] font-sub text-[#C8A97E] mb-1" data-i18n="artisan_card2_tag">АКАДЕМІЧНА БАЗА</div>
                                 <div class="font-royal text-base sm:text-lg text-white font-medium" data-i18n="artisan_card2_title">КНУТД (Київ)</div>
                                 <div class="text-[11px] text-gray-400 mt-1" data-i18n="artisan_card2_desc">Дизайн та конструювання виробів зі шкіри</div>
                             </div>
-                            <div class="p-4 rounded-2xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
+                            <div class="p-2.5 sm:p-3 xl:p-4 rounded-xl border backdrop-blur-sm" style="background-color: var(--bg-surface); border-color: var(--border-line);">
                                 <div class="text-[10px] font-sub text-[#C8A97E] mb-1" data-i18n="artisan_card3_tag">ТЕХНОЛОГІЯ</div>
                                 <div class="font-royal text-base sm:text-lg text-white font-medium" data-i18n="artisan_card3_title">100% Ручний шов</div>
                                 <div class="text-[11px] text-gray-400 mt-1" data-i18n="artisan_card3_desc">Сідельний шов у дві голки, без машинки</div>
@@ -2269,13 +2270,13 @@
         </section>
 
         <!-- SCENE 3: КОЛЕКЦІЯ РЕАЛЬНИХ ВИРОБІВ (4 ЧІТКІ МОДЕЛІ, БЕЗ ДУБЛЮВАННЯ, СВАЙП НА МОБІЛЬНОМУ) -->
-                                                                <section id="creations" class="cinematic-block page-stack-layer section-scene py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-primary); border-color: var(--border-line);">
+                                                                <section id="creations" class="cinematic-block page-stack-layer section-scene py-8 sm:py-12 lg:py-6 xl:py-10 lg:min-h-screen lg:flex lg:flex-col lg:justify-center px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-primary); border-color: var(--border-line);">
             <div class="seam-laser-gold"></div>
             <div class="ambient-glow bottom-10 left-10 w-[500px] h-[500px]"></div>
 
             <div class="w-full max-w-[1440px] mx-auto relative z-10">
                 <!-- Header with Info -->
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 lg:mb-4">
                     <div>
                         <div class="inline-flex items-center gap-2 mb-2">
                             <svg viewBox="0 0 120 100" class="w-5 h-4"><use href="#ego-monogram-el"/></svg>
@@ -6648,10 +6649,10 @@
         </section>
 
         <!-- SCENE 4: СОЦІАЛЬНА ВІДПОВІДАЛЬНІСТЬ ТА ПІДТРИМКА ЗСУ -->
-        <section id="support-zsu" class="cinematic-block page-stack-layer section-scene  py-14 sm:py-20 px-4 sm:px-6 lg:px-10 border-t" style="background-color: var(--bg-secondary); border-color: var(--border-line);">
+        <section id="support-zsu" class="cinematic-block page-stack-layer section-scene  py-8 sm:py-10 lg:py-8 px-4 sm:px-6 lg:px-10 border-t" style="background-color: var(--bg-secondary); border-color: var(--border-line);">
         <div class="seam-laser-gold"></div>
             <div class="max-w-[1360px] mx-auto">
-                <div class="soft-card p-6 sm:p-12 border-l-4 border-emerald-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
+                <div class="soft-card p-5 sm:p-8 lg:p-6 border-l-4 border-emerald-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
                     <div class="max-w-2xl">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-sub font-semibold mb-3" data-i18n="zsu_badge">
                             🛡️ СВІДОМА ПОЗИЦІЯ МАЙСТЕРНІ
@@ -6673,12 +6674,12 @@
         </section>
 
         <!-- SCENE 5: ІНТЕРАКТИВНА СТУДІЯ ПЕРСОНАЛІЗАЦІЇ (MONOGRAM STAMPER) -->
-        <section id="stamper" class="cinematic-block page-stack-layer section-scene  py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-primary); border-color: var(--border-line);">
+        <section id="stamper" class="cinematic-block page-stack-layer section-scene  py-8 sm:py-12 lg:py-6 xl:py-10 lg:min-h-screen lg:flex lg:flex-col lg:justify-center px-4 sm:px-6 lg:px-10 border-t relative overflow-hidden" style="background-color: var(--bg-primary); border-color: var(--border-line);">
         <div class="seam-laser-gold"></div>
             <div class="ambient-glow top-10 right-10 w-[500px] h-[500px]"></div>
 
             <div class="max-w-[1360px] mx-auto relative z-10">
-                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+                <div class="text-center max-w-2xl mx-auto mb-4 sm:mb-6 lg:mb-4">
                     <span class="text-xs font-sub text-[#C8A97E] mb-2 block" data-i18n="stamper_badge">ІНДИВІДУАЛЬНИЙ ПІДХІД</span>
                     <h2 class="font-royal text-3xl sm:text-5xl font-light mb-4" data-i18n="stamper_title">
                         Студія Персонального Тиснення
@@ -6688,7 +6689,7 @@
                     </p>
                 </div>
 
-                <div class="max-w-4xl mx-auto soft-card p-6 sm:p-12">
+                <div class="max-w-4xl mx-auto soft-card p-5 sm:p-8 lg:p-6 xl:p-8">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
                         <!-- Virtual Leather Stamping Swatch -->
                         <div class="md:col-span-6 flex flex-col items-center">
@@ -8587,14 +8588,14 @@
             const gap = 24;
             const exactCardWidth = Math.floor((maskWidth - ((count - 1) * gap)) / count);
 
-            // Apply exact width directly to every card
+            // Apply exact width directly to every card (responsive across all zooms 100%, 125%, 80%)
             const cards = track.querySelectorAll('.collection-card-item');
             cards.forEach(card => {
-                card.style.flex = `0 0 ${exactCardWidth}px`;
-                card.style.width = `${exactCardWidth}px`;
-                card.style.maxWidth = `${exactCardWidth}px`;
-                card.style.minWidth = `${exactCardWidth}px`;
-                card.style.boxSizing = 'border-box';
+                card.style.setProperty('flex', `0 0 ${exactCardWidth}px`, 'important');
+                card.style.setProperty('width', `${exactCardWidth}px`, 'important');
+                card.style.setProperty('max-width', `${exactCardWidth}px`, 'important');
+                card.style.setProperty('min-width', `${exactCardWidth}px`, 'important');
+                card.style.setProperty('box-sizing', 'border-box', 'important');
             });
 
             cardStep = exactCardWidth + gap;
